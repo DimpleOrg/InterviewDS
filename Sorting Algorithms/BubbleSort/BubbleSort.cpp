@@ -1,41 +1,33 @@
 // BubbleSort.cpp : Defines the entry point for the console application.
-//
 
-#include "stdafx.h"
-#include <iostream>
+#include<iostream>
+#include<conio.h>
+
 using namespace std;
 
-//Adding project for bubble sorting
-//Add code for bubble sort here
-
 void swap(int *arr1, int *arr2);
+void print(int arr[]);
 
-int main()
+void main()
 {
-
-	std::cout << "Bubble Sorting";
-	//int n = 0;
-	//cout << "Enter the number of elements in array";
-	//cin >> n;
-	int arr[10] = { 3, 6,2,8,5,10,1,12,9,11 };
-	bool swapped = false;
-	for (int i = 0; i < 10; i++)
+	int arr[10] = { 15,3,12,10,1,9,6,11,5,4 };
+	bool swapped;
+	for (int i = 0; i < 9; i++)
 	{
 		swapped = false;
-
-		for (int j = 0; j < 10 - i; j++)
+		for (int j = 0; j < 9 - i; j++)
 		{
-			if (i > j)
+			if (arr[j] > arr[j + 1])
 			{
-				swap(arr[j], arr[j + 1]);
+				swap(&arr[j], &arr[j + 1]);
 				swapped = true;
 			}
 		}
-		if (swapped == true) break;
+		if (swapped == false) 
+			break;
 	}
-	return 0;
+	print(arr);
 }
-
 
 void swap(int *arr1, int *arr2)
 {
@@ -45,3 +37,11 @@ void swap(int *arr1, int *arr2)
 	*arr2 = temp;
 }
 
+void print(int arr[])
+{
+	for (int i = 0; i < 9;i++)
+	{
+		cout << arr[i];
+		cout << endl;
+	}
+}
