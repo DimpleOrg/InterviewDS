@@ -1,16 +1,12 @@
 // BubbleSort.cpp : Defines the entry point for the console application.
 
-#include<iostream>
-#include<conio.h>
+//#include<header>
 
-using namespace std;
+ void swap(int *arr1, int *arr2);
 
-void swap(int *arr1, int *arr2);
-void print(int arr[]);
 
-void main()
+ __declspec(dllexport) void bubbleSort(int arr[])
 {
-	int arr[10] = { 15,3,12,10,1,9,6,11,5,4 };
 	bool swapped;
 	for (int i = 0; i < 9; i++)
 	{
@@ -26,7 +22,6 @@ void main()
 		if (swapped == false) 
 			break;
 	}
-	print(arr);
 }
 
 void swap(int *arr1, int *arr2)
@@ -37,11 +32,3 @@ void swap(int *arr1, int *arr2)
 	*arr2 = temp;
 }
 
-void print(int arr[])
-{
-	for (int i = 0; i < 9;i++)
-	{
-		cout << arr[i];
-		cout << endl;
-	}
-}
