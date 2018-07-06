@@ -49,9 +49,12 @@ namespace SORT
 		void Sort();
 	};
 
-	class MergeSort : public SortingAlgos {
+	class DllExport MergeSort : public SortingAlgos {
 	public:
 		void Sort();
+	private:
+		void MergeSortAlgo(int A[], int s, int e);
+		void MergeSortedArray(int A[], int s, int m, int e);
 	};
 }
 

@@ -31,6 +31,17 @@ void TestSortingAlgos() {
 
 	cout << "Insertion Sort Output:";
 	testIObj.Print();
+
+
+	MergeSort testMObj;
+	int arrM[ARRAY_SIZE] = { 15,3,12,10,1,9,6,11,5,4 };
+
+	testMObj.LoadData(arrM, ARRAY_SIZE);
+	testMObj.Print();
+	testMObj.Sort();
+
+	cout << "Insertion Sort Output:";
+	testMObj.Print();
 }
 
 
