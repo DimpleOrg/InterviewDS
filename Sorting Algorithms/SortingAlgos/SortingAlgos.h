@@ -33,7 +33,7 @@ namespace SORT
 		void Print();
 
 		void AllocateArray(int size);
-
+	protected:
 		int nElem = 0;
 		int *pElemArray = nullptr;
 	};
