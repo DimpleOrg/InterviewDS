@@ -11,13 +11,26 @@ void print(int arr[]);
 using namespace SORT;
 
 void TestSortingAlgos() {
-	BubbleSort testObj;
-	int arr[ARRAY_SIZE] = { 15,3,12,10,1,9,6,11,5,4 };
+	BubbleSort testBObj;
+	int arrB[ARRAY_SIZE] = { 15,3,12,10,1,9,6,11,5,4 };
 
-	testObj.LoadData(arr, ARRAY_SIZE);
-	testObj.Print();
-	testObj.Sort();
-	testObj.Print();
+	testBObj.LoadData(arrB, ARRAY_SIZE);
+	testBObj.Print();
+	testBObj.Sort();
+
+	cout << "Bubble Sort Output:";
+	testBObj.Print();
+
+
+	InsertionSort testIObj;
+	int arrI[ARRAY_SIZE] = { 15,3,12,10,1,9,6,11,5,4 };
+
+	testIObj.LoadData(arrI, ARRAY_SIZE);
+	testIObj.Print();
+	testIObj.Sort();
+
+	cout << "Insertion Sort Output:";
+	testIObj.Print();
 }
 
 
