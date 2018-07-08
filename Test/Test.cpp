@@ -7,6 +7,7 @@
 
 void bubbleSort(int arr[]);
 void insertionSort(int arr[]);
+void mergeSort(int arr[], int l, int r);
 void print(int arr[]);
 using namespace SORT;
 
@@ -68,6 +69,7 @@ int main()
 	//insertionSort(arr);
 	bubbleSort(arr);
 	print(arr);
+	mergeSort(arr, 0, 9);
 
     return 0;
 }
