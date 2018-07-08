@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.24720.0
+# Visual Studio 15
+VisualStudioVersion = 15.0.27703.2000
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "BubbleSort", "Sorting Algorithms\BubbleSort\BubbleSort.vcxproj", "{3684F5EF-B403-4125-9F95-4CEE863B7A0C}"
 EndProject
@@ -15,7 +15,7 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Insertion Sort", "Sorting A
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Test", "Test\Test.vcxproj", "{193140ED-A9BE-498A-BBE0-84D9521644D8}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NewFolder1", "NewFolder1", "{545977F1-64FF-46EE-A641-9B5D55EFD640}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SortingAlgos", "Sorting Algorithms\SortingAlgos\SortingAlgos.vcxproj", "{A5BD0511-6734-4802-8758-3D784377065A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -57,6 +57,14 @@ Global
 		{193140ED-A9BE-498A-BBE0-84D9521644D8}.Release|x64.Build.0 = Release|x64
 		{193140ED-A9BE-498A-BBE0-84D9521644D8}.Release|x86.ActiveCfg = Release|Win32
 		{193140ED-A9BE-498A-BBE0-84D9521644D8}.Release|x86.Build.0 = Release|Win32
+		{A5BD0511-6734-4802-8758-3D784377065A}.Debug|x64.ActiveCfg = Debug|x64
+		{A5BD0511-6734-4802-8758-3D784377065A}.Debug|x64.Build.0 = Debug|x64
+		{A5BD0511-6734-4802-8758-3D784377065A}.Debug|x86.ActiveCfg = Debug|Win32
+		{A5BD0511-6734-4802-8758-3D784377065A}.Debug|x86.Build.0 = Debug|Win32
+		{A5BD0511-6734-4802-8758-3D784377065A}.Release|x64.ActiveCfg = Release|x64
+		{A5BD0511-6734-4802-8758-3D784377065A}.Release|x64.Build.0 = Release|x64
+		{A5BD0511-6734-4802-8758-3D784377065A}.Release|x86.ActiveCfg = Release|Win32
+		{A5BD0511-6734-4802-8758-3D784377065A}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -65,5 +73,9 @@ Global
 		{3684F5EF-B403-4125-9F95-4CEE863B7A0C} = {D98769AE-97AC-4EB0-AA92-44793C402B44}
 		{634C69D2-E792-4C43-A99B-91A941DDA2B0} = {B9C014CE-4A7D-4894-826C-426D743F461F}
 		{8E203F80-7793-4F87-8EF8-4755FC9D2C2F} = {D98769AE-97AC-4EB0-AA92-44793C402B44}
+		{A5BD0511-6734-4802-8758-3D784377065A} = {D98769AE-97AC-4EB0-AA92-44793C402B44}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F8696CBB-2750-4AFE-AFE7-121D7ED869FC}
 	EndGlobalSection
 EndGlobal
