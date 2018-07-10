@@ -9,6 +9,7 @@ void bubbleSort(int arr[]);
 void insertionSort(int arr[]);
 void mergeSort(int arr[], int l, int r);
 void print(int arr[]);
+
 using namespace SORT;
 
 void TestSortingAlgos() {
@@ -67,9 +68,9 @@ int main()
 
 	int arr[ARRAY_SIZE] = { 15,3,12,10,1,9,6,11,5,4 };
 	//insertionSort(arr);
-	bubbleSort(arr);
-	print(arr);
+	//bubbleSort(arr);
 	mergeSort(arr, 0, 9);
+	print(arr);
 
     return 0;
 }

@@ -4,10 +4,18 @@ void merge(int arr[], int l, int m, int r);
 
 __declspec(dllexport) void mergeSort(int arr[], int l, int r)
 {
-	int m = (l + r) / 2;
-	mergeSort(arr, l, m);
-	mergeSort(arr, m, r);
-	merge(arr, l, m, r);
+	int len = r - l + 1;
+	if (len == 1)
+	{
+		return;
+	}
+	else
+	{
+		int m = (len) / 2;
+		mergeSort(arr, l, l+m-1);
+		mergeSort(arr, l+m, r);
+		merge(arr, l, l+m-1, r);
+	}
 }
 
 void merge(int arr[], int l, int m, int r)
@@ -31,7 +39,7 @@ void merge(int arr[], int l, int m, int r)
 		rt[j]=arr[m+1+j];
 	}
 
-	i = 0; j = 0; k = 0;
+	i = 0; j = 0; k = l;
 
 	while (i < n1 && j < n2)
 	{
@@ -63,4 +71,6 @@ void merge(int arr[], int l, int m, int r)
 		j++;
 	}
 
+	delete[] left;
+	delete[] rt;
 }
