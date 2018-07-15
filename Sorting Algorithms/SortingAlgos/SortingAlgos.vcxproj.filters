@@ -15,7 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="SortingAlgos.cpp">
+    <ClCompile Include="SortingAlgos1.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

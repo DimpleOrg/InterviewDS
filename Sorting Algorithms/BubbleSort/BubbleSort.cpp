@@ -6,7 +6,7 @@
 
 
 // __declspec(dllexport) void bubbleSort(int arr[])
- void bubbleSort(int arr[])
+ __declspec(dllexport) void bubbleSort(int arr[])
 {
 	bool swapped;
 	for (int i = 0; i < 9; i++)
