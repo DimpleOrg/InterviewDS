@@ -19,6 +19,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SortingAlgos", "Sorting Alg
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MergeSort", "Sorting Algorithms\MergeSort\MergeSort.vcxproj", "{28322B17-8227-4D47-B0B8-339E5E4BD996}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "QuickSort", "QuickSort\QuickSort.vcxproj", "{9C2C5CB2-9AB6-433A-8CD4-8263AB10797F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -75,6 +77,14 @@ Global
 		{28322B17-8227-4D47-B0B8-339E5E4BD996}.Release|x64.Build.0 = Release|x64
 		{28322B17-8227-4D47-B0B8-339E5E4BD996}.Release|x86.ActiveCfg = Release|Win32
 		{28322B17-8227-4D47-B0B8-339E5E4BD996}.Release|x86.Build.0 = Release|Win32
+		{9C2C5CB2-9AB6-433A-8CD4-8263AB10797F}.Debug|x64.ActiveCfg = Debug|x64
+		{9C2C5CB2-9AB6-433A-8CD4-8263AB10797F}.Debug|x64.Build.0 = Debug|x64
+		{9C2C5CB2-9AB6-433A-8CD4-8263AB10797F}.Debug|x86.ActiveCfg = Debug|Win32
+		{9C2C5CB2-9AB6-433A-8CD4-8263AB10797F}.Debug|x86.Build.0 = Debug|Win32
+		{9C2C5CB2-9AB6-433A-8CD4-8263AB10797F}.Release|x64.ActiveCfg = Release|x64
+		{9C2C5CB2-9AB6-433A-8CD4-8263AB10797F}.Release|x64.Build.0 = Release|x64
+		{9C2C5CB2-9AB6-433A-8CD4-8263AB10797F}.Release|x86.ActiveCfg = Release|Win32
+		{9C2C5CB2-9AB6-433A-8CD4-8263AB10797F}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -85,6 +95,7 @@ Global
 		{8E203F80-7793-4F87-8EF8-4755FC9D2C2F} = {D98769AE-97AC-4EB0-AA92-44793C402B44}
 		{A5BD0511-6734-4802-8758-3D784377065A} = {D98769AE-97AC-4EB0-AA92-44793C402B44}
 		{28322B17-8227-4D47-B0B8-339E5E4BD996} = {D98769AE-97AC-4EB0-AA92-44793C402B44}
+		{9C2C5CB2-9AB6-433A-8CD4-8263AB10797F} = {D98769AE-97AC-4EB0-AA92-44793C402B44}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {F8696CBB-2750-4AFE-AFE7-121D7ED869FC}
