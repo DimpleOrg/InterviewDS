@@ -71,7 +71,7 @@ void TestSortingAlgos() {
 		testQObj.Print();
 		testQObj.Sort();
 
-		cout << "QuickSort Sort Output:";
+		cout << "Quick Sort Output:";
 		testQObj.Print();
 	}
 	catch (const std::exception& E)
