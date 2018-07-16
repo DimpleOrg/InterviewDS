@@ -22,6 +22,14 @@ namespace SORT
 		}
 	}
 
+	void SortingAlgos::SwapElement(int id1, int id2)
+	{
+		int temp = pElemArray[id1];
+		pElemArray[id1] = pElemArray[id2];
+		pElemArray[id2] = temp;
+
+	}
+
 
 	SortingAlgos::~SortingAlgos()
 	{
@@ -219,13 +227,22 @@ namespace SORT
 		}
 	}
 
-	void QuickSort::SwapElement(int id1, int id2)
+	void SelectionSort::Sort()
 	{
-		int temp = pElemArray[id1];
-		pElemArray[id1] = pElemArray[id2];
-		pElemArray[id2] = temp;
+		for (int i = 0; i < nElem -1; i++)
+		{
+			int maxIndex = 0;
 
-	//	Print();
+			int j = 0;
+			for (; j < nElem - i; j++)
+			{
+				if (pElemArray[maxIndex] < pElemArray[j]) {
+					maxIndex = j;
+				}
+			}
+
+			SwapElement(j - 1, maxIndex);			
+		}
 	}
 
 }

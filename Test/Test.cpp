@@ -29,6 +29,16 @@ void TestSortingAlgos() {
 		cout << "Bubble Sort Output:";
 		testBObj.Print();
 
+		SelectionSort testSObj;
+		int arrS[ARRAY_SIZE] = { 15,3,12,10,1,9,6,11,5,4 };
+
+		testSObj.LoadData(arrS, ARRAY_SIZE);
+		testSObj.Print();
+		testSObj.Sort();
+
+		cout << "Selection Sort Output:";
+		testSObj.Print();
+
 
 		InsertionSort testIObj;
 		int arrI[ARRAY_SIZE] = { 15,3,12,10,1,9,6,11,5,4 };

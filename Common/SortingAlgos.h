@@ -36,10 +36,17 @@ namespace SORT
 	protected:
 		int nElem = 0;
 		int *pElemArray = nullptr;
+
+		void SwapElement(int id1, int id2);
 	};
 
 
 	class DllExport BubbleSort : public SortingAlgos {
+	public:
+		void Sort();
+	};
+
+	class DllExport SelectionSort : public SortingAlgos {
 	public:
 		void Sort();
 	};
@@ -61,8 +68,7 @@ namespace SORT
 	public:
 		void Sort();
 	private:
-		void Quick_Sort(int start, int end);
-		void SwapElement(int id1, int id2);
+		void Quick_Sort(int start, int end);		
 	};
 }
 
