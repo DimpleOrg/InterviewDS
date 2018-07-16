@@ -1,8 +1,4 @@
 #include "SortingAlgos.h"
-// SortingAlgos.cpp : Defines the entry point for the console application.
-//
-
-
 namespace SORT
 {
 	SortingAlgos::SortingAlgos(int size)
@@ -187,4 +183,50 @@ namespace SORT
 		MergeSortAlgo(pElemArray, 0, nElem - 1);
 	}
 
+
+	void QuickSort::Sort()
+	{
+		Quick_Sort(0, nElem - 1);
+	}
+
+
+	void QuickSort::Quick_Sort(int start, int end)
+	{
+		if (end > start)
+		{
+			int counter = start;
+			int pivot = pElemArray[end];
+
+			for (int j = start; j < end; j++) {
+				if (j == counter) {
+					if (pElemArray[counter] <= pivot)
+					{
+						counter++;
+					}
+				}
+				else if (j > counter)
+				{
+					if (pElemArray[j] < pivot) {
+						SwapElement(j, counter);
+						counter++;
+					}
+				}
+			}
+
+			SwapElement(counter, end);
+			Quick_Sort(start, counter - 1);
+			Quick_Sort(counter + 1, end);
+		}
+	}
+
+	void QuickSort::SwapElement(int id1, int id2)
+	{
+		int temp = pElemArray[id1];
+		pElemArray[id1] = pElemArray[id2];
+		pElemArray[id2] = temp;
+
+	//	Print();
+	}
+
 }
+
