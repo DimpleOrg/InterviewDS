@@ -56,6 +56,14 @@ namespace SORT
 		void MergeSortAlgo(int A[], int s, int e);
 		void MergeSortedArray(int A[], int s, int m, int e);
 	};
+
+	class DllExport QuickSort : public SortingAlgos {
+	public:
+		void Sort();
+	private:
+		void Quick_Sort(int start, int end);
+		void SwapElement(int id1, int id2);
+	};
 }
 
 

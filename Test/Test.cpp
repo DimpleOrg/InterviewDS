@@ -51,6 +51,18 @@ void TestSortingAlgos() {
 
 		cout << "Insertion Sort Output:";
 		testMObj.Print();
+
+
+		QuickSort testQObj;
+
+		int arrQ[] = { 15,3,12,10,1,9,6,11,5,4, 12, 8,1, -23, 87,45, 12, 423 };
+
+		testQObj.LoadData(arrQ, sizeof(arrQ)/sizeof(int));
+		testQObj.Print();
+		testQObj.Sort();
+
+		cout << "QuickSort Sort Output:";
+		testQObj.Print();
 	}
 	catch (const std::exception& E)
 	{
