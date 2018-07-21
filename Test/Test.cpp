@@ -6,10 +6,12 @@
 #define ARRAY_SIZE 10
 #define qSortArrSize 7
 
+void selectionSort(int arr[], int n);
 void bubbleSort(int arr[]);
 void insertionSort(int arr[]);
 void mergeSort(int arr[], int l, int r);
 void quickSort(int arr[], int low, int high);
+void heapSort(int arr[], int n);
 void print(int arr[]);
 void qprint(int arr[]);
 
@@ -108,7 +110,13 @@ int main()
 	//insertionSort(arr);
 	//bubbleSort(arr);
 	//mergeSort(arr, 0, 9);
-	quickSort(qarr, 0, 6);
+	//quickSort(qarr, 0, 6);
+	//qprint(qarr);
+	cout << "\n\n\nSELECTION SORT\n\n";
+	//selectionSort(qarr, qSortArrSize);
+	//qprint(qarr);
+	cout << "\n\n\nHEAP SORT\n\n";
+	heapSort(qarr, qSortArrSize);
 	qprint(qarr);
 
     return 0;
