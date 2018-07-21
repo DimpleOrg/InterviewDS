@@ -29,6 +29,16 @@ void TestSortingAlgos() {
 		cout << "Bubble Sort Output:";
 		testBObj.Print();
 
+		SelectionSort testSObj;
+		int arrS[ARRAY_SIZE] = { 15,3,12,10,1,9,6,11,5,4 };
+
+		testSObj.LoadData(arrS, ARRAY_SIZE);
+		testSObj.Print();
+		testSObj.Sort();
+
+		cout << "Selection Sort Output:";
+		testSObj.Print();
+
 
 		InsertionSort testIObj;
 		int arrI[ARRAY_SIZE] = { 15,3,12,10,1,9,6,11,5,4 };
@@ -61,8 +71,21 @@ void TestSortingAlgos() {
 		testQObj.Print();
 		testQObj.Sort();
 
-		cout << "QuickSort Sort Output:";
+		cout << "Quick Sort Output:";
 		testQObj.Print();
+
+
+
+		HeapSort testHObj;
+
+		int arrH[] = { 15,3,12,10,1,9,6,11,5,4, 12, 8,1, -23, 87,45, 12, 423 };
+
+		testHObj.LoadData(arrH, sizeof(arrH) / sizeof(int));
+		testHObj.Print();
+		testHObj.Sort();
+
+		cout << "Heap Sort Output:";
+		testHObj.Print();
 	}
 	catch (const std::exception& E)
 	{
