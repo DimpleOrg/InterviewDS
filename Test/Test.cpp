@@ -73,6 +73,19 @@ void TestSortingAlgos() {
 
 		cout << "Quick Sort Output:";
 		testQObj.Print();
+
+
+
+		HeapSort testHObj;
+
+		int arrH[] = { 15,3,12,10,1,9,6,11,5,4, 12, 8,1, -23, 87,45, 12, 423 };
+
+		testHObj.LoadData(arrH, sizeof(arrH) / sizeof(int));
+		testHObj.Print();
+		testHObj.Sort();
+
+		cout << "Heap Sort Output:";
+		testHObj.Print();
 	}
 	catch (const std::exception& E)
 	{

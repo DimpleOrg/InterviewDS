@@ -70,6 +70,19 @@ namespace SORT
 	private:
 		void Quick_Sort(int start, int end);		
 	};
+
+	class DllExport HeapSort : public SortingAlgos {
+	public:
+		void Sort();
+	private:
+		int tracklen = nElem;
+		void BuildMaxHeap();
+		void MaxHeapify(int index);
+
+		int parent(int index);
+		int leftChild(int index);
+		int rightChild(int index);
+	};
 }
 
 

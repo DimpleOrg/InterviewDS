@@ -245,5 +245,74 @@ namespace SORT
 		}
 	}
 
+
+	void HeapSort::BuildMaxHeap()
+	{
+		int i = tracklen / 2 - 1;
+		for (; i >= 0; i--) {
+			MaxHeapify(i);
+		}
+
+	}
+
+	void HeapSort::MaxHeapify(int index)
+	{
+		int l = leftChild(index);
+		int r = rightChild(index);
+
+		if (l >= tracklen) {
+			return;
+		}
+
+		int max = index;
+
+		if (l < tracklen && pElemArray[l] > pElemArray[index]) {
+			max = l;
+		}
+
+		if (r < tracklen && pElemArray[r] > pElemArray[max]) {
+			max = r;
+		}
+
+		if (max == index)
+			return;
+
+		SwapElement(index, max);
+
+		MaxHeapify(max);
+
+	}
+
+	void HeapSort::Sort()
+	{
+		tracklen = nElem;
+		BuildMaxHeap();
+
+		for (int i = 0; i < nElem - 1; i++)
+		{
+			SwapElement(0, tracklen - 1);
+			tracklen--;
+			
+
+			MaxHeapify(0);
+		}
+	}
+
+	int HeapSort::parent(int index)
+	{
+		return (index - 1) / 2;
+	}
+
+	int HeapSort::leftChild(int index)
+	{
+
+		return (2*index) + 1;
+	}
+
+	int HeapSort::rightChild(int index)
+	{
+		return (2 * index) + 2;
+	}
+
 }
 
