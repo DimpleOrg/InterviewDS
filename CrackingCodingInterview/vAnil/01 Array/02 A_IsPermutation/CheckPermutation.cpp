@@ -8,6 +8,11 @@ bool IsPermutationString(string str1, string str2)
 {
 	bool result = false;
 
+
+	if (str1.length() != str2.length())
+		return false;
+
+
 	using Type = unordered_map<char, uint32_t>;
 
 	Type uMap1, uMap2;

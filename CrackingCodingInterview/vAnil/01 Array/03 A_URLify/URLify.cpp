@@ -1,52 +1,49 @@
 #include <iostream>
+#include <string>
 
 using namespace std;
 
-void URLify(char *str, uint32_t max_lenght)
+void convertToURL(int);
+void moveElements(int, int);
+
+static string str = "Mr John Smith    ";
+
+int main()
 {
-	uint32_t len = 0;
-	uint32_t count_space = 0;
-
-	for (int i = 0; str[i] != '\0' && i < max_lenght; i++)
+	try
 	{
-		if (str[i] == ' ')
-			count_space++;
-
-		len = i;
+		cout << "\n" << str << "\n";
+		convertToURL(13);
+		cout << "\n" << str << "\n";
+	}
+	catch (...)
+	{
+		cout << "\nException thrown\n";
 	}
 
-	len++;
+	return 0;
+}
 
-	uint32_t extra_lenght = 0;
+void convertToURL(int trueStrLen)
+{
+	for (int i = trueStrLen - 1; i >= 0; i--)
+	{
+		if (str[i] == ' ')
+		{
+			moveElements(i + 1, trueStrLen);
+			str[i] = '%';
+			str[i + 1] = '2';
+			str[i + 2] = '0';
+			trueStrLen += 2;
 
-	extra_lenght = count_space * 2;
-
-	if ((len + extra_lenght) < max_lenght) {
-
-		for (int i = len - 1; i > 0; i--) {
-			if (str[i] == ' ')
-			{
-				for (int j = len; j > i; j--)
-				{
-					str[j + 2] = str[j];
-				}
-
-				str[i] = '\\';
-				str[i + 1] = '2';
-				str[i + 2] = '0';
-
-					len += 2;
-			}
 		}
 	}
 }
 
-int main(int argc, char *argv[])
+void moveElements(int pos, int trueStrLen)
 {
-	char str[100] = "Hello World I am Here";
-
-	URLify(str, sizeof(str));
-
-	cout << str;
-
+	for (int i = trueStrLen - 1; i >= pos; i--)
+	{
+		str[i + 2] = str[i];
+	}
 }
