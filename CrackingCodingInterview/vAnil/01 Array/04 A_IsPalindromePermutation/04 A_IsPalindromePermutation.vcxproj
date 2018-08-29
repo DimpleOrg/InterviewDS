@@ -20,8 +20,8 @@
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
-    <ProjectGuid>{F469AECC-6B59-49FE-8BBB-9063F5DFE48A}</ProjectGuid>
-    <RootNamespace>My04PalindromPermutation</RootNamespace>
+    <ProjectGuid>{FC7615EB-C87B-4BFE-B778-AAECE6BB4F66}</ProjectGuid>
+    <RootNamespace>My04AIsPalindromePermutation</RootNamespace>
     <WindowsTargetPlatformVersion>10.0.17134.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -115,7 +115,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Source.cpp" />
+    <ClCompile Include="IsPalindromePermutation.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

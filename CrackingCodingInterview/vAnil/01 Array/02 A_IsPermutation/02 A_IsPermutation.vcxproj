@@ -20,8 +20,8 @@
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
-    <ProjectGuid>{25FECEE8-B586-4A6B-83F1-0FC317AEB2F3}</ProjectGuid>
-    <RootNamespace>My01IsUnique</RootNamespace>
+    <ProjectGuid>{7E222714-CADA-41CE-94BC-E09D11DFB98F}</ProjectGuid>
+    <RootNamespace>My02AIsPermutation</RootNamespace>
     <WindowsTargetPlatformVersion>10.0.17134.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -115,7 +115,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="IsUnique.cpp" />
+    <ClCompile Include="CheckPermutation.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
