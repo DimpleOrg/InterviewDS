@@ -57,6 +57,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "03 A_URLify", "CrackingCodi
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "04 A_IsPalindromePermutation", "CrackingCodingInterview\vAnil\01 Array\04 A_IsPalindromePermutation\04 A_IsPalindromePermutation.vcxproj", "{FC7615EB-C87B-4BFE-B778-AAECE6BB4F66}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "05 A_IsOneEditAway", "CrackingCodingInterview\vAnil\01 Array\05 A_IsOneEditAway\05 A_IsOneEditAway.vcxproj", "{E9784297-9A00-4FB2-AD75-A83E3ECB4A7F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -225,6 +227,14 @@ Global
 		{FC7615EB-C87B-4BFE-B778-AAECE6BB4F66}.Release|x64.Build.0 = Release|x64
 		{FC7615EB-C87B-4BFE-B778-AAECE6BB4F66}.Release|x86.ActiveCfg = Release|Win32
 		{FC7615EB-C87B-4BFE-B778-AAECE6BB4F66}.Release|x86.Build.0 = Release|Win32
+		{E9784297-9A00-4FB2-AD75-A83E3ECB4A7F}.Debug|x64.ActiveCfg = Debug|x64
+		{E9784297-9A00-4FB2-AD75-A83E3ECB4A7F}.Debug|x64.Build.0 = Debug|x64
+		{E9784297-9A00-4FB2-AD75-A83E3ECB4A7F}.Debug|x86.ActiveCfg = Debug|Win32
+		{E9784297-9A00-4FB2-AD75-A83E3ECB4A7F}.Debug|x86.Build.0 = Debug|Win32
+		{E9784297-9A00-4FB2-AD75-A83E3ECB4A7F}.Release|x64.ActiveCfg = Release|x64
+		{E9784297-9A00-4FB2-AD75-A83E3ECB4A7F}.Release|x64.Build.0 = Release|x64
+		{E9784297-9A00-4FB2-AD75-A83E3ECB4A7F}.Release|x86.ActiveCfg = Release|Win32
+		{E9784297-9A00-4FB2-AD75-A83E3ECB4A7F}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -250,6 +260,7 @@ Global
 		{7E222714-CADA-41CE-94BC-E09D11DFB98F} = {507D99B0-24A4-4044-87D6-2B4AB9A9ACFF}
 		{BBCD4E2A-451F-42CF-9E69-BA2930D83C2B} = {507D99B0-24A4-4044-87D6-2B4AB9A9ACFF}
 		{FC7615EB-C87B-4BFE-B778-AAECE6BB4F66} = {507D99B0-24A4-4044-87D6-2B4AB9A9ACFF}
+		{E9784297-9A00-4FB2-AD75-A83E3ECB4A7F} = {507D99B0-24A4-4044-87D6-2B4AB9A9ACFF}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {F8696CBB-2750-4AFE-AFE7-121D7ED869FC}
