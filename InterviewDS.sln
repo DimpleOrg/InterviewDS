@@ -61,6 +61,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "05 A_IsOneEditAway", "Crack
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "05 OneAway", "CrackingCodingInterview\vDimple\01 Array\05 OneAway\05 OneAway.vcxproj", "{DAF9F124-D53E-49A1-9B0E-D756CE9A3D56}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "06 CompressString", "CrackingCodingInterview\vDimple\01 Array\06 CompressString\CompressString.vcxproj", "{7A3F2218-917F-4B2A-90D5-3B1B7746C8C8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -245,6 +247,14 @@ Global
 		{DAF9F124-D53E-49A1-9B0E-D756CE9A3D56}.Release|x64.Build.0 = Release|x64
 		{DAF9F124-D53E-49A1-9B0E-D756CE9A3D56}.Release|x86.ActiveCfg = Release|Win32
 		{DAF9F124-D53E-49A1-9B0E-D756CE9A3D56}.Release|x86.Build.0 = Release|Win32
+		{7A3F2218-917F-4B2A-90D5-3B1B7746C8C8}.Debug|x64.ActiveCfg = Debug|x64
+		{7A3F2218-917F-4B2A-90D5-3B1B7746C8C8}.Debug|x64.Build.0 = Debug|x64
+		{7A3F2218-917F-4B2A-90D5-3B1B7746C8C8}.Debug|x86.ActiveCfg = Debug|Win32
+		{7A3F2218-917F-4B2A-90D5-3B1B7746C8C8}.Debug|x86.Build.0 = Debug|Win32
+		{7A3F2218-917F-4B2A-90D5-3B1B7746C8C8}.Release|x64.ActiveCfg = Release|x64
+		{7A3F2218-917F-4B2A-90D5-3B1B7746C8C8}.Release|x64.Build.0 = Release|x64
+		{7A3F2218-917F-4B2A-90D5-3B1B7746C8C8}.Release|x86.ActiveCfg = Release|Win32
+		{7A3F2218-917F-4B2A-90D5-3B1B7746C8C8}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -272,6 +282,7 @@ Global
 		{FC7615EB-C87B-4BFE-B778-AAECE6BB4F66} = {507D99B0-24A4-4044-87D6-2B4AB9A9ACFF}
 		{E9784297-9A00-4FB2-AD75-A83E3ECB4A7F} = {507D99B0-24A4-4044-87D6-2B4AB9A9ACFF}
 		{DAF9F124-D53E-49A1-9B0E-D756CE9A3D56} = {CFF2D496-F46D-4F42-8694-9EAA250D9F43}
+		{7A3F2218-917F-4B2A-90D5-3B1B7746C8C8} = {CFF2D496-F46D-4F42-8694-9EAA250D9F43}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {F8696CBB-2750-4AFE-AFE7-121D7ED869FC}
