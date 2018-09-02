@@ -1,14 +1,13 @@
-#include <iostream>
-#include <string>
+#include "CompressString.h"
 
 using namespace std;
 
-bool CompressString(string& str)
+__declspec(dllexport) string CompressString(string str)
 {
 	bool status = true;
 	size_t slen = str.length();
 	
-	char *tempArr = new char[slen];
+	char *tempArr = new char[slen + 1];
 
 	int tlen = 0;
 
@@ -36,25 +35,19 @@ bool CompressString(string& str)
 
 		tempArr[tlen++] = '0' + j;
 
-		i = j - 1;
+		i = i + j -1;
 	}
+
+	
 
 	if (status)
 	{
+		tempArr[tlen] = 0;
 		str = tempArr;
+	//	str = tempArr;
 	}
 
 	delete[] tempArr;
-	return status;
+	return str;
 }
 
-
-
-
-int main()
-{
-	string str;
-	getline()
-
-	return 0;
-}
