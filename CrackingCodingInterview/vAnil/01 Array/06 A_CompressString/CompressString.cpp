@@ -7,7 +7,7 @@ __declspec(dllexport) string CompressString(string str)
 	bool status = true;
 	size_t slen = str.length();
 	
-	char *tempArr = new char[slen + 1];
+	unique_ptr<char[]> tempArr = make_unique<char[]>(slen + 1);
 
 	int tlen = 0;
 
@@ -18,7 +18,7 @@ __declspec(dllexport) string CompressString(string str)
 			status = false;
 			break;
 		}
-
+		
 		tempArr[tlen++] = str[i];
 
 		int j = 0;
@@ -43,11 +43,9 @@ __declspec(dllexport) string CompressString(string str)
 	if (status)
 	{
 		tempArr[tlen] = 0;
-		str = tempArr;
-	//	str = tempArr;
+		str = tempArr.get();
 	}
 
-	delete[] tempArr;
 	return str;
 }
 

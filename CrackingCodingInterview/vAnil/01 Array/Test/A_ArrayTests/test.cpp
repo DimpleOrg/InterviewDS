@@ -24,3 +24,14 @@ TEST(COMPRESS_STRING_TEST, TEST2)
 
 	EXPECT_EQ("abcd", compressStr);
 }
+
+
+TEST(COMPRESS_STRING_TEST, TEST3)
+{
+	string origstr = "";
+	string compressStr;
+
+	compressStr = CompressString(origstr);
+
+	EXPECT_EQ("", compressStr);
+}
