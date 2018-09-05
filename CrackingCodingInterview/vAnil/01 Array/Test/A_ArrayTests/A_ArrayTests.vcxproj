@@ -51,6 +51,9 @@
     <ProjectReference Include="..\..\06 A_CompressString\06 A_CompressString.vcxproj">
       <Project>{cd29da1b-895c-4483-a3e8-b128ee78ce80}</Project>
     </ProjectReference>
+    <ProjectReference Include="..\..\07 MatrixRotation90Degree\07 MatrixRotation90Degree.vcxproj">
+      <Project>{b3fc9b4d-5960-4bb4-9ffe-30c21a37dc86}</Project>
+    </ProjectReference>
   </ItemGroup>
   <ItemDefinitionGroup />
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
