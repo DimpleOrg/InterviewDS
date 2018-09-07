@@ -1,35 +1,33 @@
-#include<iostream>
-#include<string>
-#include<vector>
+#include"CompressString.h"
 
 using namespace std;
 
-vector<char> compressString(string str);
 
-int main()
-{
-	try
-	{
-		string str = "abcd";
-		vector<char> cstr = compressString(str);
-		if (cstr.size() < str.length())
-		{
-			for (auto i : cstr)
-			{
-				cout << i;
-			}
-		}
-		else
-			cout << str;
-	}
-	catch (...)
-	{
-		cout << "Program crashed";
-	}
-	return 0;
-}
 
-vector<char> compressString(string str)
+//int main()
+//{
+//	try
+//	{
+//		string str = "abcd";
+//		string cstr = compressString(str);
+//		if (cstr.size() < str.length())
+//		{
+//			for (auto i : cstr)
+//			{
+//				cout << i;
+//			}
+//		}
+//		else
+//			cout << str;
+//	}
+//	catch (...)
+//	{
+//		cout << "Program crashed";
+//	}
+//	return 0;
+//}
+
+__declspec(dllexport) string compressString(string str)
 {
 	vector<char> cvec;
 	int count = 1;
@@ -49,5 +47,20 @@ vector<char> compressString(string str)
 	}
 	cvec.push_back(char('0' + count));
 
-	return cvec;
+	if (cvec.size() < str.length())
+	{
+		unique_ptr<char[]> ch = make_unique<char[]>(cvec.size() + 1);
+		int i = 0;
+		for (auto j : cvec)
+		{
+			ch[i] = j;
+			i++;
+		}
+		ch[i] = '\0';
+
+		str = ch.get();
+	}
+
+
+	return str;
 }
