@@ -1,5 +1,6 @@
 #include "pch.h"
 #include "../../06 A_CompressString/CompressString.h"
+#include "../../07 MatrixRotation90Degree/matrix_rotation.h"
 using namespace std;
 
 
@@ -34,4 +35,129 @@ TEST(COMPRESS_STRING_TEST, TEST3)
 	compressStr = CompressString(origstr);
 
 	EXPECT_EQ("", compressStr);
+}
+
+
+bool IsMatrixEqual(int **mat1, int mat2[][4])
+{
+	for (int i = 0; i < 4; i++)
+	{
+		for (int j = 0; j < 4; j++)
+		{
+			if (mat1[i][j] != mat2[i][j])
+			{
+				return false;
+			}
+		}
+	}
+
+	return true;
+}
+
+TEST(MATRIX_ROTATION_TEST, TEST1)
+{
+	int InitMat[4][4] = 
+	{
+		{1,2,3,4},
+	{5,6,7,8},
+	{9,10,11,12},
+	{13,14,15,16}
+	};
+
+	int **mat1 = new int*[4];
+
+	for (int i = 0; i < 4; i++)
+		mat1[i] = new int[4];
+
+	for (int i = 0; i < 4; i++)
+	{
+		for (int j = 0; j < 4; j++)
+		{
+			mat1[i][j] = InitMat[i][j];
+		}
+	}
+
+	int mat2[4][4] = {
+		{13,9,5,1},
+	{14,10,6,2},
+	{15,11,7,3},
+	{16,12,8,4}
+	};
+
+	bool result = RotateMatrixby90Degree(mat1, 4);
+
+	EXPECT_EQ(true, result);
+
+	EXPECT_EQ(true, IsMatrixEqual(mat1, mat2));
+}
+
+TEST(MATRIX_ROTATION_TEST, TEST2)
+{
+	bool result = RotateMatrixby90Degree(nullptr, 4);
+
+	EXPECT_EQ(false, result);
+
+}
+
+TEST(MATRIX_ROTATION_TEST, TEST3)
+{
+	int InitMat[4][4] =
+	{
+		{1,2,3,4},
+	{5,6,7,8},
+	{9,10,11,12},
+	{13,14,15,16}
+	};
+
+	int **mat1 = new int*[4];
+
+	for (int i = 0; i < 4; i++)
+		mat1[i] = new int[4];
+
+	for (int i = 0; i < 4; i++)
+	{
+		for (int j = 0; j < 4; j++)
+		{
+			mat1[i][j] = InitMat[i][j];
+		}
+	}
+
+	bool result = RotateMatrixby90Degree(mat1, -1);
+
+	EXPECT_EQ(false, result);
+
+}
+
+TEST(MATRIX_ROTATION_TEST, TEST4)
+{
+	int InitMat[4][4] =
+	{
+		{1,2,3,4},
+	{5,6,7,8},
+	{9,10,11,12},
+	{13,14,15,16}
+	};
+
+	int **mat1 = new int*[4];
+
+	for (int i = 0; i < 4; i++)
+		mat1[i] = new int[4];
+
+	for (int i = 0; i < 4; i++)
+	{
+		for (int j = 0; j < 4; j++)
+		{
+			mat1[i][j] = InitMat[i][j];
+		}
+	}
+
+
+	bool result = RotateMatrixby90Degree(mat1, 4);
+	result = RotateMatrixby90Degree(mat1, 4);
+	result = RotateMatrixby90Degree(mat1, 4);
+	result = RotateMatrixby90Degree(mat1, 4);
+
+
+	EXPECT_EQ(true, IsMatrixEqual(mat1, InitMat));
+
 }
