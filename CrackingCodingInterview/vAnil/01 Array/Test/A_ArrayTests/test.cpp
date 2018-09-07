@@ -1,6 +1,7 @@
 #include "pch.h"
 #include "../../06 A_CompressString/CompressString.h"
 #include "../../07 MatrixRotation90Degree/matrix_rotation.h"
+#include "../../08 ZeroMatrix/ZeroMatrix.h"
 using namespace std;
 
 
@@ -159,5 +160,80 @@ TEST(MATRIX_ROTATION_TEST, TEST4)
 
 
 	EXPECT_EQ(true, IsMatrixEqual(mat1, InitMat));
+
+}
+TEST(ZERO_MATRIX_TEST, TEST1)
+{
+	int InitMat[4][4] =
+	{
+	{1,2,3,4},
+	{5,0,7,8},
+	{9,10,0,12},
+	{13,14,15,16}
+	};
+
+	int **mat1 = new int*[4];
+
+	for (int i = 0; i < 4; i++)
+		mat1[i] = new int[4];
+
+	for (int i = 0; i < 4; i++)
+	{
+		for (int j = 0; j < 4; j++)
+		{
+			mat1[i][j] = InitMat[i][j];
+		}
+	}
+
+	int ResultMatrix[4][4] =
+	{
+	{1,0,0,4},
+	{0,0,0,0},
+	{0,0,0,0},
+	{13,0,0,16}
+	};
+
+	ZeroMatrix(mat1, 4, 4);
+
+
+	EXPECT_EQ(true, IsMatrixEqual(mat1, ResultMatrix));
+
+}
+
+TEST(ZERO_MATRIX_TEST, TEST2)
+{
+	int InitMat[4][4] =
+	{
+	{1,2,3,4},
+	{5,0,7,8},
+	{9,10,0,12},
+	{13,14,15,16}
+	};
+
+	int **mat1 = new int*[4];
+
+	for (int i = 0; i < 4; i++)
+		mat1[i] = new int[4];
+
+	for (int i = 0; i < 4; i++)
+	{
+		for (int j = 0; j < 4; j++)
+		{
+			mat1[i][j] = InitMat[i][j];
+		}
+	}
+
+	int ResultMatrix[4][4] =
+	{
+	{1,0,0,4},
+	{0,0,0,0},
+	{0,0,0,0},
+	{13,0,0,16}
+	};
+
+	ZeroMatrixV3(mat1, 4, 4);
+	
+
+	EXPECT_EQ(true, IsMatrixEqual(mat1, ResultMatrix));
 
 }

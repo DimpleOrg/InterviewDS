@@ -65,6 +65,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "06 A_CompressString", "Crac
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "07 MatrixRotation90Degree", "CrackingCodingInterview\vAnil\01 Array\07 MatrixRotation90Degree\07 MatrixRotation90Degree.vcxproj", "{B3FC9B4D-5960-4BB4-9FFE-30C21A37DC86}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "08 ZeroMatrix", "CrackingCodingInterview\vAnil\01 Array\08 ZeroMatrix\08 ZeroMatrix.vcxproj", "{7B293087-27C6-447C-AB86-5521145D3DE2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -257,6 +259,14 @@ Global
 		{B3FC9B4D-5960-4BB4-9FFE-30C21A37DC86}.Release|x64.Build.0 = Release|x64
 		{B3FC9B4D-5960-4BB4-9FFE-30C21A37DC86}.Release|x86.ActiveCfg = Release|Win32
 		{B3FC9B4D-5960-4BB4-9FFE-30C21A37DC86}.Release|x86.Build.0 = Release|Win32
+		{7B293087-27C6-447C-AB86-5521145D3DE2}.Debug|x64.ActiveCfg = Debug|x64
+		{7B293087-27C6-447C-AB86-5521145D3DE2}.Debug|x64.Build.0 = Debug|x64
+		{7B293087-27C6-447C-AB86-5521145D3DE2}.Debug|x86.ActiveCfg = Debug|Win32
+		{7B293087-27C6-447C-AB86-5521145D3DE2}.Debug|x86.Build.0 = Debug|Win32
+		{7B293087-27C6-447C-AB86-5521145D3DE2}.Release|x64.ActiveCfg = Release|x64
+		{7B293087-27C6-447C-AB86-5521145D3DE2}.Release|x64.Build.0 = Release|x64
+		{7B293087-27C6-447C-AB86-5521145D3DE2}.Release|x86.ActiveCfg = Release|Win32
+		{7B293087-27C6-447C-AB86-5521145D3DE2}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -289,6 +299,7 @@ Global
 		{375CB25C-CC70-4B52-AA00-4E28C8EEEE46} = {07D4F11E-304B-480B-A387-5D7FDB71857A}
 		{CD29DA1B-895C-4483-A3E8-B128EE78CE80} = {507D99B0-24A4-4044-87D6-2B4AB9A9ACFF}
 		{B3FC9B4D-5960-4BB4-9FFE-30C21A37DC86} = {507D99B0-24A4-4044-87D6-2B4AB9A9ACFF}
+		{7B293087-27C6-447C-AB86-5521145D3DE2} = {507D99B0-24A4-4044-87D6-2B4AB9A9ACFF}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {F8696CBB-2750-4AFE-AFE7-121D7ED869FC}
