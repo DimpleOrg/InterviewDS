@@ -9,7 +9,10 @@ bool compareMatrix(int **matrix1, int matrix2[][4]);
 
 TEST(Matrix_TEST, TEST1)
 {
-	ofstream myfile;	myfile.open("example.txt");	myfile << "Writing this to a file.\n";	//myfile.close();
+	ofstream myfile;
+	myfile.open("example.txt");
+	myfile << "Writing this to a file.\n";
+	//myfile.close();
 
 	int **matrix;
 	matrix = new int*[4];
@@ -59,7 +62,10 @@ TEST(Matrix_TEST, TEST1)
 
 TEST(Matrix_TEST, TEST2)
 {
-	ofstream myfile;	myfile.open("example.txt");	myfile << "Writing this to a file.\n";	//myfile.close();
+	ofstream myfile;
+	myfile.open("example.txt");
+	myfile << "Writing this to a file.\n";
+	//myfile.close();
 
 	int **matrix;
 	matrix = new int*[4];
