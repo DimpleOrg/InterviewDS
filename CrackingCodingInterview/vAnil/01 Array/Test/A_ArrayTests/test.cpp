@@ -85,7 +85,7 @@ TEST(MATRIX_ROTATION_TEST, TEST1)
 	{16,12,8,4}
 	};
 
-	bool result = RotateMatrixby90Degree(mat1, 4);
+	bool result = RotateMatrixBy90DegreeV2(mat1, 4);
 
 	EXPECT_EQ(true, result);
 
