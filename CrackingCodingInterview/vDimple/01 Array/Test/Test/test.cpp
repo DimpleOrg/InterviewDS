@@ -1,10 +1,22 @@
 #include "pch.h"
+#include<fstream>
 #include"../../06 CompressString/CompressString.h"
 #include"../../08 ZeroMatrix/ZeroMatrix.h"
-#include<fstream>
+#include"../../09 IsStringRotation/IsStringRoation.h"
+
 using namespace std;
 
 bool compareMatrix(int **matrix1, int matrix2[][4]);
+
+TEST(Is_String_Rotation, TEST1)
+{
+	string origstr = "erbottlewat";
+	string rotatedString = "waterbottle";
+
+	bool res = isStringRotation(origstr, rotatedString);
+
+	EXPECT_EQ(true, res);
+}
 
 TEST(ZeroMatrix, TEST1)
 {

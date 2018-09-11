@@ -54,6 +54,9 @@
     <ProjectReference Include="..\..\08 ZeroMatrix\ZeroMatrix.vcxproj">
       <Project>{94d3d2e6-acf9-47d8-97a6-c8ac9f733c71}</Project>
     </ProjectReference>
+    <ProjectReference Include="..\..\09 IsStringRotation\09 IsStringRotation.vcxproj">
+      <Project>{5a892cdf-bc6b-43fb-a17a-5c90e84fcce2}</Project>
+    </ProjectReference>
   </ItemGroup>
   <ItemDefinitionGroup />
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
