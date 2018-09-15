@@ -3,6 +3,7 @@
 #include <string>
 #include <thread>
 #include <mutex>
+#include <unordered_set>
 
 using namespace std;
 template <typename TYPE>
@@ -33,6 +34,8 @@ public:
 	void addFront(const TYPE& e); 
 	void removeFront();
 	void print();
+	void RemoveDuplicateNodesV1();
+	void RemoveDuplicateNodesV2();
 private:
 	std::shared_ptr<SNode<TYPE>> head = nullptr;
 	std::mutex slMutex;
@@ -100,4 +103,60 @@ void SLinkedList<TYPE>::print()
 		temp = temp->next;
 	}
 	cout << "\n";
+}
+
+template<typename TYPE>
+inline void SLinkedList<TYPE>::RemoveDuplicateNodesV1()
+{
+	std::shared_ptr<SNode<TYPE>> temp = head;
+	while (temp)
+	{
+		TYPE curVal = temp->elem;
+		
+		std::shared_ptr<SNode<TYPE>> prev = temp;
+		std::shared_ptr<SNode<TYPE>> temp1 = temp->next;
+
+		while (temp1)
+		{
+			if (curVal == temp1->elem)
+			{
+				prev->next = temp1->next;
+				temp1 = temp1->next;
+				continue;
+			}
+
+			prev = temp1;
+			temp1 = temp1->next;
+		}
+
+
+		temp = temp->next;
+	}
+}
+
+
+template<typename TYPE>
+inline void SLinkedList<TYPE>::RemoveDuplicateNodesV2()
+{
+	std::shared_ptr<SNode<TYPE>> temp = head;
+
+	std::unordered_set<TYPE> foundSet;
+
+	std::shared_ptr<SNode<TYPE>> prev = temp;
+	while (temp)
+	{	
+		if (foundSet.find(temp->elem) == foundSet.end())
+		{
+			foundSet.insert(temp->elem);
+		}
+		else
+		{
+			prev->next = temp->next;
+			temp = temp->next;
+			continue;
+		}
+
+		prev = temp;
+		temp = temp->next;
+	}
 }

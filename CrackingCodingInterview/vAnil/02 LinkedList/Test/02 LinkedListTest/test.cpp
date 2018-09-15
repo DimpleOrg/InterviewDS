@@ -25,8 +25,72 @@ TEST(SLinkedListTest, Test1) {
 	EXPECT_TRUE(true);
 }
 
-TEST(RemoveDuplicateNodes, Test1)
+
+TEST(RemoveDuplicateNodes, TestV1)
 {
+	std::string output;
 	testing::internal::CaptureStdout();
 
+	{
+		SLinkedList<int> list;
+
+		list.addFront(10);
+		list.addFront(10);
+		list.addFront(10);
+		list.addFront(11);
+		list.addFront(11);
+		list.addFront(12);
+		list.addFront(13);
+		list.addFront(10);
+		list.addFront(11);
+		list.addFront(12);
+		list.addFront(13);
+
+		list.print();
+
+		RemoveDuplicateNodesV1(list);
+
+		list.print();
+
+	}
+
+
+	output = testing::internal::GetCapturedStdout();
+
+	EXPECT_TRUE(true);
+}
+
+
+TEST(RemoveDuplicateNodes, TestV2)
+{
+	std::string output;
+	testing::internal::CaptureStdout();
+
+	{
+		SLinkedList<int> list;
+
+		list.addFront(10);
+		list.addFront(10);
+		list.addFront(10);
+		list.addFront(11);
+		list.addFront(11);
+		list.addFront(12);
+		list.addFront(13);
+		list.addFront(10);
+		list.addFront(11);
+		list.addFront(12);
+		list.addFront(13);
+
+		list.print();
+
+		RemoveDuplicateNodesV2(list);
+
+		list.print();
+
+	}
+
+
+	output = testing::internal::GetCapturedStdout();
+
+	EXPECT_TRUE(true);
 }
