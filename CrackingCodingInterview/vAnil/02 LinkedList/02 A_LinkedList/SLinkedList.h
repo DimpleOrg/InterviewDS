@@ -36,10 +36,71 @@ public:
 	void print();
 	void RemoveDuplicateNodesV1();
 	void RemoveDuplicateNodesV2();
+	TYPE GetKthLastElement(size_t k) const;
+	TYPE GetKthLastElementRec(size_t k) const;
 private:
+
+	size_t  GetKethLastELementRec(std::shared_ptr < SNode<TYPE>> iter,
+		size_t kthfromend, std::shared_ptr < SNode<TYPE>> &result) const;
+
 	std::shared_ptr<SNode<TYPE>> head = nullptr;
 	std::mutex slMutex;
 };
+
+template <typename TYPE>
+TYPE SLinkedList<TYPE>::GetKthLastElementRec(size_t k) const
+{
+	std::shared_ptr < SNode<TYPE>> result;
+	
+	GetKethLastELementRec(head, k, result);
+
+	return result->elem;
+}
+
+template <typename TYPE>
+size_t SLinkedList<TYPE>::GetKethLastELementRec(std::shared_ptr < SNode<TYPE>> iter, size_t kthfromend,
+	std::shared_ptr < SNode<TYPE>> &result) const
+{
+	if (iter == nullptr)
+	{
+		return 0;
+	}
+	else
+	{
+		int indexFromEnd = GetKethLastELementRec(iter->next, kthfromend,  result)  + 1;
+		
+		if (indexFromEnd == kthfromend + 1)
+		{
+			result = iter;
+		}
+
+		return indexFromEnd;
+	}
+}
+
+template <typename TYPE>
+TYPE SLinkedList<TYPE>::GetKthLastElement(size_t k) const
+{
+	std::shared_ptr<SNode<TYPE>> ptr1 = head, ptr2 = head;
+
+	while (ptr2 != nullptr && k != 0)
+	{
+		ptr2 = ptr2->next;
+		k--;
+	}
+
+	if (k > 0) {
+		throw std::exception("List does not have kth last element");
+	}
+
+	while (ptr2->next)
+	{
+		ptr2 = ptr2->next;
+		ptr1 = ptr1->next;
+	}
+
+	return ptr1->elem;
+}
 
 template <typename TYPE>
 SLinkedList<TYPE>::SLinkedList()
