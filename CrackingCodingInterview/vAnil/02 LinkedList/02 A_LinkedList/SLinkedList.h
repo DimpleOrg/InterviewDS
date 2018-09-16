@@ -10,6 +10,10 @@ template <typename TYPE>
 class SLinkedList;
 
 template <typename TYPE>
+class SLLIterator;
+
+
+template <typename TYPE>
 class SNode {
 public:
 	~SNode()
@@ -20,9 +24,42 @@ private:
 	TYPE elem; 
 	std::shared_ptr<SNode<TYPE>> next = nullptr; 
 	friend class SLinkedList<TYPE>; 
+	friend class SLLIterator<TYPE>;
 };
 
 
+template <typename TYPE>
+class SLLIterator
+{
+public:
+	SLLIterator(std::shared_ptr<SNode<TYPE>> ptr)
+	{
+		current = ptr;
+	}
+
+	bool operator == (const SLLIterator<TYPE> &rhs)
+	{
+		return this->current == rhs.current;
+	}
+
+	bool operator != (const SLLIterator<TYPE> &rhs)
+	{
+		return this->current != rhs.current;
+	}
+
+	TYPE operator*()
+	{
+		return current->elem;
+	}
+
+	SLLIterator<TYPE> operator ++()
+	{
+		current = current->next;
+		return SLLIterator<TYPE>(current);
+	}
+private:
+	std::shared_ptr<SNode<TYPE>> current;
+};
 
 template <typename TYPE>
 class SLinkedList {
@@ -38,6 +75,15 @@ public:
 	void RemoveDuplicateNodesV2();
 	TYPE GetKthLastElement(size_t k) const;
 	TYPE GetKthLastElementRec(size_t k) const;
+
+	SLLIterator<TYPE> begin() const {
+		return SLLIterator<TYPE>(head);
+	}
+
+	SLLIterator<TYPE> end() const {
+		return SLLIterator<TYPE>(nullptr);
+	}
+
 private:
 
 	size_t  GetKethLastELementRec(std::shared_ptr < SNode<TYPE>> iter,

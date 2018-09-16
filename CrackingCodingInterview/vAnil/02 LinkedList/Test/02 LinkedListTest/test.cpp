@@ -136,19 +136,32 @@ TEST(GetkthLastElem, Test2)
 
 	SLinkedList<int> list;
 
-	list.addFront(10);
-	list.addFront(10);
-	list.addFront(10);
-	list.addFront(11);
-	list.addFront(11);
-	list.addFront(12);
+	list.addFront(20);
+	list.addFront(19);
+	list.addFront(18);
+	list.addFront(17);
+	list.addFront(16);
+	list.addFront(15);
+	list.addFront(14);
 	list.addFront(13);
-	list.addFront(10);
-	list.addFront(11);
 	list.addFront(12);
-	list.addFront(13);
+	list.addFront(11);
+	list.addFront(10);
 
-	list.print();
+	//list.print();
+
+	std::cout << "Printing list elements:";
+	/*for (SLLIterator<int> iter = list.begin(); iter != list.end(); ++iter)
+	{
+
+		std::cout << *iter << endl;
+	}*/
+
+	for (auto iter : list)
+	{
+		std::cout << iter << endl;
+	}
+	output = testing::internal::GetCapturedStdout();
 
 	try
 	{
@@ -162,7 +175,7 @@ TEST(GetkthLastElem, Test2)
 
 
 
-	output = testing::internal::GetCapturedStdout();
+	
 
 	EXPECT_TRUE(true);
 	//EXPECT_EQ(11, val);
