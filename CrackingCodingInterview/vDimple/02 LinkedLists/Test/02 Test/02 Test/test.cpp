@@ -17,7 +17,7 @@ TEST(D_SLinkedList_Test, removeDuplicates_Test1) {
 		list.addFront(5);
 		list.addFront(1);
 		list.print();
-		list.RemoveDuplicateNodesV2();
+		list.RemoveDuplicateNodesV1();
 		list.print();
 	}
 	output = testing::internal::GetCapturedStdout();
@@ -42,11 +42,11 @@ TEST(D_SLinkedList_Test, getKthFromLast_Test1) {
 		list.addFront(7);
 		
 		list.print();
-		int k = 1;
-//		int res = list.getKthFromLast(k);
-		int res = list.getKthFromLastRecursiveFn(k);
-	
+		int k = 3;
+		//int res = list.getKthFromLast(k);
+		const int &res = list.getKthFromLastRecursive(k);
+
 	output = testing::internal::GetCapturedStdout();
 
-	EXPECT_EQ(res, 1);
+	EXPECT_EQ(res, 3);
 }

@@ -26,6 +26,9 @@ class SLinkedList
 private:
 	std::shared_ptr<SNode<E>> head = nullptr;
 	std::mutex m_mutex;
+
+	shared_ptr<SNode<E>> getKthFromLastRecursive(shared_ptr<SNode<E>>, int k, int &i) const;
+
 public:
 	SLinkedList() {}
 	~SLinkedList() {}
@@ -34,8 +37,8 @@ public:
 	void RemoveDuplicateNodesV1();
 	void RemoveDuplicateNodesV2();
 	const E& getKthFromLast(int k) const;
-	const E& getKthFromLastRecursiveFn(int k) const;
-	shared_ptr<SNode<E>> SLinkedList<E>::getKthFromLastRecursive(shared_ptr<SNode<E>> , int k, int &i) const;
+	const E& getKthFromLastRecursive(int k) const;
+	
 	void print();
 	
 };
@@ -83,39 +86,31 @@ void SLinkedList<E>::RemoveDuplicateNodesV1()
 {
 	//O(N2) time
 
-	//shared_ptr<SNode<E>> temp = head;
-	//if (head!=nullptr && head->next != nullptr)
-	//{
-	//	shared_ptr<SNode<E>> temp1;
-	//	shared_ptr<SNode<E>> prev;
-	//	prev = temp;
-	//	while (temp->next != nullptr)
-	//	{
-	//		temp1 = temp->next;
-	//		while (temp1 != NULL)
-	//		{
-	//			if (temp->data == temp1->data)
-	//			{
-	//				if (temp1->next != nullptr)
-	//				{
-	//					prev->next = temp1->next;
-	//					temp1 = prev->next;
-	//				}
-	//				else
-	//					temp1 = nullptr;
-	//				continue;
-	//			}
-	//			//if(temp1!=NULL)
-	//				prev = temp1;
-	//			//if (temp1->next != nullptr)
-	//			temp1 = temp1->next;
-	//			//else
-	//				//temp1 = NULL;
-	//		}
-	//		temp = temp->next;
-	//		prev = temp;
-	//	}
-	//}
+	shared_ptr<SNode<E>> temp = head;
+	if (head!=nullptr && head->next != nullptr)
+	{
+		shared_ptr<SNode<E>> temp1;
+		shared_ptr<SNode<E>> prev;
+		prev = temp;
+		while (temp != nullptr)
+		{
+			temp1 = temp->next;
+			while (temp1 != nullptr)
+			{
+				if (temp->data == temp1->data)
+				{
+					prev->next = temp1->next;
+					temp1 = prev->next;
+					
+					continue;
+				}
+				prev = temp1;
+				temp1 = temp1->next;
+			}
+			temp = temp->next;
+			prev = temp;
+		}
+	}
 }
 
 template<typename E>
@@ -139,20 +134,13 @@ void SLinkedList<E>::RemoveDuplicateNodesV2()
 		if (listSet.find(temp->data)!=listSet.end())
 		{
 			prev->next = temp->next;
-
-			if (prev->next != nullptr)
-				temp = prev->next;
-			else
-				temp = nullptr;
+			temp = prev->next;
 
 			continue;
 		}
 		listSet.insert(temp->data);
 		prev = temp;
-		if (temp->next != nullptr)
-			temp = temp->next;
-		else
-			temp = nullptr;
+		temp = temp->next;
 	}
 }
 
@@ -200,10 +188,10 @@ shared_ptr<SNode<E>> SLinkedList<E>::getKthFromLastRecursive(shared_ptr<SNode<E>
 	{
 		return nullptr;
 	}
-	if (head->next == nullptr)
+	/*if (head->next == nullptr)
 	{
 		return head;
-	}
+	}*/
 
 	shared_ptr<SNode<E>> temp = getKthFromLastRecursive(head->next, k, i);
 	i++;
@@ -213,9 +201,9 @@ shared_ptr<SNode<E>> SLinkedList<E>::getKthFromLastRecursive(shared_ptr<SNode<E>
 }
 
 template<typename E>
-const E& SLinkedList<E>::getKthFromLastRecursiveFn(int k) const
+const E& SLinkedList<E>::getKthFromLastRecursive(int k) const
 {
-	int i = 1;
+	int i = 0;
 	shared_ptr<SNode<E>> snd = getKthFromLastRecursive(head, k, i);
 	return snd->data;
 }
