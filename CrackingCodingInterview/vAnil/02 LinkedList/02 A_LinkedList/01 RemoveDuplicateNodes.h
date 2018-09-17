@@ -8,4 +8,21 @@
 #define LINKEDLIST_API __declspec(dllimport)
 #endif
 
-LINKEDLIST_API bool RemoveDuplicateNodesV1(SLinkedList<int>&list);
+template <typename TYPE>
+void RemoveDuplicateNodesV1(SLinkedList<TYPE>&list);
+
+template <typename TYPE>
+void RemoveDuplicateNodesV2(SLinkedList<TYPE>&list);
+
+
+template <typename TYPE>
+void RemoveDuplicateNodesV1(SLinkedList<TYPE>&list)
+{
+	return list.RemoveDuplicateNodesV2();
+}
+
+template <typename TYPE>
+void RemoveDuplicateNodesV2(SLinkedList<TYPE>&list)
+{
+	return list.RemoveDuplicateNodesV2();
+}
