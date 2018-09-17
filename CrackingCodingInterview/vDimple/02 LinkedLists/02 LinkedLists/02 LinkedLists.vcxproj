@@ -139,11 +139,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="RemoveDuplicates.h" />
     <ClInclude Include="SLinkedList.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="RemoveDuplicates.cpp" />
     <ClCompile Include="SLinkedList.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

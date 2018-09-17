@@ -18,15 +18,9 @@
     <ClInclude Include="SLinkedList.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="RemoveDuplicates.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="SLinkedList.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="RemoveDuplicates.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
