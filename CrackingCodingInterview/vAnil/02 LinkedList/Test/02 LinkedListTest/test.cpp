@@ -25,8 +25,158 @@ TEST(SLinkedListTest, Test1) {
 	EXPECT_TRUE(true);
 }
 
-TEST(RemoveDuplicateNodes, Test1)
+
+TEST(RemoveDuplicateNodes, TestV1)
 {
+	std::string output;
 	testing::internal::CaptureStdout();
 
+	{
+		SLinkedList<int> list;
+
+		list.addFront(10);
+		list.addFront(10);
+		list.addFront(10);
+		list.addFront(11);
+		list.addFront(11);
+		list.addFront(12);
+		list.addFront(13);
+		list.addFront(10);
+		list.addFront(11);
+		list.addFront(12);
+		list.addFront(13);
+
+		list.print();
+
+		RemoveDuplicateNodesV1(list);
+
+		list.print();
+
+	}
+
+
+	output = testing::internal::GetCapturedStdout();
+
+	EXPECT_TRUE(true);
+}
+
+
+TEST(RemoveDuplicateNodes, TestV2)
+{
+	std::string output;
+	testing::internal::CaptureStdout();
+
+	{
+		SLinkedList<int> list;
+
+		list.addFront(10);
+		list.addFront(10);
+		list.addFront(10);
+		list.addFront(11);
+		list.addFront(11);
+		list.addFront(12);
+		list.addFront(13);
+		list.addFront(10);
+		list.addFront(11);
+		list.addFront(12);
+		list.addFront(13);
+
+		list.print();
+
+		RemoveDuplicateNodesV2(list);
+
+		list.print();
+
+	}
+
+
+	output = testing::internal::GetCapturedStdout();
+
+	EXPECT_TRUE(true);
+}
+
+
+TEST(GetkthLastElem, Test1)
+{
+	std::string output;
+	testing::internal::CaptureStdout();
+
+		SLinkedList<int> list;
+
+		list.addFront(20);
+		list.addFront(19);
+		list.addFront(18);
+		list.addFront(17);
+		list.addFront(16);
+		list.addFront(15);
+		list.addFront(14);
+		list.addFront(13);
+		list.addFront(12);
+		list.addFront(11);
+		list.addFront(10);
+
+		list.print();
+
+		int val = list.GetKthLastElementRec(0);
+		
+
+	
+
+
+	output = testing::internal::GetCapturedStdout();
+
+	EXPECT_EQ(17, val);
+}
+
+
+TEST(GetkthLastElem, Test2)
+{
+	std::string output;
+	testing::internal::CaptureStdout();
+
+	SLinkedList<int> list;
+
+	list.addFront(20);
+	list.addFront(19);
+	list.addFront(18);
+	list.addFront(17);
+	list.addFront(16);
+	list.addFront(15);
+	list.addFront(14);
+	list.addFront(13);
+	list.addFront(12);
+	list.addFront(11);
+	list.addFront(10);
+
+	//list.print();
+
+	std::cout << "Printing list elements:";
+	/*for (SLLIterator<int> iter = list.begin(); iter != list.end(); ++iter)
+	{
+
+		std::cout << *iter << endl;
+	}*/
+
+	for (auto iter : list)
+	{
+		std::cout << iter << endl;
+	}
+	output = testing::internal::GetCapturedStdout();
+
+	try
+	{
+		int val = list.GetKthLastElement(20);
+	}
+	catch (exception E)
+	{
+		cout << "Error!!";
+	}
+
+
+
+
+	
+
+	EXPECT_TRUE(true);
+	//EXPECT_EQ(11, val);
 }
