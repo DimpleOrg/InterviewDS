@@ -180,3 +180,67 @@ TEST(GetkthLastElem, Test2)
 	EXPECT_TRUE(true);
 	//EXPECT_EQ(11, val);
 }
+
+
+
+TEST(PartitionListAroundPivot, Test1)
+{
+	std::string output;
+	testing::internal::CaptureStdout();
+
+	SLinkedList<int> list;
+
+	list.addFront(2);
+	list.addFront(3);
+	list.addFront(9);
+	list.addFront(5);
+	list.addFront(1);
+	list.addFront(15);
+	list.addFront(14);
+
+	list.print();
+
+	list.PartitionListAroundPivot(5);
+
+	list.print();
+
+	output = testing::internal::GetCapturedStdout();
+
+	EXPECT_TRUE(true);
+	//EXPECT_EQ(11, val);
+}
+
+
+TEST(AddTwoListNumerically, Test1)
+{
+	std::string output;
+	testing::internal::CaptureStdout();
+
+	SLinkedList<int> list;
+
+	list.addFront(2);
+	list.addFront(1);
+	list.addFront(7);
+	list.print();
+
+	SLinkedList<int> list1;
+
+	list1.addFront(5);
+	list1.addFront(3);
+	list1.addFront(1);
+	list1.addFront(4);
+
+
+
+	list1.print();
+	{
+	std::shared_ptr<SLinkedList<int>> resultList = AddTwoListNumerically(list, list1);
+
+	resultList->print();
+
+}
+	output = testing::internal::GetCapturedStdout();
+
+	EXPECT_TRUE(true);
+	//EXPECT_EQ(11, val);
+}
