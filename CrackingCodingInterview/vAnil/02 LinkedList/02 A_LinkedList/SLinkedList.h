@@ -55,7 +55,7 @@ public:
 	SLLIterator<TYPE> operator ++()
 	{
 		current = current->next;
-		return SLLIterator<TYPE>(current);
+		return *this;
 	}
 private:
 	std::shared_ptr<SNode<TYPE>> current;
@@ -69,6 +69,7 @@ public:
 	bool empty() const;
 	const TYPE& front() const; 
 	void addFront(const TYPE& e); 
+	void addBack(const TYPE& e);
 	void removeFront();
 	void print();
 	void RemoveDuplicateNodesV1();
@@ -83,6 +84,8 @@ public:
 	SLLIterator<TYPE> end() const {
 		return SLLIterator<TYPE>(nullptr);
 	}
+
+	void PartitionListAroundPivot(TYPE pivot);
 
 private:
 
@@ -101,6 +104,51 @@ TYPE SLinkedList<TYPE>::GetKthLastElementRec(size_t k) const
 	GetKethLastELementRec(head, k, result);
 
 	return result->elem;
+}
+
+template<typename TYPE>
+void SLinkedList<TYPE>::PartitionListAroundPivot(TYPE pivot)
+{
+	if (head != nullptr)
+	{
+		std::shared_ptr<SNode<TYPE>> newhead;
+		std::shared_ptr<SNode<TYPE>> end;
+
+		std::shared_ptr<SNode<TYPE>> iter;
+
+		newhead = head;
+		head = head->next;
+
+		newhead->next = nullptr;
+		end = newhead;
+
+		
+		while (head)
+		{
+			if (head->elem < pivot)
+			{
+				std::shared_ptr<SNode<TYPE>> temp;
+				temp = head->next;
+
+				head->next = newhead;
+				newhead = head;
+
+				head = temp;
+			}
+			else
+			{
+				end->next = head;
+				head = head->next;
+
+				end = end->next;
+				end->next = nullptr;
+
+				//end = end->next;
+			}
+		}
+
+		head = newhead;
+	}
 }
 
 template <typename TYPE>
@@ -181,12 +229,34 @@ SLinkedList<TYPE>::~SLinkedList()
 
 template <typename TYPE>
 void SLinkedList<TYPE>::addFront(const TYPE& e) { 
-	cout << "Adding Elem:" << e << endl;
+	cout << "Adding Front Elem:" << e << endl;
 	lock_guard<mutex> lock(slMutex);
 	shared_ptr<SNode<TYPE>> v = make_shared<SNode<TYPE>>();
 	v->elem = e; 
 	v->next = head;
 	head = v;
+}
+
+template <typename TYPE>
+void SLinkedList<TYPE>::addBack(const TYPE& e) {
+	cout << "Adding Back Elem:" << e << endl;
+	lock_guard<mutex> lock(slMutex);
+	shared_ptr<SNode<TYPE>> v = make_shared<SNode<TYPE>>();
+	v->elem = e;
+	v->next = nullptr;
+
+	if (head == nullptr)
+	{
+		head = v;
+	}
+	else
+	{
+		auto iter = head;
+		while (iter->next != nullptr)
+			iter = iter->next;
+
+		iter->next = v;
+	}
 }
 
 
@@ -266,4 +336,51 @@ inline void SLinkedList<TYPE>::RemoveDuplicateNodesV2()
 		prev = temp;
 		temp = temp->next;
 	}
+}
+
+
+template <typename E>
+std::shared_ptr < SLinkedList<E>> AddTwoListNumerically(const SLinkedList<E> &list1, const SLinkedList<E> &list2)
+{
+	SLLIterator<E> begin1 = list1.begin();
+	SLLIterator<E> begin2 = list2.begin();
+
+	std::shared_ptr<SLinkedList<E>> rlist = std::make_shared<SLinkedList<E>>();
+//	SLinkedList<E> rlist;
+
+	E carryOver = 0;
+	while (begin1 != list1.end()
+		&& begin2 != list2.end())
+	{
+		E sum = *begin1 + *begin2 + carryOver;
+
+		if (sum > 9) {
+			carryOver = 1;
+		}
+		else {
+			carryOver = 0;
+		}
+
+		rlist->addBack(sum % 10);
+
+		++begin1;
+		++begin2;
+	}
+
+	while (begin1 != list1.end())
+	{
+		rlist->addBack(*begin1 + carryOver);
+		carryOver = 0;
+		++begin1;
+	}
+
+	while (begin2 != list2.end())
+	{
+		rlist->addBack(*begin2 + carryOver);
+		carryOver = 0;
+		++begin2;
+	}
+
+	return rlist;
+
 }
