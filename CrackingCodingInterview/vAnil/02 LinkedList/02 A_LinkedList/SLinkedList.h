@@ -55,7 +55,7 @@ public:
 	SLLIterator<TYPE> operator ++()
 	{
 		current = current->next;
-		return SLLIterator<TYPE>(current);
+		return SLLIterator<TYPE>(current); //check whether we could return *this
 	}
 private:
 	std::shared_ptr<SNode<TYPE>> current;
