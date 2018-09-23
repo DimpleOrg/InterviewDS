@@ -57,6 +57,12 @@ public:
 		current = current->next;
 		return *this;
 	}
+
+	SLLIterator<TYPE> operator ++(int)
+	{
+		current = current->next;
+		return *this;
+	}
 private:
 	std::shared_ptr<SNode<TYPE>> current;
 };
@@ -76,6 +82,20 @@ public:
 	void RemoveDuplicateNodesV2();
 	TYPE GetKthLastElement(size_t k) const;
 	TYPE GetKthLastElementRec(size_t k) const;
+	size_t lenght() const
+	{
+		//std::lock_guard<std::mutex> locker(slMutex);
+		size_t count = 0;
+
+		std::shared_ptr<SNode<TYPE>> iter = head;
+		while (iter)
+		{
+			count++;
+			iter = iter->next;
+		}
+
+		return count;
+	}
 
 	SLLIterator<TYPE> begin() const {
 		return SLLIterator<TYPE>(head);
@@ -383,4 +403,104 @@ std::shared_ptr < SLinkedList<E>> AddTwoListNumerically(const SLinkedList<E> &li
 
 	return rlist;
 
+}
+
+
+template <typename E>
+void AddTwoListRec(SLLIterator<E> iter1, SLLIterator<E> & end1,
+	SLLIterator<E> iter2, SLLIterator<E> &end2,
+	std::shared_ptr<SLinkedList<E>> &list3,
+	E& carryOver)
+{
+	if (iter1 == end1 || iter2 == end2)
+		return;
+
+	AddTwoListRec(iter1++, end1, iter2++, end2, list3, carryOver);
+
+	if (iter1 != end1 && iter2 != end2)
+	{
+		E sumNode = *iter1 + *iter2 + carryOver;
+
+		if (sumNode > 9)
+			carryOver = 1;
+		else
+			carryOver = 0;
+
+		list3->addFront(sumNode % 10);
+	}	
+}
+
+template <typename E>
+std::shared_ptr < SLinkedList<E>> AddTwoListNumericallyV2(const SLinkedList<E> &list1, const SLinkedList<E> &list2)
+{
+	size_t l1 = list1.lenght();
+	size_t l2 = list2.lenght();
+
+	SLLIterator<E> iter1 = list1.begin();
+	SLLIterator<E> iter2 = list2.begin();
+
+	if (l1 > l2) {
+		while ((l1 - l2) != 0) {
+			++iter1;
+			++l2;
+		}			
+	}
+	else {
+		while ((l2 - l1) != 0) {
+			++iter2;
+			++l1;
+		}
+	}
+
+	std::shared_ptr < SLinkedList<E> > resultlist = std::make_shared<SLinkedList<E>>();
+	E carryOver = 0;
+
+	//add matching nodes
+	AddTwoListRec(iter1, list1.end(), iter2, list2.end(), resultlist, carryOver);
+	E sumNode = *iter1 + *iter2 + carryOver;
+
+	if (sumNode > 9)
+		carryOver = 1;
+	else
+		carryOver = 0;
+	resultlist->addFront(sumNode % 10);
+
+
+	//add single nodes
+	l1 = list1.lenght();
+	l2 = list2.lenght();
+
+	iter1 = list1.begin();
+	iter2 = list2.begin();
+
+	if (l1 > l2) {
+		while ((l1 - l2) != 0) {
+			E sumNode = *iter1 + carryOver;
+			resultlist->addFront(sumNode % 10);
+			if (sumNode > 9)
+				carryOver = 1;
+			else
+				carryOver = 0;
+
+			iter1++;
+			++l2;
+		}
+	}
+	else {
+		while ((l2 - l1) != 0) {
+			E sumNode = *iter2 + carryOver;
+			resultlist->addFront(sumNode % 10);
+			if (sumNode > 9)
+				carryOver = 1;
+			else
+				carryOver = 0;
+
+			iter2++;
+			++l1;
+		}
+	}
+
+
+
+	return resultlist;
 }

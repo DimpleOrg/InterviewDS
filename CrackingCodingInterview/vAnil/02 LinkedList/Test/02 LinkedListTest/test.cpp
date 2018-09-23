@@ -244,3 +244,37 @@ TEST(AddTwoListNumerically, Test1)
 	EXPECT_TRUE(true);
 	//EXPECT_EQ(11, val);
 }
+
+
+TEST(AddTwoListNumericallyV2, Test1)
+{
+	std::string output;
+	testing::internal::CaptureStdout();
+
+	SLinkedList<int> list;
+
+	list.addBack(9);
+	list.addBack(1);
+	list.addBack(7);
+	list.print();
+
+	SLinkedList<int> list1;
+
+	list1.addBack(5);
+	list1.addBack(3);
+	list1.addBack(1);
+	list1.addBack(4);
+
+
+
+	list1.print();
+
+	std::shared_ptr<SLinkedList<int>> resultList = AddTwoListNumericallyV2(list, list1);
+
+	resultList->print();
+
+	output = testing::internal::GetCapturedStdout();
+
+	EXPECT_TRUE(true);
+	//EXPECT_EQ(11, val);
+}
