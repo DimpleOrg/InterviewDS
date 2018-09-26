@@ -278,3 +278,54 @@ TEST(AddTwoListNumericallyV2, Test1)
 	EXPECT_TRUE(true);
 	//EXPECT_EQ(11, val);
 }
+
+
+TEST(IsPalindromList, Test1)
+{
+	std::string output;
+	testing::internal::CaptureStdout();
+
+	SLinkedList<int> list;
+
+	list.addBack(9);
+	list.addBack(1);
+	list.addBack(7);
+	list.addBack(5);
+	list.addBack(7);
+	list.addBack(1);
+	list.addBack(9);
+
+	list.print();
+
+	bool result = IsPalindromList(list);
+
+	std::cout << "\n Result:" << result;
+	output = testing::internal::GetCapturedStdout();
+
+
+	EXPECT_EQ(true, result);
+}
+
+TEST(IsPalindromList, Test2)
+{
+	std::string output;
+	testing::internal::CaptureStdout();
+
+	SLinkedList<int> list;
+
+	list.addBack(1);
+	list.addBack(7);
+	list.addBack(5);
+	list.addBack(7);
+	list.addBack(1);
+	list.addBack(9);
+
+	list.print();
+
+	bool result = IsPalindromList(list);
+
+	std::cout << "\n Result:" << result;
+	output = testing::internal::GetCapturedStdout();
+
+	EXPECT_EQ(false, result);
+}
