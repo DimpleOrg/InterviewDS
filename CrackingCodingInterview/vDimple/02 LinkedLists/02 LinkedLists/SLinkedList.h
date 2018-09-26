@@ -14,9 +14,12 @@ template<typename E>
 class SLLIterator;
 
 template<typename E>
-std::shared_ptr<SLinkedList<E>> sumLists(std::shared_ptr<SLinkedList<E>>& list1, std::shared_ptr<SLinkedList<E>>& list2);
+std::shared_ptr<SLinkedList<E>> sumListsReverseOrder(std::shared_ptr<SLinkedList<E>>& list1, std::shared_ptr<SLinkedList<E>>& list2);
 
-template <typename E> 
+template<typename E>
+std::shared_ptr<SLinkedList<E>> sumListsForwardOrder(std::shared_ptr<SLinkedList<E>>& list1, std::shared_ptr<SLinkedList<E>>& list2);
+
+template <typename E>
 class SNode
 {
 private:
@@ -25,7 +28,7 @@ private:
 	friend class SLinkedList<E>;
 	friend class SLLIterator<E>;
 public:
-	~SNode() { std::cout<< "\n Destroying " <<data; }
+	~SNode() { std::cout << "\n Destroying " << data; }
 };
 
 template<typename E>
@@ -36,6 +39,7 @@ private:
 	std::mutex m_mutex;
 
 	std::shared_ptr<SNode<E>> getKthFromLastRecursive(std::shared_ptr<SNode<E>>, int k, int &i) const;
+	bool isListPalindrome(std::shared_ptr<SNode<E>> head, int count) const;
 
 public:
 	SLinkedList() {}
@@ -48,7 +52,8 @@ public:
 	const E& getKthFromLastRecursive(int k) const;
 	void deleteMiddleNode(std::shared_ptr<SNode<E>> ptr);
 	void partitionAroundPivot(int pivot);
-	
+	void modify(int count);
+	bool isPalindrome() const;
 
 	void print();
 	SLLIterator<E> begin() const;
@@ -66,12 +71,12 @@ public:
 
 	bool operator == (const SLLIterator<E> &rhs)
 	{
-		return this->current == rhs.current; //current is a pointer and this is also a pointer??
+		return current == rhs.current; //current is a pointer and this is also a pointer??
 	}
 
 	bool operator != (const SLLIterator<E> &rhs)
 	{
-		return this->current != rhs.current;
+		return current != rhs.current;
 	}
 
 	E operator *()
@@ -86,6 +91,17 @@ public:
 		return *this;
 	}
 
+	SLLIterator<E> operator ++(int)
+	{
+
+		std::shared_ptr<SNode<E>> temp = nullptr;
+		temp = current;
+		SLLIterator<E> iter(temp);
+		current = current->next;
+
+		return iter;
+	}
+
 private:
 	std::shared_ptr<SNode<E>> current;
 };
@@ -93,13 +109,13 @@ private:
 template<typename E>
 SLLIterator<E> SLinkedList<E>::begin() const
 {
-	return std::move(SLLIterator<E> (head));
+	return std::move(SLLIterator<E>(head));
 }
 
 template<typename E>
 SLLIterator<E> SLinkedList<E>::end() const
 {
-	return std::move(SLLIterator<E> (nullptr));
+	return std::move(SLLIterator<E>(nullptr));
 }
 
 template<typename E>
@@ -128,19 +144,66 @@ void SLinkedList<E>::print()
 	std::lock_guard<std::mutex> locker(m_mutex);
 	temp = head;
 	std::cout << "\n";
-	while (temp->next != nullptr)
+	while (temp != nullptr)
 	{
 		std::cout << temp->data << "\t";
 		temp = temp->next;
 	}
-	std::cout << temp->data;
 
 }
 
 template<typename E>
-std::shared_ptr<SLinkedList<E>> sumLists(std::shared_ptr<SLinkedList<E>>& list1, std::shared_ptr<SLinkedList<E>>& list2)
+bool SLinkedList<E>::isPalindrome() const
 {
-	if (list1==nullptr && list2 == nullptr)
+	int count = 0;
+	bool res = true;
+	//	for (auto iter : this) count++;			how to use iter?
+	std::shared_ptr<SNode<E>> temp = head;
+	while (temp != nullptr)
+	{
+		count++;
+		temp = temp->next;
+	}
+	return isListPalindrome(head, count);
+}
+
+template<typename E>
+bool SLinkedList<E>::isListPalindrome(std::shared_ptr<SNode<E>> head, int count) const
+{
+	static std::shared_ptr<SNode<E>> temp = head;
+	static int loop = 0;
+
+	if (head == nullptr)
+		return true;
+
+	bool res = isListPalindrome(head->next, count);
+	if (res == true)
+	{
+		if (head != nullptr)
+		{
+			if (loop < count / 2)
+			{
+				++loop;
+				if (temp->data != head->data)
+					return false;
+				else
+				{
+					temp = temp->next;
+					return true;
+				}
+			}
+			else
+				return true;
+		}
+	}
+	else
+		return false;
+}
+
+template<typename E>
+std::shared_ptr<SLinkedList<E>> sumListsReverseOrder(std::shared_ptr<SLinkedList<E>>& list1, std::shared_ptr<SLinkedList<E>>& list2)
+{
+	if (list1 == nullptr && list2 == nullptr)
 		return nullptr;
 	if (list1 != nullptr && list2 == nullptr)
 		return list1;
@@ -151,13 +214,22 @@ std::shared_ptr<SLinkedList<E>> sumLists(std::shared_ptr<SLinkedList<E>>& list1,
 
 	int sum = 0, carry = 0;
 
-	for (auto iter1 : list1, iter2 : list2)
+	SLLIterator<E> iter1 = list1->begin();
+	SLLIterator<E> iter2 = list2->begin();
+
+	while (iter1 != list1->end() || iter2 != list2->end())
 	{
 		sum = 0;
-		if (iter1 != nullptr)
-			sum += iter1;
-		if (iter2 != nullptr)
-			sum += iter2;
+		if (iter1 != list1->end())
+		{
+			sum += *iter1;
+			++iter1;
+		}
+		if (iter2 != list2->end())
+		{
+			sum += *iter2;
+			++iter2;
+		}
 		sum += carry;
 
 		if (sum > 9)
@@ -165,11 +237,80 @@ std::shared_ptr<SLinkedList<E>> sumLists(std::shared_ptr<SLinkedList<E>>& list1,
 			carry = sum / 10;
 			sum = sum % 10;
 		}
-		addToTail(sum);
+		else
+			carry = 0;
+
+		list3->addToTail(sum);
+
 	}
-	addToTail(carry);
+	if (carry>0)
+		list3->addToTail(carry);
 
 	return list3;
+}
+
+template<typename E>
+std::shared_ptr<SLinkedList<E>> sumListsForwardOrder(std::shared_ptr<SLinkedList<E>>& list1, std::shared_ptr<SLinkedList<E>>& list2)
+{
+	if (list1 == nullptr && list2 == nullptr)
+		return nullptr;
+	if (list1 != nullptr && list2 == nullptr)
+		return list1;
+	if (list2 != nullptr && list1 == nullptr)
+		return list2;
+
+	std::shared_ptr<SLinkedList<E>> list3 = std::make_shared<SLinkedList<E>>();
+
+	int count1 = 0, count2 = 0;
+	for (SLLIterator<E> iter1 = list1->begin(); iter1 != list1->end(); ++iter1)
+		count1 += 1;
+	//for (SLLIterator<E> iter2 : list2)		//not working???
+	for (SLLIterator<E> iter2 = list2->begin(); iter2 != list2->end(); ++iter2)
+		count2 += 1;
+	if (count1 > count2)
+		list2->modify(count1 - count2);
+
+	if (count2 > count1)
+		list1->modify(count2 - count1);
+
+	SLLIterator<E> iter1 = list1->begin(), iter2 = list2->begin();
+
+	int carry = sumTwoLL(iter1, iter2, list1, list2, list3);
+	int sum = *(list1->begin()) + *(list2->begin()) + carry;
+	list3->addFront(sum % 10);
+	if (sum > 9)
+	{
+		list3->addFront(sum / 10);
+	}
+	return list3;
+}
+
+template<typename E>
+int sumTwoLL(SLLIterator<E>& iter1, SLLIterator<E>& iter2, std::shared_ptr<SLinkedList<E>>& list1, std::shared_ptr<SLinkedList<E>>& list2, std::shared_ptr<SLinkedList<E>>& list3)
+{
+	static int carry = 0;
+	if (iter1 == list1->end() && iter2 == list2->end())
+		return 0;
+
+	sumTwoLL(++iter1, ++iter2, list1, list2, list3);
+	if (iter1 != list1->end())
+	{
+		int sum = 0;
+		sum = *iter1 + *iter2 + carry;
+		carry = sum / 10;
+		sum = sum % 10;
+		list3->addFront(sum);
+	}
+	return carry;
+}
+
+template<typename E>
+void SLinkedList<E>::modify(int count)
+{
+	for (int i = 0; i < count; i++)
+	{
+		addFront(0);
+	}
 }
 
 template<typename E>
@@ -200,7 +341,7 @@ void SLinkedList<E>::RemoveDuplicateNodesV1()
 	//O(N2) time
 
 	std::shared_ptr<SNode<E>> temp = head;
-	if (head!=nullptr && head->next != nullptr)
+	if (head != nullptr && head->next != nullptr)
 	{
 		std::shared_ptr<SNode<E>> temp1;
 		std::shared_ptr<SNode<E>> prev;
@@ -214,7 +355,7 @@ void SLinkedList<E>::RemoveDuplicateNodesV1()
 				{
 					prev->next = temp1->next;
 					temp1 = prev->next;
-					
+
 					continue;
 				}
 				prev = temp1;
@@ -244,7 +385,7 @@ void SLinkedList<E>::RemoveDuplicateNodesV2()
 	std::shared_ptr<SNode<E>> prev = temp;
 	while (temp != nullptr)
 	{
-		if (listSet.find(temp->data)!=listSet.end())
+		if (listSet.find(temp->data) != listSet.end())
 		{
 			prev->next = temp->next;
 			temp = prev->next;
@@ -259,7 +400,7 @@ void SLinkedList<E>::RemoveDuplicateNodesV2()
 
 
 template<typename E>
-const E& SLinkedList<E>::getKthFromLast (int k) const
+const E& SLinkedList<E>::getKthFromLast(int k) const
 {
 	if (head == NULL)
 	{
@@ -280,11 +421,11 @@ const E& SLinkedList<E>::getKthFromLast (int k) const
 
 	std::shared_ptr<SNode<E>> temp1 = head;
 	std::shared_ptr<SNode<E>> temp2 = head;
-	
+
 	for (int i = 1; i < k; i++)
 	{
 		//if(temp2->next!=nullptr)
-			temp2 = temp2->next;
+		temp2 = temp2->next;
 	}
 	while (temp2->next != nullptr)
 	{
@@ -301,10 +442,6 @@ std::shared_ptr<SNode<E>> SLinkedList<E>::getKthFromLastRecursive(std::shared_pt
 	{
 		return nullptr;
 	}
-	/*if (head->next == nullptr)
-	{
-		return head;
-	}*/
 
 	std::shared_ptr<SNode<E>> temp = getKthFromLastRecursive(head->next, k, i);
 	i++;
@@ -320,6 +457,7 @@ const E& SLinkedList<E>::getKthFromLastRecursive(int k) const
 	std::shared_ptr<SNode<E>> snd = getKthFromLastRecursive(head, k, i);
 	return snd->data;
 }
+
 
 template<typename E>
 void SLinkedList<E>::deleteMiddleNode(std::shared_ptr<SNode<E>> ptr)
@@ -342,7 +480,7 @@ void SLinkedList<E>::partitionAroundPivot(int pivot)
 	newHead = head;
 	head = head->next;
 	newHead->next = nullptr;
-	
+
 	tail = newHead;
 	while (head != nullptr)
 	{
