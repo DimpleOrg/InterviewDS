@@ -408,26 +408,26 @@ std::shared_ptr < SLinkedList<E>> AddTwoListNumerically(const SLinkedList<E> &li
 
 template <typename E>
 void AddTwoListRec(SLLIterator<E> iter1, SLLIterator<E> & end1,
-	SLLIterator<E> iter2, SLLIterator<E> &end2,
-	std::shared_ptr<SLinkedList<E>> &list3,
-	E& carryOver)
+SLLIterator<E> iter2, SLLIterator<E> &end2,
+std::shared_ptr<SLinkedList<E>> &list3,
+E& carryOver)
 {
-	if (iter1 == end1 || iter2 == end2)
-		return;
+if (iter1 == end1 || iter2 == end2)
+return;
 
-	AddTwoListRec(iter1++, end1, iter2++, end2, list3, carryOver);
+AddTwoListRec(iter1++, end1, iter2++, end2, list3, carryOver);
 
-	if (iter1 != end1 && iter2 != end2)
-	{
-		E sumNode = *iter1 + *iter2 + carryOver;
+if (iter1 != end1 && iter2 != end2)
+{
+	E sumNode = *iter1 + *iter2 + carryOver;
 
-		if (sumNode > 9)
-			carryOver = 1;
-		else
-			carryOver = 0;
+	if (sumNode > 9)
+		carryOver = 1;
+	else
+		carryOver = 0;
 
-		list3->addFront(sumNode % 10);
-	}	
+	list3->addFront(sumNode % 10);
+}
 }
 
 template <typename E>
@@ -443,7 +443,7 @@ std::shared_ptr < SLinkedList<E>> AddTwoListNumericallyV2(const SLinkedList<E> &
 		while ((l1 - l2) != 0) {
 			++iter1;
 			++l2;
-		}			
+		}
 	}
 	else {
 		while ((l2 - l1) != 0) {
@@ -503,4 +503,49 @@ std::shared_ptr < SLinkedList<E>> AddTwoListNumericallyV2(const SLinkedList<E> &
 
 
 	return resultlist;
+}
+
+
+template <typename E>
+bool IsPalindromListRec(SLLIterator<E> &begin, SLLIterator<E> &end)
+{
+	static SLLIterator<E> bIter = begin;
+
+	if (begin == end)
+	{
+		return true;
+	}
+	else
+	{
+		if (IsPalindromListRec(++begin, end) == true)
+		{
+			if (begin != end)
+			{
+				if (*bIter == *begin)
+				{
+					++bIter;
+					return true;
+				}
+				else
+				{
+					return false;
+				}
+
+			}
+			else
+			{
+				return true;
+			}
+		}
+		else
+		{
+			return false;
+		}
+	}
+}
+
+template <typename E>
+bool IsPalindromList(const SLinkedList<E>& list)
+{
+	return IsPalindromListRec(list.begin(), list.end());
 }
