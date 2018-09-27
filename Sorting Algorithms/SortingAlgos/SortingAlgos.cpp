@@ -1,3 +1,4 @@
+//#include"stdafx.h"
 #include "SortingAlgos.h"
 namespace SORT
 {

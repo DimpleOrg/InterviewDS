@@ -2,7 +2,7 @@
 
 using namespace std;
 
-void zeroMatrix(int row, int col, int **matrix)
+__declspec(dllexport) void zeroMatrix(int row, int col, int **matrix)
 {
 	bool rowHasZero = false;
 	bool colHasZero = false;
