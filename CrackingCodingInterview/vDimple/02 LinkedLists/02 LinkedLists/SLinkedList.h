@@ -32,20 +32,18 @@ public:
 };
 
 template<typename E>
+SLLIterator<E> getListIntersection(SLinkedList<E>& list1, SLinkedList<E>& list2);
+
+template<typename E>
 class SLinkedList
 {
-private:
-	std::shared_ptr<SNode<E>> head = nullptr;
-	std::mutex m_mutex;
-
-	std::shared_ptr<SNode<E>> getKthFromLastRecursive(std::shared_ptr<SNode<E>>, int k, int &i) const;
-	bool isListPalindrome(std::shared_ptr<SNode<E>> head, int count) const;
-
 public:
 	SLinkedList() {}
 	~SLinkedList() {}
 	void addFront(const E& e);
 	void addToTail(const E& val);
+	void reverseSLListRec();
+	void reverseSLListIter();
 	void RemoveDuplicateNodesV1();
 	void RemoveDuplicateNodesV2();
 	const E& getKthFromLast(int k) const;
@@ -54,10 +52,19 @@ public:
 	void partitionAroundPivot(int pivot);
 	void modify(int count);
 	bool isPalindrome() const;
+	void attatchNodeToTail(SLinkedList<E>&);
 
 	void print();
 	SLLIterator<E> begin() const;
 	SLLIterator<E> end() const;
+
+private:
+	std::shared_ptr<SNode<E>> head = nullptr;
+	std::mutex m_mutex;
+
+	void revListRec(std::shared_ptr<SNode<E>> head);
+	std::shared_ptr<SNode<E>> getKthFromLastRecursive(std::shared_ptr<SNode<E>>, int k, int &i) const;
+	bool isListPalindrome(std::shared_ptr<SNode<E>> head, int count) const;
 };
 
 template<typename E>
@@ -67,6 +74,11 @@ public:
 	SLLIterator<E>(std::shared_ptr<SNode<E>> ptr)
 	{
 		current = ptr;
+	}
+
+	std::shared_ptr<SNode<E>> getNodeAddress()
+	{
+		return current;
 	}
 
 	bool operator == (const SLLIterator<E> &rhs)
@@ -138,6 +150,28 @@ void SLinkedList<E>::addFront(const E& e)
 }
 
 template<typename E>
+void SLinkedList<E>::addToTail(const E& val)
+{
+	std::shared_ptr<SNode<E>> ptr = std::make_shared<SNode<E>>();
+	ptr->data = val;
+	ptr->next = nullptr;
+
+	if (head == nullptr)
+	{
+		head = ptr;
+	}
+	else
+	{
+		std::shared_ptr<SNode<E>> temp = head;
+		while (temp->next != nullptr)
+		{
+			temp = temp->next;
+		}
+		temp->next = ptr;
+	}
+}
+
+template<typename E>
 void SLinkedList<E>::print()
 {
 	std::shared_ptr<SNode<E>> temp;
@@ -151,6 +185,115 @@ void SLinkedList<E>::print()
 	}
 
 }
+
+template<typename E>
+void SLinkedList<E>::reverseSLListIter()
+{
+	if (head == nullptr)
+		return;
+
+
+	std::shared_ptr<SNode<E>> prev = nullptr;
+	std::shared_ptr<SNode<E>> curr = head;
+	std::shared_ptr<SNode<E>> nxt = curr->next;
+
+	while (curr != nullptr)
+	{
+		curr->next = prev;
+		prev = curr;
+		curr = nxt;
+		if (curr != nullptr)
+			nxt = nxt->next;
+	}
+	head = prev;
+}
+
+template<typename E>
+void SLinkedList<E>::reverseSLListRec()
+{
+	revListRec(head);
+}
+
+template<typename E>
+void SLinkedList<E>::revListRec(std::shared_ptr<SNode<E>> ptr)
+{
+	static std::shared_ptr<SNode<E>> temp = nullptr;
+
+	if (ptr == nullptr)
+		return;
+
+	revListRec(ptr->next);
+
+	if (ptr != nullptr && ptr->next == nullptr)
+	{
+		head = ptr;
+		temp = ptr;
+		return;
+	}
+	
+	if (ptr->next != nullptr)
+	{
+			temp->next = ptr;
+			temp = temp->next;
+			temp->next = nullptr;
+	}
+}
+
+template<typename E>
+void SLinkedList<E>::attatchNodeToTail(SLinkedList<E>& commonNode)			//if i dont take list by ref it is giving error
+{
+	SLLIterator<E> iter = commonNode.begin();
+	std::shared_ptr<SNode<E>> temp = head;
+	while (temp->next != nullptr)
+		temp = temp->next;
+	temp->next = iter.getNodeAddress();
+
+}
+
+template<typename E>
+SLLIterator<E> getListIntersection(SLinkedList<E>& list1, SLinkedList<E>& list2)
+{
+	int count1 = 0, count2 = 0;
+	for (auto iter1 : list1)
+		count1 += 1;
+	for (auto iter2 : list2)
+		count2 += 1;
+
+	auto iter1 = list1.begin();
+	auto iter2 = list2.begin();
+
+	//void setIterator(iter1, iter2, count1, count2);
+	if (count1 > count2)
+	{
+		int loop = 0;
+		while (loop < (count1 - count2))
+		{
+			++iter1;
+			loop++;
+		}
+	}
+	if (count2 > count1)
+	{
+		int loop = 0;
+		while (loop < (count2 - count1))
+		{
+			++iter2;
+			loop++;
+		}
+	}
+
+	while (iter1 != list1.end())
+	{
+		if (iter1.getNodeAddress() == iter2.getNodeAddress())
+			return iter1;
+		
+		++iter1;
+		++iter2;
+	}
+	
+	return SLLIterator<E>(nullptr);
+}
+
 
 template<typename E>
 bool SLinkedList<E>::isPalindrome() const
@@ -310,28 +453,6 @@ void SLinkedList<E>::modify(int count)
 	for (int i = 0; i < count; i++)
 	{
 		addFront(0);
-	}
-}
-
-template<typename E>
-void SLinkedList<E>::addToTail(const E& val)
-{
-	std::shared_ptr<SNode<E>> ptr = std::make_shared<SNode<E>>();
-	ptr->data = val;
-	ptr->next = nullptr;
-
-	if (head == nullptr)
-	{
-		head = ptr;
-	}
-	else
-	{
-		std::shared_ptr<SNode<E>> temp = head;
-		while (temp->next != nullptr)
-		{
-			temp = temp->next;
-		}
-		temp->next = ptr;
 	}
 }
 
