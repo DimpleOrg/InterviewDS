@@ -21,9 +21,9 @@ public:
 		std::cout << "Destruct Element:" << elem << endl;
 	}
 private:
-	TYPE elem; 
-	std::shared_ptr<SNode<TYPE>> next = nullptr; 
-	friend class SLinkedList<TYPE>; 
+	TYPE elem;
+	std::shared_ptr<SNode<TYPE>> next = nullptr;
+	friend class SLinkedList<TYPE>;
 	friend class SLLIterator<TYPE>;
 };
 
@@ -52,6 +52,11 @@ public:
 		return current->elem;
 	}
 
+	shared_ptr<SNode<TYPE>> GetCurrentNodeAddress()
+	{
+		return current;
+	}
+
 	SLLIterator<TYPE> operator ++()
 	{
 		current = current->next;
@@ -70,11 +75,12 @@ private:
 template <typename TYPE>
 class SLinkedList {
 public:
-	SLinkedList(); 
+	SLinkedList();
 	~SLinkedList();
 	bool empty() const;
-	const TYPE& front() const; 
-	void addFront(const TYPE& e); 
+	const TYPE& front() const;
+	void addFront(const TYPE& e);
+	void addBack(const std::shared_ptr<SNode<TYPE>> nptr);
 	void addBack(const TYPE& e);
 	void removeFront();
 	void print();
@@ -107,6 +113,8 @@ public:
 
 	void PartitionListAroundPivot(TYPE pivot);
 
+	void CreateIntersectingLists(SLinkedList<TYPE> &list1, SLinkedList<TYPE>&list2);
+
 private:
 
 	size_t  GetKethLastELementRec(std::shared_ptr < SNode<TYPE>> iter,
@@ -120,7 +128,7 @@ template <typename TYPE>
 TYPE SLinkedList<TYPE>::GetKthLastElementRec(size_t k) const
 {
 	std::shared_ptr < SNode<TYPE>> result;
-	
+
 	GetKethLastELementRec(head, k, result);
 
 	return result->elem;
@@ -142,7 +150,7 @@ void SLinkedList<TYPE>::PartitionListAroundPivot(TYPE pivot)
 		newhead->next = nullptr;
 		end = newhead;
 
-		
+
 		while (head)
 		{
 			if (head->elem < pivot)
@@ -171,6 +179,20 @@ void SLinkedList<TYPE>::PartitionListAroundPivot(TYPE pivot)
 	}
 }
 
+template<typename TYPE>
+inline void SLinkedList<TYPE>::CreateIntersectingLists(SLinkedList<TYPE>& list1, SLinkedList<TYPE>& list2)
+{
+	std::shared_ptr<SNode<TYPE>> obj = make_shared<SNode<TYPE>>(100);
+
+	list1.addBack(10);
+	list1.addBack(11);
+	list1.addBack(12);
+	list1.addBack(13);
+
+	list2.addBack(0);
+
+}
+
 template <typename TYPE>
 size_t SLinkedList<TYPE>::GetKethLastELementRec(std::shared_ptr < SNode<TYPE>> iter, size_t kthfromend,
 	std::shared_ptr < SNode<TYPE>> &result) const
@@ -181,8 +203,8 @@ size_t SLinkedList<TYPE>::GetKethLastELementRec(std::shared_ptr < SNode<TYPE>> i
 	}
 	else
 	{
-		int indexFromEnd = GetKethLastELementRec(iter->next, kthfromend,  result)  + 1;
-		
+		int indexFromEnd = GetKethLastELementRec(iter->next, kthfromend, result) + 1;
+
 		if (indexFromEnd == kthfromend + 1)
 		{
 			result = iter;
@@ -248,13 +270,37 @@ SLinkedList<TYPE>::~SLinkedList()
 }
 
 template <typename TYPE>
-void SLinkedList<TYPE>::addFront(const TYPE& e) { 
+void SLinkedList<TYPE>::addFront(const TYPE& e) {
 	cout << "Adding Front Elem:" << e << endl;
 	lock_guard<mutex> lock(slMutex);
 	shared_ptr<SNode<TYPE>> v = make_shared<SNode<TYPE>>();
-	v->elem = e; 
+	v->elem = e;
 	v->next = head;
 	head = v;
+}
+
+template<typename TYPE>
+inline void SLinkedList<TYPE>::addBack(const std::shared_ptr<SNode<TYPE>> nptr)
+{
+	if (nptr != nullptr) {
+		nptr->elem = 100;
+		cout << "Adding Back Elem:" << nptr->elem << endl;
+		lock_guard<mutex> lock(slMutex);
+		nptr->next = nullptr;
+
+		if (head == nullptr)
+		{
+			head = nptr;
+		}
+		else
+		{
+			auto iter = head;
+			while (iter->next != nullptr)
+				iter = iter->next;
+
+			iter->next = nptr;
+		}
+	}
 }
 
 template <typename TYPE>
@@ -281,7 +327,7 @@ void SLinkedList<TYPE>::addBack(const TYPE& e) {
 
 
 template <typename TYPE>
-void SLinkedList<TYPE>::removeFront() { 
+void SLinkedList<TYPE>::removeFront() {
 	lock_guard<mutex> lock(slMutex);
 	shared_ptr<SNode<TYPE>> old = head;
 	head = old->next;
@@ -293,7 +339,7 @@ void SLinkedList<TYPE>::print()
 {
 	lock_guard<mutex> lock(slMutex);
 	shared_ptr<SNode<TYPE>> temp = head;
-	cout  << "Single Linked List:\n";
+	cout << "Single Linked List:\n";
 	while (temp != nullptr)
 	{
 		cout << temp->elem << " ";
@@ -309,7 +355,7 @@ inline void SLinkedList<TYPE>::RemoveDuplicateNodesV1()
 	while (temp)
 	{
 		TYPE curVal = temp->elem;
-		
+
 		std::shared_ptr<SNode<TYPE>> prev = temp;
 		std::shared_ptr<SNode<TYPE>> temp1 = temp->next;
 
@@ -341,7 +387,7 @@ inline void SLinkedList<TYPE>::RemoveDuplicateNodesV2()
 
 	std::shared_ptr<SNode<TYPE>> prev = temp;
 	while (temp)
-	{	
+	{
 		if (foundSet.find(temp->elem) == foundSet.end())
 		{
 			foundSet.insert(temp->elem);
@@ -366,7 +412,7 @@ std::shared_ptr < SLinkedList<E>> AddTwoListNumerically(const SLinkedList<E> &li
 	SLLIterator<E> begin2 = list2.begin();
 
 	std::shared_ptr<SLinkedList<E>> rlist = std::make_shared<SLinkedList<E>>();
-//	SLinkedList<E> rlist;
+	//	SLinkedList<E> rlist;
 
 	E carryOver = 0;
 	while (begin1 != list1.end()
@@ -408,26 +454,26 @@ std::shared_ptr < SLinkedList<E>> AddTwoListNumerically(const SLinkedList<E> &li
 
 template <typename E>
 void AddTwoListRec(SLLIterator<E> iter1, SLLIterator<E> & end1,
-SLLIterator<E> iter2, SLLIterator<E> &end2,
-std::shared_ptr<SLinkedList<E>> &list3,
-E& carryOver)
+	SLLIterator<E> iter2, SLLIterator<E> &end2,
+	std::shared_ptr<SLinkedList<E>> &list3,
+	E& carryOver)
 {
-if (iter1 == end1 || iter2 == end2)
-return;
+	if (iter1 == end1 || iter2 == end2)
+		return;
 
-AddTwoListRec(iter1++, end1, iter2++, end2, list3, carryOver);
+	AddTwoListRec(iter1++, end1, iter2++, end2, list3, carryOver);
 
-if (iter1 != end1 && iter2 != end2)
-{
-	E sumNode = *iter1 + *iter2 + carryOver;
+	if (iter1 != end1 && iter2 != end2)
+	{
+		E sumNode = *iter1 + *iter2 + carryOver;
 
-	if (sumNode > 9)
-		carryOver = 1;
-	else
-		carryOver = 0;
+		if (sumNode > 9)
+			carryOver = 1;
+		else
+			carryOver = 0;
 
-	list3->addFront(sumNode % 10);
-}
+		list3->addFront(sumNode % 10);
+	}
 }
 
 template <typename E>
@@ -548,4 +594,53 @@ template <typename E>
 bool IsPalindromList(const SLinkedList<E>& list)
 {
 	return IsPalindromListRec(list.begin(), list.end());
+}
+
+template <typename T>
+std::shared_ptr<SNode<T>> GetInterSectionNode(SLinkedList<T> &list1, SLinkedList<T> &list2)
+{
+	size_t l1 = 0;
+	size_t l2 = 0;
+
+	l1 = list1.lenght();
+	l2 = list2.lenght();
+
+	if (l1 == 0 || l2 == 0)
+	{
+		return nullptr;
+	}
+
+	SLLIterator<T> biter1 = list1.begin();
+	SLLIterator<T> eiter1 = list1.end();
+
+	SLLIterator<T> biter2 = list2.begin();
+	SLLIterator<T> eiter2 = list2.end();
+
+
+	while (l1 > l2)
+	{
+		biter1++;
+		l1--;
+	}
+
+	while (l2 > l1)
+	{
+		biter2++;
+		l2--;
+	}
+
+	while ((biter1 != eiter1) && (biter2 != eiter2))
+	{
+		if (biter1.GetCurrentNodeAddress() == biter2.GetCurrentNodeAddress())
+		{
+			return biter1.GetCurrentNodeAddress();
+		}
+		else
+		{
+			biter1++;
+			biter2++;
+		}
+	}
+
+	return nullptr;
 }
