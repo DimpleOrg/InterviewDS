@@ -3,15 +3,191 @@
 #include<algorithm>
 
 
+TEST(D_SLinkedList_Test, Loop_Detection_Test1) {
+	std::string output;
+	testing::internal::CaptureStdout();
+
+	SLinkedList<int> list;
+	list.addToTail(1);
+	list.addToTail(2);
+	list.addToTail(3);
+	//list.attatchNodeToTail(4);
+	list.addToTail(5);
+	list.print();
+
+	list.reverseSLListRec();
+	list.print();
+
+	output = testing::internal::GetCapturedStdout();
+
+	//EXPECT_EQ();
+}
+
+TEST(D_SLinkedList_Test, ReverseSLList_Rec_Test1) {
+	std::string output;
+	testing::internal::CaptureStdout();
+
+	SLinkedList<int> list;
+	list.addToTail(1);
+	list.addToTail(2);
+	list.addToTail(3);
+	list.addToTail(4);
+	list.addToTail(5);
+	list.print();
+
+	list.reverseSLListRec();
+	list.print();
+	
+	output = testing::internal::GetCapturedStdout();
+
+	//EXPECT_EQ();
+}
+
+TEST(D_SLinkedList_Test, ReverseSLList_Iterative_Test1) {
+	std::string output;
+	testing::internal::CaptureStdout();
+
+	SLinkedList<int> list;
+	list.addToTail(1);
+	list.addToTail(2);
+	list.addToTail(3);
+	list.addToTail(4);
+	list.addToTail(5);
+	list.print();
+
+	list.reverseSLListIter();
+	list.print();
+
+	output = testing::internal::GetCapturedStdout();
+
+	//EXPECT_EQ();
+}
+
+TEST(D_SLinkedList_Test, ReverseSLList_Iterative_Test2) {
+	std::string output;
+	testing::internal::CaptureStdout();
+
+	SLinkedList<int> list;
+	list.addToTail(1);
+	list.print();
+
+	list.reverseSLListIter();
+	list.print();
+
+	output = testing::internal::GetCapturedStdout();
+
+	//EXPECT_EQ();
+}
+
+
+TEST(D_SLinkedList_Test, getListIntersection_DifferentListLength_Test1) {
+	std::string output;
+	testing::internal::CaptureStdout();
+
+	SLinkedList<int> list1;
+	SLinkedList<int> list2;
+	SLinkedList<int> commonNode;
+	
+	commonNode.addFront(100);						//can SNOde object not call SLinkedList member Functions?
+
+	list1.addToTail(1);
+	list1.addToTail(2);
+	list1.attatchNodeToTail(commonNode);
+	list1.addToTail(4);
+	list1.addToTail(5);
+	list1.addToTail(6);
+	list1.print();
+
+	list2.addToTail(7);
+	list2.attatchNodeToTail(commonNode);
+	list2.print();
+
+
+	output = testing::internal::GetCapturedStdout();
+
+	auto val = getListIntersection(list1, list2);
+
+
+	EXPECT_EQ(val.getNodeAddress(), commonNode.begin().getNodeAddress());
+}
+
+TEST(D_SLinkedList_Test, getListIntersection_SameLengthLists_Test2) {
+	std::string output;
+	testing::internal::CaptureStdout();
+
+	SLinkedList<int> list1;
+	SLinkedList<int> list2;
+	SLinkedList<int> commonNode;
+
+	commonNode.addFront(100);						//can SNOde object not call SLinkedList member Functions?
+
+	list1.addToTail(1);
+	list1.addToTail(2);
+	list1.attatchNodeToTail(commonNode);
+	list1.addToTail(4);
+	list1.addToTail(5);
+	list1.addToTail(6);
+	list1.print();
+
+	list2.addToTail(7);
+	list2.addToTail(8);
+	list2.attatchNodeToTail(commonNode);
+	list2.print();
+
+
+	output = testing::internal::GetCapturedStdout();
+
+	auto val = getListIntersection(list1, list2);
+
+
+	EXPECT_EQ(val.getNodeAddress(), commonNode.begin().getNodeAddress());
+
+}
+
+TEST(D_SLinkedList_Test, getListIntersection_NoCommonNode_Test3) {
+	std::string output;
+	testing::internal::CaptureStdout();
+
+	SLinkedList<int> list1;
+	SLinkedList<int> list2;
+	SLinkedList<int> commonNode;
+
+	commonNode.addFront(100);						//can SNOde object not call SLinkedList member Functions?
+
+	list1.addToTail(1);
+	list1.addToTail(2);
+	//list1.attatchNodeToTail(commonNode);
+	list1.addToTail(4);
+	list1.addToTail(5);
+	list1.addToTail(6);
+	list1.print();
+
+	list2.addToTail(7);
+	list2.addToTail(8);
+	list2.addToTail(9);
+	//list2.attatchNodeToTail(commonNode);
+	list2.print();
+
+
+	output = testing::internal::GetCapturedStdout();
+
+	auto val = getListIntersection(list1, list2);
+
+	EXPECT_EQ(val.getNodeAddress(), nullptr);
+
+}
+
+
+
 TEST(D_SLinkedList_Test, isPalindrome_Test1) {
 	std::string output;
 	testing::internal::CaptureStdout();
 
 	std::shared_ptr<SLinkedList<int>> list1 = std::make_shared<SLinkedList<int>>();
 
-	/*list1->addFront(8);
+	list1->addFront(8);
 	list1->addFront(7);
-	list1->addFront(9);*/
+	list1->addFront(9);
 	list1->print();
 
 	output = testing::internal::GetCapturedStdout();
@@ -20,6 +196,25 @@ TEST(D_SLinkedList_Test, isPalindrome_Test1) {
 
 	EXPECT_EQ(res, true);
 }
+
+TEST(D_SLinkedList_Test, isPalindrome_Test2) {
+	std::string output;
+	testing::internal::CaptureStdout();
+
+	std::shared_ptr<SLinkedList<int>> list1 = std::make_shared<SLinkedList<int>>();
+
+	list1->addFront(9);
+	list1->addFront(7);
+	list1->addFront(9);
+	list1->print();
+
+	output = testing::internal::GetCapturedStdout();
+
+	bool res = list1->isPalindrome();
+
+	EXPECT_EQ(res, true);
+}
+
 
 TEST(D_SLinkedList_Test, SumLists_Test1) {
 	std::string output;
