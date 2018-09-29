@@ -53,11 +53,12 @@ public:
 	void modify(int count);
 	bool isPalindrome() const;
 	void attatchNodeToTail(SLinkedList<E>&);
+	std::shared_ptr<SNode<E>> loopDetection();
 
 	void print();
 	SLLIterator<E> begin() const;
 	SLLIterator<E> end() const;
-
+	
 private:
 	std::shared_ptr<SNode<E>> head = nullptr;
 	std::mutex m_mutex;
@@ -187,6 +188,44 @@ void SLinkedList<E>::print()
 }
 
 template<typename E>
+std::shared_ptr<SNode<E>> SLinkedList<E>::loopDetection()
+{
+	if (head == nullptr)
+		return nullptr;
+
+	std::shared_ptr<SNode<E>> fptr = head, sptr = head;
+
+	while (fptr != nullptr && sptr != nullptr)
+	{
+		
+		if (fptr->next != nullptr && fptr->next->next != nullptr)
+		{
+			fptr += 2; sptr += 1;
+			if (fptr == sptr)
+			{
+				break;
+			}
+		}
+	}
+
+	if (fptr == nullptr || sptr == nullptr)
+		return nullptr;
+
+	sptr = head;
+
+	do
+	{
+		if (sptr == fptr)
+		{
+			return sptr;
+		}
+		++sptr;
+		++fptr;
+	} while (sptr != fptr);
+}
+
+
+template<typename E>
 void SLinkedList<E>::reverseSLListIter()
 {
 	if (head == nullptr)
@@ -298,15 +337,17 @@ SLLIterator<E> getListIntersection(SLinkedList<E>& list1, SLinkedList<E>& list2)
 template<typename E>
 bool SLinkedList<E>::isPalindrome() const
 {
+	
 	int count = 0;
 	bool res = true;
-	//	for (auto iter : this) count++;			how to use iter?
-	std::shared_ptr<SNode<E>> temp = head;
+	for (auto iter : *this) count++;
+	//for (SLLIterator<E> iter = begin(); iter != end();iter++) count++;			//how to use iter
+	/*std::shared_ptr<SNode<E>> temp = head;
 	while (temp != nullptr)
 	{
 		count++;
 		temp = temp->next;
-	}
+	}*/
 	return isListPalindrome(head, count);
 }
 
@@ -407,9 +448,9 @@ std::shared_ptr<SLinkedList<E>> sumListsForwardOrder(std::shared_ptr<SLinkedList
 	int count1 = 0, count2 = 0;
 	for (SLLIterator<E> iter1 = list1->begin(); iter1 != list1->end(); ++iter1)
 		count1 += 1;
-	//for (SLLIterator<E> iter2 : list2)		//not working???
-	for (SLLIterator<E> iter2 = list2->begin(); iter2 != list2->end(); ++iter2)
-		count2 += 1;
+	for (auto iter2 : *list2)	count2 += 1;	
+	/*for (SLLIterator<E> iter2 = list2->begin(); iter2 != list2->end(); ++iter2)
+		count2 += 1;*/
 	if (count1 > count2)
 		list2->modify(count1 - count2);
 

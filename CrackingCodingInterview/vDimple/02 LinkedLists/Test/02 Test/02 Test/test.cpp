@@ -2,6 +2,27 @@
 #include "../../../02 LinkedLists/SLinkedList.h"
 #include<algorithm>
 
+
+TEST(D_SLinkedList_Test, Loop_Detection_Test1) {
+	std::string output;
+	testing::internal::CaptureStdout();
+
+	SLinkedList<int> list;
+	list.addToTail(1);
+	list.addToTail(2);
+	list.addToTail(3);
+	//list.attatchNodeToTail(4);
+	list.addToTail(5);
+	list.print();
+
+	list.reverseSLListRec();
+	list.print();
+
+	output = testing::internal::GetCapturedStdout();
+
+	//EXPECT_EQ();
+}
+
 TEST(D_SLinkedList_Test, ReverseSLList_Rec_Test1) {
 	std::string output;
 	testing::internal::CaptureStdout();
@@ -16,7 +37,7 @@ TEST(D_SLinkedList_Test, ReverseSLList_Rec_Test1) {
 
 	list.reverseSLListRec();
 	list.print();
-
+	
 	output = testing::internal::GetCapturedStdout();
 
 	//EXPECT_EQ();
