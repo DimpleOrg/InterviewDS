@@ -329,3 +329,44 @@ TEST(IsPalindromList, Test2)
 
 	EXPECT_EQ(false, result);
 }
+
+TEST(GetInterSectionNode, Test1)
+{
+	std::string output;
+	testing::internal::CaptureStdout();
+
+	std::shared_ptr<SNode<int>> nodePtr= make_shared<SNode<int>>();
+
+	SLinkedList<int> list;
+
+	list.addBack(1);
+	list.addBack(7);
+	list.addBack(5);
+	list.addBack(7);
+	list.addBack(1);
+	list.addBack(9);
+	list.addBack(nodePtr);
+
+	list.print();
+
+	SLinkedList<int> list1;
+
+	list1.addBack(1);
+	list1.addBack(9);
+	list1.addBack(nodePtr);
+	list1.addBack(7);
+	list1.addBack(5);
+	list1.addBack(7);
+	list1.addBack(1);
+
+	list1.print();
+
+
+	list.print();
+	std::shared_ptr<SNode<int>> node = GetInterSectionNode(list, list1);
+
+
+	output = testing::internal::GetCapturedStdout();
+
+	//EXPECT_EQ(false);
+}
