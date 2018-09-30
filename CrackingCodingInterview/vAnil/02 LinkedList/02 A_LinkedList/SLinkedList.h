@@ -118,6 +118,7 @@ public:
 
 	void make_loop(std::shared_ptr<SNode<TYPE>> loopNode);
 	SLLIterator<TYPE> loopDetection();
+	void reverseListInGroup(size_t groupLen);
 
 private:
 
@@ -128,6 +129,47 @@ private:
 	std::mutex slMutex;
 };
 
+
+template <typename E>
+inline void SLinkedList<E>::reverseListInGroup(size_t groupLen)
+{
+	std::lock_guard<std::mutex> locker(slMutex);
+	size_t len = lenght();
+	size_t groupCount = len / groupLen;
+
+	std::shared_ptr < SNode<E>> curHead,prevTail, ptr1, ptr2,ptr3;
+
+	prevTail = head;
+	ptr1 = head;
+	for (int i = 0; i <= groupCount; i++)
+	{
+		if (!ptr1 && !ptr1->next)
+			return;
+
+		ptr2 = nullptr;
+
+		curHead = ptr1;
+		for (int j = 0; j < groupLen && ptr1; j++)
+		{	
+			ptr3 = ptr1->next;			
+			ptr1->next = ptr2;
+			ptr2 = ptr1;
+			ptr1 = ptr3;			
+		}
+		
+		if (i == 0)
+		{
+			head->next = ptr1;
+			head = ptr2;
+			
+		}
+		else
+		{
+			prevTail->next = ptr2;
+			prevTail = curHead;
+		}			
+	}
+}
 
 template<typename E>
 inline void SLinkedList<E>::make_loop(std::shared_ptr<SNode<E>> loopNode)

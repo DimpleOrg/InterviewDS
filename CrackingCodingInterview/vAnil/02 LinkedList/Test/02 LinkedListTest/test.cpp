@@ -306,6 +306,40 @@ TEST(IsPalindromList, Test1)
 	EXPECT_EQ(true, result);
 }
 
+
+TEST(ReverseInGroup, Test1)
+{
+	std::string output;
+	testing::internal::CaptureStdout();
+
+	SLinkedList<int> list;
+
+	list.addBack(1);
+	list.addBack(2);
+	list.addBack(3);
+	list.addBack(4);
+	list.addBack(5);
+	list.addBack(6);
+	list.addBack(7);
+	list.addBack(8);
+	list.addBack(9);
+	list.addBack(10);
+	list.addBack(11);
+	list.addBack(12);
+
+	list.print();
+
+	list.reverseListInGroup(5);
+	
+	list.print();
+
+	output = testing::internal::GetCapturedStdout();
+
+
+//	EXPECT_EQ(true, result);
+}
+
+
 TEST(IsPalindromList, Test2)
 {
 	std::string output;
