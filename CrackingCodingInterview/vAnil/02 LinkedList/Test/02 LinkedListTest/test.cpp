@@ -330,6 +330,33 @@ TEST(IsPalindromList, Test2)
 	EXPECT_EQ(false, result);
 }
 
+
+TEST(ReverseList, Test1)
+{
+	std::string output;
+	testing::internal::CaptureStdout();
+
+	SLinkedList<int> list;
+
+	list.addBack(1);
+	list.addBack(2);
+	list.addBack(3);
+	list.addBack(4);
+	list.addBack(5);
+	list.addBack(6);
+
+	list.print();
+
+
+	list.reverse();
+	std::cout << "\n Reverse List:" << std::endl;
+
+	list.print();
+	output = testing::internal::GetCapturedStdout();
+
+}
+
+
 TEST(GetInterSectionNode, Test1)
 {
 	std::string output;
@@ -348,6 +375,8 @@ TEST(GetInterSectionNode, Test1)
 	list.addBack(nodePtr);
 
 	list.print();
+
+
 
 	SLinkedList<int> list1;
 
@@ -369,4 +398,33 @@ TEST(GetInterSectionNode, Test1)
 	output = testing::internal::GetCapturedStdout();
 
 	//EXPECT_EQ(false);
+}
+
+TEST(GetLoopStartNode, Test1)
+{
+	std::string output;
+	testing::internal::CaptureStdout();
+
+	std::shared_ptr<SNode<int>> nodePtr = make_shared<SNode<int>>();
+	//std::shared_ptr<SNode<int>> endPtr = make_shared<SNode<int>>(18);
+
+	SLinkedList<int> list;
+
+	list.addBack(1);
+	list.addBack(7);
+	list.addBack(5);
+	list.addBack(nodePtr);
+	list.addBack(7);
+	list.addBack(1);
+	list.addBack(9);
+	
+	//list.print();
+
+	list.make_loop(nodePtr);
+
+	auto val = list.loopDetection();
+
+	output = testing::internal::GetCapturedStdout();
+
+	EXPECT_EQ(1001, *val);
 }
