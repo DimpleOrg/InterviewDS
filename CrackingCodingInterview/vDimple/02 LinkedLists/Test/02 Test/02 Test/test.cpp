@@ -3,6 +3,147 @@
 #include<algorithm>
 
 
+TEST(D_SLinkedList_Test, ReverseListInGroups__Test1) {
+	std::string output;
+	testing::internal::CaptureStdout();
+
+	SLinkedList<int> list;
+	list.addToTail(1);
+	list.addToTail(2);
+	list.addToTail(3);
+	list.addToTail(4);
+	list.addToTail(5);
+	list.addToTail(6);
+	list.addToTail(7);
+	list.addToTail(8);
+	list.addToTail(9);
+	list.addToTail(10);
+
+	list.print();
+
+	list.reverseListInGroups(5);
+	list.print();
+
+	output = testing::internal::GetCapturedStdout();
+
+	//EXPECT_EQ();
+}
+
+TEST(D_SLinkedList_Test, ReverseListInGroups__Test2) {
+	std::string output;
+	testing::internal::CaptureStdout();
+
+	SLinkedList<int> list;
+	list.addToTail(1);
+	list.addToTail(2);
+	list.addToTail(3);
+	list.addToTail(4);
+	list.addToTail(5);
+	list.addToTail(6);
+	list.addToTail(7);
+	list.addToTail(8);
+	list.addToTail(9);
+	list.addToTail(10);
+	list.addToTail(11);
+
+	list.print();
+
+	list.reverseListInGroups(5);
+	list.print();
+
+	output = testing::internal::GetCapturedStdout();
+
+	//EXPECT_EQ();
+}
+
+TEST(D_SLinkedList_Test, ReverseListInGroups__Test3) {
+	std::string output;
+	testing::internal::CaptureStdout();
+
+	SLinkedList<int> list;
+	list.addToTail(1);
+	list.addToTail(2);
+	list.addToTail(3);
+	list.addToTail(4);
+	list.addToTail(5);
+	list.addToTail(6);
+	list.addToTail(7);
+	list.addToTail(8);
+	list.addToTail(9);
+	list.addToTail(10);
+	list.addToTail(11);	
+	list.addToTail(12);
+
+	list.print();
+
+	list.reverseListInGroups(5);
+	list.print();
+
+	output = testing::internal::GetCapturedStdout();
+
+	//EXPECT_EQ();
+}
+
+TEST(D_SLinkedList_Test, ReverseListInGroups__Test4) {
+	std::string output;
+	testing::internal::CaptureStdout();
+
+	SLinkedList<int> list;
+	list.addToTail(1);
+	list.addToTail(2);
+	list.addToTail(3);
+	list.addToTail(4);
+	list.addToTail(5);
+	list.addToTail(6);
+	list.addToTail(7);
+	list.addToTail(8);
+	list.addToTail(9);
+	list.addToTail(10);
+	list.addToTail(11);
+	list.addToTail(12);
+	list.addToTail(13);
+
+	list.print();
+
+	list.reverseListInGroups(5);
+	list.print();
+
+	output = testing::internal::GetCapturedStdout();
+
+	//EXPECT_EQ();
+}
+
+TEST(D_SLinkedList_Test, ReverseListInGroups__Test5) {
+	std::string output;
+	testing::internal::CaptureStdout();
+
+	SLinkedList<int> list;
+	list.addToTail(1);
+	list.addToTail(2);
+	list.addToTail(3);
+	list.addToTail(4);
+	list.addToTail(5);
+	list.addToTail(6);
+	list.addToTail(7);
+	list.addToTail(8);
+	list.addToTail(9);
+	list.addToTail(10);
+	list.addToTail(11);
+	list.addToTail(12);
+	list.addToTail(13);
+	list.addToTail(14);
+
+	list.print();
+
+	list.reverseListInGroups(5);
+	list.print();
+
+	output = testing::internal::GetCapturedStdout();
+
+	//EXPECT_EQ();
+}
+
+
 TEST(D_SLinkedList_Test, Loop_Detection_Test1) {
 	std::string output;
 	testing::internal::CaptureStdout();

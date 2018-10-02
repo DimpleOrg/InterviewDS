@@ -42,6 +42,7 @@ public:
 	~SLinkedList() {}
 	void addFront(const E& e);
 	void addToTail(const E& val);
+	size_t getListLength();
 	void reverseSLListRec();
 	void reverseSLListIter();
 	void RemoveDuplicateNodesV1();
@@ -54,6 +55,7 @@ public:
 	bool isPalindrome() const;
 	void attatchNodeToTail(SLinkedList<E>&);
 	std::shared_ptr<SNode<E>> loopDetection();
+	void reverseListInGroups(const size_t grpSize);
 
 	void print();
 	SLLIterator<E> begin() const;
@@ -185,6 +187,89 @@ void SLinkedList<E>::print()
 		temp = temp->next;
 	}
 
+}
+
+template<typename E>
+void SLinkedList<E>::reverseListInGroups(const size_t grpSize)
+{
+	if (head == nullptr || head->next == nullptr)
+		return;
+
+	size_t len = getListLength();
+
+	if (len <= grpSize)
+	{
+		reverseSLListIter();
+		return;
+	}
+	else
+	{
+		std::shared_ptr<SNode<E>> finalHead = head;
+		std::shared_ptr<SNode<E>> temp = head, temp1 = head, head1 = nullptr, ptr = nullptr, prevPtr = nullptr;
+		int loop = 1;
+		while (len >= grpSize)
+		{
+			len -= grpSize;
+			temp = temp1;
+			for (int i = 1; i < grpSize; i++)
+			{
+				if (temp->next != nullptr)
+					temp = temp->next;
+			}
+			if (temp->next != nullptr)
+				temp1 = temp->next;
+			temp->next = nullptr;
+			
+			reverseSLListIter();
+			
+			if (loop == 1)
+				finalHead = head;
+
+			prevPtr = ptr;
+			
+			ptr = head;
+			while (ptr->next != nullptr)
+				ptr = ptr->next;
+
+			if (loop > 1)
+				prevPtr->next = head;
+			
+			loop += 1;
+
+			if (len > 0)
+			{
+				head1 = head;
+				head = temp1;
+			}
+		}
+
+		if (len>0 && len < grpSize)
+		{
+			prevPtr = ptr;
+
+			/*head1 = head;
+			if (len > 0)
+				head = temp1;*/
+
+			reverseSLListIter();
+
+			prevPtr->next = head;
+		}
+		head = finalHead;
+	}
+}
+
+template<typename E>
+size_t SLinkedList<E>::getListLength()
+{
+	size_t count = 0;
+	std::shared_ptr<SNode<E>> temp = head;
+	while (temp != nullptr)
+	{
+		count += 1;
+		temp = temp->next;
+	}
+	return count;
 }
 
 template<typename E>
