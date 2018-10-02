@@ -88,6 +88,7 @@ public:
 	void RemoveDuplicateNodesV2();
 	TYPE GetKthLastElement(size_t k) const;
 	TYPE GetKthLastElementRec(size_t k) const;
+	void reverse();
 	size_t lenght() const
 	{
 		//std::lock_guard<std::mutex> locker(slMutex);
@@ -115,6 +116,10 @@ public:
 
 	void CreateIntersectingLists(SLinkedList<TYPE> &list1, SLinkedList<TYPE>&list2);
 
+	void make_loop(std::shared_ptr<SNode<TYPE>> loopNode);
+	SLLIterator<TYPE> loopDetection();
+	void reverseListInGroup(size_t groupLen);
+
 private:
 
 	size_t  GetKethLastELementRec(std::shared_ptr < SNode<TYPE>> iter,
@@ -124,6 +129,69 @@ private:
 	std::mutex slMutex;
 };
 
+
+template <typename E>
+inline void SLinkedList<E>::reverseListInGroup(size_t groupLen)
+{
+	std::lock_guard<std::mutex> locker(slMutex);
+	size_t len = lenght();
+	size_t groupCount = len / groupLen;
+
+	std::shared_ptr < SNode<E>> curHead,prevTail, ptr1, ptr2,ptr3;
+
+	prevTail = head;
+	ptr1 = head;
+	for (int i = 0; i <= groupCount; i++)
+	{
+		if (!ptr1 && !ptr1->next)
+			return;
+
+		ptr2 = nullptr;
+
+		curHead = ptr1;
+		for (int j = 0; j < groupLen && ptr1; j++)
+		{	
+			ptr3 = ptr1->next;			
+			ptr1->next = ptr2;
+			ptr2 = ptr1;
+			ptr1 = ptr3;			
+		}
+		
+		if (i == 0)
+		{
+			head->next = ptr1;
+			head = ptr2;
+			
+		}
+		else
+		{
+			prevTail->next = ptr2;
+			prevTail = curHead;
+		}			
+	}
+}
+
+template<typename E>
+inline void SLinkedList<E>::make_loop(std::shared_ptr<SNode<E>> loopNode)
+{
+	std::shared_ptr<SNode<E>> temp;
+	std::lock_guard<std::mutex> locker(slMutex);
+
+	if (head == nullptr)
+		return;
+
+	temp = head;
+	while (temp->next != nullptr)
+	{
+		temp = temp->next;
+	}
+
+	loopNode->elem = 1001;
+
+	temp->next = loopNode;
+}
+
+
 template <typename TYPE>
 TYPE SLinkedList<TYPE>::GetKthLastElementRec(size_t k) const
 {
@@ -132,6 +200,25 @@ TYPE SLinkedList<TYPE>::GetKthLastElementRec(size_t k) const
 	GetKethLastELementRec(head, k, result);
 
 	return result->elem;
+}
+
+template<typename TYPE>
+inline void SLinkedList<TYPE>::reverse()
+{
+	std::shared_ptr<SNode<TYPE>> ptr1, ptr2, ptr3;
+
+	ptr1 = head;
+	ptr2 = nullptr;
+
+	while (ptr1)
+	{
+		ptr3 = ptr1->next;
+		ptr1->next = ptr2;
+		ptr2 = ptr1;
+		ptr1 = ptr3;
+	}
+
+	head = ptr2;
 }
 
 template<typename TYPE>
@@ -643,4 +730,49 @@ std::shared_ptr<SNode<T>> GetInterSectionNode(SLinkedList<T> &list1, SLinkedList
 	}
 
 	return nullptr;
+}
+
+
+template<typename E>
+SLLIterator<E> SLinkedList<E>::loopDetection()
+{
+	if (head == nullptr)
+		return nullptr;
+
+	std::shared_ptr<SNode<E>> fptr = head, sptr = head;
+
+	while (fptr != nullptr && sptr != nullptr)
+	{
+
+		if (fptr->next != nullptr && fptr->next->next != nullptr)
+		{
+			fptr = fptr->next->next;			
+			sptr = sptr->next;
+			if (fptr == sptr)
+			{
+				break;
+			}
+		}
+	}
+
+	if (fptr == nullptr || sptr == nullptr)
+		return nullptr;
+
+	SLLIterator<E> startLoopIter
+		= begin();
+
+	sptr = head;
+	
+	do
+	{
+		if (sptr == fptr)
+		{
+			return startLoopIter;
+		}
+		fptr = fptr->next;
+		sptr = sptr->next;		
+		++startLoopIter;
+	} while (sptr != fptr);
+
+	return startLoopIter;
 }
