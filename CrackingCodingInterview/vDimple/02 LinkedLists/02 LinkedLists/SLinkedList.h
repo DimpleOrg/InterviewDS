@@ -192,6 +192,8 @@ void SLinkedList<E>::print()
 template<typename E>
 void SLinkedList<E>::reverseListInGroups(const size_t grpSize)
 {
+	std::lock_guard<std::mutex> locker(m_mutex);
+
 	if (head == nullptr || head->next == nullptr)
 		return;
 
@@ -247,14 +249,11 @@ void SLinkedList<E>::reverseListInGroups(const size_t grpSize)
 		{
 			prevPtr = ptr;
 
-			/*head1 = head;
-			if (len > 0)
-				head = temp1;*/
-
 			reverseSLListIter();
 
 			prevPtr->next = head;
 		}
+	
 		head = finalHead;
 	}
 }
