@@ -117,6 +117,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "NumberOfLinesToWriteString"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "vAnil_LeetCode_StringTests", "LeetCode\vAnil\String\Test\vAnil_LeetCode_StringTests\vAnil_LeetCode_StringTests.vcxproj", "{90D7688F-128F-49C0-A32C-C5476AADB56B}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "StringPermutation", "LeetCode\vAnil\String\StringPermutation\StringPermutation.vcxproj", "{0FA2ADEB-3855-4FB2-AC8A-5EFDB0FD0BDD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -429,6 +431,14 @@ Global
 		{90D7688F-128F-49C0-A32C-C5476AADB56B}.Release|x64.Build.0 = Release|x64
 		{90D7688F-128F-49C0-A32C-C5476AADB56B}.Release|x86.ActiveCfg = Release|Win32
 		{90D7688F-128F-49C0-A32C-C5476AADB56B}.Release|x86.Build.0 = Release|Win32
+		{0FA2ADEB-3855-4FB2-AC8A-5EFDB0FD0BDD}.Debug|x64.ActiveCfg = Debug|x64
+		{0FA2ADEB-3855-4FB2-AC8A-5EFDB0FD0BDD}.Debug|x64.Build.0 = Debug|x64
+		{0FA2ADEB-3855-4FB2-AC8A-5EFDB0FD0BDD}.Debug|x86.ActiveCfg = Debug|Win32
+		{0FA2ADEB-3855-4FB2-AC8A-5EFDB0FD0BDD}.Debug|x86.Build.0 = Debug|Win32
+		{0FA2ADEB-3855-4FB2-AC8A-5EFDB0FD0BDD}.Release|x64.ActiveCfg = Release|x64
+		{0FA2ADEB-3855-4FB2-AC8A-5EFDB0FD0BDD}.Release|x64.Build.0 = Release|x64
+		{0FA2ADEB-3855-4FB2-AC8A-5EFDB0FD0BDD}.Release|x86.ActiveCfg = Release|Win32
+		{0FA2ADEB-3855-4FB2-AC8A-5EFDB0FD0BDD}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -486,6 +496,7 @@ Global
 		{EC136861-3805-4142-965B-EECCA1117E4F} = {A9BB95AB-E9CE-430C-B15A-1C0B740AD173}
 		{43103797-D5BC-446A-80B5-DE0BEFC13FE6} = {A9BB95AB-E9CE-430C-B15A-1C0B740AD173}
 		{90D7688F-128F-49C0-A32C-C5476AADB56B} = {EC136861-3805-4142-965B-EECCA1117E4F}
+		{0FA2ADEB-3855-4FB2-AC8A-5EFDB0FD0BDD} = {A9BB95AB-E9CE-430C-B15A-1C0B740AD173}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {F8696CBB-2750-4AFE-AFE7-121D7ED869FC}

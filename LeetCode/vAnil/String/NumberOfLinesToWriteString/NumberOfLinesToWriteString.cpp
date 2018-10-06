@@ -1,10 +1,12 @@
+//https://leetcode.com/problems/number-of-lines-to-write-string/description/
 #include "NumberOfLinesToWriteString.h"
+
 
 NUMBEROFLINESTOWRITESTRING_API std::vector<size_t> numberOfLines(const std::vector<size_t>& widths, const std::string &s, size_t lineLen)
 {
 	try
 	{
-		size_t numOfChars = 26; //a--to--z
+		const size_t numOfChars = 26; //a--to--z
 		if (widths.empty())
 		{
 			throw std::exception("Width vector is empty.");

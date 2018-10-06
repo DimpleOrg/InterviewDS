@@ -51,6 +51,9 @@
     <ProjectReference Include="..\..\NumberOfLinesToWriteString\NumberOfLinesToWriteString.vcxproj">
       <Project>{43103797-d5bc-446a-80b5-de0befc13fe6}</Project>
     </ProjectReference>
+    <ProjectReference Include="..\..\StringPermutation\StringPermutation.vcxproj">
+      <Project>{0fa2adeb-3855-4fb2-ac8a-5efdb0fd0bdd}</Project>
+    </ProjectReference>
   </ItemGroup>
   <ItemDefinitionGroup />
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

@@ -1,5 +1,6 @@
 #include "pch.h"
 #include "../../NumberOfLinesToWriteString/NumberOfLinesToWriteString.h"
+#include "../../StringPermutation/StringPermutation.h"
 
 TEST(NumberOfLines, test1) {
 	std::string output;
@@ -32,4 +33,21 @@ TEST(NumberOfLines, test2) {
 
 	EXPECT_EQ(res[0], 2);
 	EXPECT_EQ(res[1], 4);
+}
+
+
+TEST(StringPermutation, test1) {
+
+	std::string output;
+	testing::internal::CaptureStdout();
+	std::string str = "AABC";
+
+	std::vector<std::string> result = getStringPermutations(str);
+
+	for (auto val : result)
+		std::cout << val << "\n";
+
+	output = testing::internal::GetCapturedStdout();
+
+	EXPECT_EQ(result.size(), 12);
 }
