@@ -366,5 +366,44 @@ namespace SORT
 		return i;
 	}
 
+	void HeapSortRevised::Sort()
+	{
+		BuildMaxHeap();
+
+		for (int i = 0; i < nElem; i++)
+		{
+			SwapElement(0, nElem - i - 1);
+			MaxHeapify(0, nElem - i - 2);
+		}
+	}
+
+	void HeapSortRevised::BuildMaxHeap()
+	{
+		for (int i = nElem / 2; i >= 0; i--)
+		{
+			MaxHeapify(i, nElem);
+		}
+	}
+
+	void HeapSortRevised::MaxHeapify(int node, int length)
+	{
+		int lc = 2 * node + 1;
+		int rc = 2 * node + 2;
+
+		int max = node;
+
+		if (lc < length && pElemArray[lc] > pElemArray[node])
+			max = lc;
+
+		if (rc < length && pElemArray[rc] > pElemArray[max])
+			max = rc;
+
+		if (max != node)
+		{
+			SwapElement(max, node);
+			MaxHeapify(max, length);
+		}
+	}
+
 }
 

@@ -93,6 +93,15 @@ namespace SORT
 		int RandomPivotPartition(int low, int high);
 		int Partition(int low, int high);
 	};
+
+	class DllExport HeapSortRevised : public SortingAlgos {
+	public:
+		void Sort();
+	private:
+
+		void BuildMaxHeap();
+		void MaxHeapify(int node, int len);
+	};
 }
 
 
