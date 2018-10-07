@@ -83,6 +83,16 @@ namespace SORT
 		int leftChild(int index);
 		int rightChild(int index);
 	};
+
+	class DllExport QuickSortRandomized : public SortingAlgos {
+	public:
+		void Sort();
+	private:
+		void Quick_Sort(int start, int end);
+
+		int RandomPivotPartition(int low, int high);
+		int Partition(int low, int high);
+	};
 }
 
 
