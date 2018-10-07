@@ -40,7 +40,7 @@ TEST(StringPermutation, test1) {
 
 	std::string output;
 	testing::internal::CaptureStdout();
-	std::string str = "AABC";
+	std::string str = "EEBC";
 
 	std::vector<std::string> result = getStringPermutations(str);
 
