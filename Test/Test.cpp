@@ -88,6 +88,19 @@ void TestSortingAlgos() {
 
 		cout << "Heap Sort Output:";
 		testHObj.Print();
+
+
+		QuickSortRandomized  testQRObj;
+
+		int arrQR[] = { 15,3,12,10,1,9,6,11,5,4, 12, 8,1, -23, 87,45, 12, 423 };
+
+		testQRObj.LoadData(arrQR, sizeof(arrQR) / sizeof(int));
+		testQRObj.Print();
+		testQRObj.Sort();
+
+		cout << "Heap Sort Output:";
+		testQRObj.Print();
+
 	}
 	catch (const std::exception& E)
 	{

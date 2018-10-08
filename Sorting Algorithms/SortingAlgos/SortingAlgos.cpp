@@ -315,5 +315,56 @@ namespace SORT
 		return (2 * index) + 2;
 	}
 
+	void QuickSortRandomized::Sort()
+	{
+		Quick_Sort(0, nElem - 1);
+	}
+
+	void QuickSortRandomized::Quick_Sort(int start, int end)
+	{
+		if (start < end)
+		{
+			//std::cout << start << "," << end << std::endl;
+
+			int p = RandomPivotPartition(start, end);
+
+			Quick_Sort(start, p - 1);
+			Quick_Sort(p + 1, end);
+		}
+	}
+
+	int QuickSortRandomized::RandomPivotPartition(int low, int high)
+	{
+		int pvt, n, temp;
+		n = rand();
+		
+		pvt = low + n % (high - low + 1);
+
+		//std::cout << pvt << std::endl;
+		// Swapping pvt value from high, so pvt value will be taken as pivot while partitioning.
+		SwapElement(high, pvt);
+
+		return Partition(low, high);
+	}
+
+	int QuickSortRandomized::Partition(int low, int high)
+	{
+		int i = low-1;
+
+		int pivot = pElemArray[high];
+
+		for (int j = low; j < high; j++)
+		{
+			if (pElemArray[j] < pivot)
+			{
+				SwapElement(++i, j);
+			}
+		}
+
+		SwapElement(++i, high);
+
+		return i;
+	}
+
 }
 
