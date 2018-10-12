@@ -16,10 +16,8 @@ void getStringPermutations(std::string const& str, std::vector<char>& charArr, s
 				if (charCount[i] > 0)
 				{
 					resStr[level] = charArr[i];
-					++level;
 					--charCount[i];
-					getStringPermutations(str, charArr, charCount, level, resStr, result);
-					--level;
+					getStringPermutations(str, charArr, charCount, level + 1, resStr, result);
 					++charCount[i];
 				}
 			}
@@ -38,7 +36,7 @@ STRINGPERMUTATIONSD_API std::vector<std::string> getStringPermutations(std::stri
 		if (str.length() < 2)
 			throw new std::exception ("\nPlease enter more than 1 character to see its permutations.\n");
 			
-		std::map<char, int> sMap;
+		std::map<char, size_t> sMap;
 		for (auto e : str)
 			++sMap[e];
 

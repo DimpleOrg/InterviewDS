@@ -95,7 +95,7 @@ void Maxheapify(int arr[], int index, int len)
 
 void sswap(int& a, int& b)
 {
-	size_t temp = a;
+	int temp = a;
 	a = b;
 	b = temp;
 }

@@ -16,8 +16,7 @@ TEST(StringPermutations, Test1) {
 
 	output = testing::internal::GetCapturedStdout();
 
-	EXPECT_EQ(1, 1);
-	EXPECT_TRUE(true);
+	EXPECT_EQ(res.size(), 12);
 }
 
 TEST(StringPermutations, Test3) {
@@ -34,8 +33,8 @@ TEST(StringPermutations, Test3) {
 
 	output = testing::internal::GetCapturedStdout();
 
-	EXPECT_EQ(1, 1);
-	EXPECT_TRUE(true);
+	EXPECT_EQ(res.size(), 24);
+
 }
 
 TEST(StringPermutations, Test2) {
@@ -52,8 +51,8 @@ TEST(StringPermutations, Test2) {
 
 	output = testing::internal::GetCapturedStdout();
 
-	EXPECT_EQ(1, 1);
-	EXPECT_TRUE(true);
+	EXPECT_EQ(res.size(), 1);
+
 }
 
 

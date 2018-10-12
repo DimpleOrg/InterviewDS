@@ -7,7 +7,7 @@ __declspec(dllexport) std::vector<int> numberOfLines(std::vector<int>& widths, s
 	size_t sum = 0;
 	for (size_t i = 0; i < s.length(); i++)
 	{
-		sum += widths[int(s[i] - 'a')];
+		sum += widths[s[i] - 'a'];
 	}
 
 	size_t nolines = 0, diff = sum, nochars = 0;
@@ -25,7 +25,7 @@ __declspec(dllexport) std::vector<int> numberOfLines(std::vector<int>& widths, s
 				break;
 			}
 
-			nochars += widths[int(s[i]) - 'a'];
+			nochars += widths[s[i] - 'a'];
 			i--;
 		}
 	}
