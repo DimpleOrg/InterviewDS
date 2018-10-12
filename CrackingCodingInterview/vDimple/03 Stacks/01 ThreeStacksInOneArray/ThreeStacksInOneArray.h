@@ -201,9 +201,19 @@ inline void Stacks<E>::print()
 	}
 
 	std::cout << "\n\n**********STACK3*********";
-	for (int i = s2top+1; s3top>-1 && i <= s3top; i++)
+	if (s2top > s1top)
 	{
-		std::cout << "\nindex: " << i << "\tval: " << arr.get()[i];
+		for (int i = s2top + 1; s3top > -1 && i <= s3top; i++)
+		{
+			std::cout << "\nindex: " << i << "\tval: " << arr.get()[i];
+		}
+	}
+	if (s2top < s1top)
+	{
+		for (int i = s1top + 1; s3top > -1 && i <= s3top; i++)
+		{
+			std::cout << "\nindex: " << i << "\tval: " << arr.get()[i];
+		}
 	}
 
 

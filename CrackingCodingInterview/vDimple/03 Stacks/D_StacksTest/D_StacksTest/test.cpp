@@ -50,20 +50,10 @@ TEST(D_StacksTest, Test2) {
 	obj.s1Push(1);
 	obj.s1Push(2);
 	obj.s1Pop();
-	obj.s1Pop();
-	obj.s1Pop();
-	obj.s1Push(1);
-
-	obj.print();
-
+	
 	obj.s2Push(3);
 	obj.s2Push(4);
-	obj.s2Push(5);
-	obj.s2Push(6);
 	obj.s2Pop();
-	obj.s2Pop();
-
-	obj.print();
 
 	obj.s3Push(7);
 	obj.s3Push(8);
@@ -90,28 +80,14 @@ TEST(D_StacksTest, Test3) {
 	obj.s1Push(1);
 	obj.s1Push(2);
 	obj.s1Pop();
-	obj.s1Pop();
-	obj.s1Pop();
-	obj.s1Push(1);
-
-	obj.print();
 
 	obj.s2Push(3);
 	obj.s2Push(4);
-	obj.s2Push(5);
-	obj.s2Push(6);
 	obj.s2Pop();
-	obj.s2Pop();
-
-	obj.print();
 
 	obj.s3Push(7);
 	obj.s3Push(8);
 	obj.s3Pop();
-
-	obj.s1Push(2);
-	obj.s2Push(5);
-	obj.s3Push(8);
 
 	obj.print();
 
@@ -126,32 +102,20 @@ TEST(D_StacksTest, Test4) {
 	std::string output;
 	testing::internal::CaptureStdout();
 
-	Stacks<int> obj;
+	Stacks<int> obj(8);
 	obj.s1Push(1);
 	obj.s1Push(2);
-	obj.s1Pop();
-	obj.s1Pop();
-	obj.s1Pop();
-	obj.s1Push(1);
-
-	obj.print();
 
 	obj.s2Push(3);
 	obj.s2Push(4);
 	obj.s2Push(5);
 	obj.s2Push(6);
-	obj.s2Pop();
-	obj.s2Pop();
-
-	obj.print();
 
 	obj.s3Push(7);
 	obj.s3Push(8);
-	obj.s3Pop();
+	obj.s1Pop();
+	obj.s2Pop();
 
-	obj.s1Push(2);
-	obj.s2Push(5);
-	obj.s3Push(8);
 
 	obj.print();
 
@@ -169,29 +133,12 @@ TEST(D_StacksTest, Test5) {
 	Stacks<int> obj;
 	obj.s1Push(1);
 	obj.s1Push(2);
-	obj.s1Pop();
-	obj.s1Pop();
-	obj.s1Pop();
-	obj.s1Push(1);
 
-	obj.print();
-
-	obj.s2Push(3);
-	obj.s2Push(4);
-	obj.s2Push(5);
-	obj.s2Push(6);
 	obj.s2Pop();
-	obj.s2Pop();
-
-	obj.print();
-
+	
 	obj.s3Push(7);
 	obj.s3Push(8);
 	obj.s3Pop();
-
-	obj.s1Push(2);
-	obj.s2Push(5);
-	obj.s3Push(8);
 
 	obj.print();
 
