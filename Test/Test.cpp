@@ -101,6 +101,17 @@ void TestSortingAlgos() {
 		cout << "Heap Sort Output:";
 		testQRObj.Print();
 
+		HeapSortRevised  testHSRObj;
+
+		int arrHSR[] = { 15,3,12,10,1,9,6,11,5,4, 12, 8,1, -23, 87,45, 12, 423 };
+
+		testHSRObj.LoadData(arrHSR, sizeof(arrHSR) / sizeof(int));
+		testHSRObj.Print();
+		testHSRObj.Sort();
+
+		cout << "Heap Sort Output:";
+		testHSRObj.Print();
+
 	}
 	catch (const std::exception& E)
 	{
