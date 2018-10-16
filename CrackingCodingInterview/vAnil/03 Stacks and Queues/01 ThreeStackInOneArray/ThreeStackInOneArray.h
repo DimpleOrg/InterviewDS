@@ -8,9 +8,9 @@ template <typename E>
 class ThreeStack
 {
 	std::unique_ptr<E[]> stackData;
-	int *topOfStack = nullptr;  
-	int *nextIndex = nullptr;  
-				
+	std::unique_ptr<int[]> topOfStack;
+	std::unique_ptr<int[]> nextIndex;
+					
 	int arrayLen, numStacks;
 	int nextAvailable;
 	
@@ -19,41 +19,39 @@ public:
 
 	bool isFull() { return (nextAvailable == -1); }
 
-	void push(E item, int sn);
+	void push(int sn, E item);
 
 	E pop(int sn);
 
 	bool isEmpty(int sn) { return (topOfStack[sn] == -1); }
-
-	~ThreeStack() {
-		delete[] topOfStack;
-		delete[] nextIndex;
-	}
 };
 
 
 template<typename E>
 inline ThreeStack<E>::ThreeStack(int k1, int n1)
 {
+	if (k1 < 1 || n1 < 1)
+		throw new std::exception("Invalid Input");
+
 	numStacks = k1, arrayLen = n1;
 	
 	stackData = std::make_unique<E[]>(arrayLen);
 
-	topOfStack = new int[numStacks];
-	nextIndex = new int[arrayLen];
+	topOfStack = std::make_unique<int[]>(numStacks);
+	nextIndex = std::make_unique<int[]>(arrayLen);
 
 	for (int i = 0; i < numStacks; i++)
-		topOfStack[i] = -1;
+		topOfStack.get()[i] = -1;
 
 	nextAvailable = 0;
 	
 	for (int i = 0; i < arrayLen - 1; i++)
-		nextIndex[i] = i + 1;
-	nextIndex[arrayLen - 1] = -1;  
+		nextIndex.get()[i] = i + 1;
+	nextIndex.get()[arrayLen - 1] = -1;
 }
 
 template<typename E>
-inline void ThreeStack<E>::push(E item, int sn)
+inline void ThreeStack<E>::push(int sn, E item)
 {
 	if (isFull())
 	{
@@ -62,10 +60,10 @@ inline void ThreeStack<E>::push(E item, int sn)
 
 	int i = nextAvailable;  
 
-	nextAvailable = nextIndex[i];
+	nextAvailable = nextIndex.get()[i];
 
-	nextIndex[i] = topOfStack[sn];
-	topOfStack[sn] = i;
+	nextIndex.get()[i] = topOfStack.get()[sn];
+	topOfStack.get()[sn] = i;
 
 	stackData.get()[i] = item;
 }
@@ -78,9 +76,9 @@ inline E ThreeStack<E>::pop(int sn)
 		throw new std::exception("Stack Underflow");
 	}
 
-	int i = topOfStack[sn];
-	topOfStack[sn] = nextIndex[i];   
-	nextIndex[i] = nextAvailable;
+	int i = topOfStack.get()[sn];
+	topOfStack.get()[sn] = nextIndex.get()[i];
+	nextIndex.get()[i] = nextAvailable;
 	nextAvailable = i;
 
 	return stackData.get()[i];
