@@ -26,8 +26,13 @@ public:
 	void pop();
 	E min()
 	{
-		int minIndex = arr.get()[top].minimum;
-		return arr.get()[minIndex].elem;
+		if (top > -1)
+		{
+			int minIndex = arr.get()[top].minimum;
+			return arr.get()[minIndex].elem;
+		}
+		else
+			throw std::exception("Stack underflow");
 	}
 
 	void print();
@@ -54,7 +59,7 @@ inline void stack<E>::push(const E input)
 	}
 	else
 	{
-		std::cout << "\n Stack Full\n";
+		throw std::exception("\n Stack Full\n");
 	}
 }
 
@@ -62,7 +67,7 @@ template<typename E>
 inline void stack<E>::pop()
 {
 	if (top < 0)
-		std::cout << "\nEmpty Stack\n";
+		throw std::exception( "\nEmpty Stack\n");
 	else
 		--top;
 }
