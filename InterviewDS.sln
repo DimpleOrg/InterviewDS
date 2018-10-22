@@ -129,6 +129,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "D_StacksTest", "D_StacksTes
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "D_StacksTest", "CrackingCodingInterview\vDimple\03 Stacks\D_StacksTest\D_StacksTest\D_StacksTest.vcxproj", "{15747259-1911-4C91-AB20-DD965D492B7D}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "02 StackMin", "CrackingCodingInterview\vDimple\03 Stacks\02 StackMin\02 StackMin.vcxproj", "{D36CD482-7678-4022-814A-2CF71B3AC62B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -473,6 +475,14 @@ Global
 		{15747259-1911-4C91-AB20-DD965D492B7D}.Release|x64.Build.0 = Release|x64
 		{15747259-1911-4C91-AB20-DD965D492B7D}.Release|x86.ActiveCfg = Release|Win32
 		{15747259-1911-4C91-AB20-DD965D492B7D}.Release|x86.Build.0 = Release|Win32
+		{D36CD482-7678-4022-814A-2CF71B3AC62B}.Debug|x64.ActiveCfg = Debug|x64
+		{D36CD482-7678-4022-814A-2CF71B3AC62B}.Debug|x64.Build.0 = Debug|x64
+		{D36CD482-7678-4022-814A-2CF71B3AC62B}.Debug|x86.ActiveCfg = Debug|Win32
+		{D36CD482-7678-4022-814A-2CF71B3AC62B}.Debug|x86.Build.0 = Debug|Win32
+		{D36CD482-7678-4022-814A-2CF71B3AC62B}.Release|x64.ActiveCfg = Release|x64
+		{D36CD482-7678-4022-814A-2CF71B3AC62B}.Release|x64.Build.0 = Release|x64
+		{D36CD482-7678-4022-814A-2CF71B3AC62B}.Release|x86.ActiveCfg = Release|Win32
+		{D36CD482-7678-4022-814A-2CF71B3AC62B}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -536,6 +546,7 @@ Global
 		{649C2E53-F1CC-41B2-BFD4-373BD11AC152} = {7B43EE9F-4EB3-4E1F-8E61-DE2BC21EAE35}
 		{B08D2EEF-2FC4-4969-9B2E-86718E29FC3C} = {7B43EE9F-4EB3-4E1F-8E61-DE2BC21EAE35}
 		{15747259-1911-4C91-AB20-DD965D492B7D} = {B08D2EEF-2FC4-4969-9B2E-86718E29FC3C}
+		{D36CD482-7678-4022-814A-2CF71B3AC62B} = {7B43EE9F-4EB3-4E1F-8E61-DE2BC21EAE35}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {F8696CBB-2750-4AFE-AFE7-121D7ED869FC}
