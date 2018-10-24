@@ -129,7 +129,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "D_StacksTest", "D_StacksTes
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "D_StacksTest", "CrackingCodingInterview\vDimple\03 Stacks\D_StacksTest\D_StacksTest\D_StacksTest.vcxproj", "{15747259-1911-4C91-AB20-DD965D492B7D}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "03 Stacks", "03 Stacks", "{04FB88A2-F591-49C1-A538-53BE702BC0CA}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "03 Stacks and Queues", "03 Stacks and Queues", "{04FB88A2-F591-49C1-A538-53BE702BC0CA}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{6194E2D1-275E-4B1F-96DB-91C17F36517C}"
 EndProject
@@ -138,6 +138,8 @@ EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "01 ThreeStackInOneArray", "CrackingCodingInterview\vAnil\03 Stacks and Queues\01 ThreeStackInOneArray\01 ThreeStackInOneArray.vcxproj", "{9B5F38E7-461A-40C4-B1DE-276F5E83C160}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "02 MinOfStack", "CrackingCodingInterview\vAnil\03 Stacks and Queues\02 MinOfStack\02 MinOfStack.vcxproj", "{880E634E-DDFB-46E2-93FC-B8B72A2F70FA}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "03 A_StacksOfPlates", "CrackingCodingInterview\vAnil\03 Stacks and Queues\03 A_StacksOfPlates\03 A_StacksOfPlates.vcxproj", "{FC36625D-97AC-45B9-B03C-891AAFFD2628}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -507,6 +509,14 @@ Global
 		{880E634E-DDFB-46E2-93FC-B8B72A2F70FA}.Release|x64.Build.0 = Release|x64
 		{880E634E-DDFB-46E2-93FC-B8B72A2F70FA}.Release|x86.ActiveCfg = Release|Win32
 		{880E634E-DDFB-46E2-93FC-B8B72A2F70FA}.Release|x86.Build.0 = Release|Win32
+		{FC36625D-97AC-45B9-B03C-891AAFFD2628}.Debug|x64.ActiveCfg = Debug|x64
+		{FC36625D-97AC-45B9-B03C-891AAFFD2628}.Debug|x64.Build.0 = Debug|x64
+		{FC36625D-97AC-45B9-B03C-891AAFFD2628}.Debug|x86.ActiveCfg = Debug|Win32
+		{FC36625D-97AC-45B9-B03C-891AAFFD2628}.Debug|x86.Build.0 = Debug|Win32
+		{FC36625D-97AC-45B9-B03C-891AAFFD2628}.Release|x64.ActiveCfg = Release|x64
+		{FC36625D-97AC-45B9-B03C-891AAFFD2628}.Release|x64.Build.0 = Release|x64
+		{FC36625D-97AC-45B9-B03C-891AAFFD2628}.Release|x86.ActiveCfg = Release|Win32
+		{FC36625D-97AC-45B9-B03C-891AAFFD2628}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -575,6 +585,7 @@ Global
 		{2AF7DECC-C9DA-44C5-A76A-CD8AF98C1E62} = {6194E2D1-275E-4B1F-96DB-91C17F36517C}
 		{9B5F38E7-461A-40C4-B1DE-276F5E83C160} = {04FB88A2-F591-49C1-A538-53BE702BC0CA}
 		{880E634E-DDFB-46E2-93FC-B8B72A2F70FA} = {04FB88A2-F591-49C1-A538-53BE702BC0CA}
+		{FC36625D-97AC-45B9-B03C-891AAFFD2628} = {04FB88A2-F591-49C1-A538-53BE702BC0CA}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {F8696CBB-2750-4AFE-AFE7-121D7ED869FC}
