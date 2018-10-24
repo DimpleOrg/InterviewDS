@@ -1,7 +1,135 @@
 #include "pch.h"
 #include "..\..\01 ThreeStacksInOneArray\ThreeStacksInOneArray.h"
+#include"..\..\02 StackMin\StackMin.h"
 
-TEST(D_StacksTest, Test1) {
+class person
+{
+public:
+	std::string name;
+	int age;
+
+	bool operator==(const person& rhs)
+	{
+		return this->age == rhs.age;
+	}
+	bool operator>(const person& rhs)
+	{
+		return this->age > rhs.age;
+	}
+	bool operator<(const person& rhs)
+	{
+		return this->age < rhs.age;
+	}
+
+};
+
+std::ostream& operator<<(std::ostream& out, const person& rhs)
+{
+	out << rhs.name << "\t" << rhs.age;
+	return out;
+}
+
+TEST(D_StacksMinTest, Test1) {
+	std::string output;
+	testing::internal::CaptureStdout();
+	
+	
+
+	stack<person> st;
+
+	st.push({ "abc",5 });
+	st.push({ "def", 6 });
+	st.push({ "ghi", 7 });
+	st.min();
+	st.pop();
+	st.print();
+
+	output = testing::internal::GetCapturedStdout();
+
+	EXPECT_EQ(st.min().age, 5);
+	
+}
+
+TEST(D_StacksMinTest, Test2) {
+
+	std::string output;
+	testing::internal::CaptureStdout();
+
+	stack<int> obj;
+	obj.push(1);
+	obj.push(2);
+	obj.push(3);
+	obj.push(4);
+	obj.print();
+	std::cout << "\n*********************\n\n";
+	std::cout << "Min : " << obj.min();
+	std::cout << "\n*********************\n\n";
+	obj.pop();
+	std::cout << "Min after Pop : " << obj.min();
+	std::cout << "\n*********************\n\n";
+	obj.print();
+
+	output = testing::internal::GetCapturedStdout();
+
+	EXPECT_EQ(obj.min(), 1);
+	
+}
+
+
+TEST(D_StacksMinTest, Test3) {
+
+	std::string output;
+	testing::internal::CaptureStdout();
+
+	stack<int> obj;
+	obj.push(4);
+	obj.push(3);
+	obj.push(2);
+	obj.push(1);
+	obj.print();
+	std::cout << "\n*********************\n\n";
+	std::cout << "Min : " << obj.min();
+	std::cout << "\n*********************\n\n";
+	obj.pop();
+	std::cout << "Min after Pop : " << obj.min();
+	std::cout << "\n*********************\n\n";
+	obj.print();
+
+	output = testing::internal::GetCapturedStdout();
+
+	EXPECT_EQ(obj.min(), 2);
+	
+}
+
+TEST(D_StacksMinTest, Test4) {
+
+	std::string output;
+	testing::internal::CaptureStdout();
+
+	stack<int> obj;
+	obj.push(-1);
+	obj.push(3);
+	obj.push(2);
+	obj.push(1);
+	obj.print();
+	std::cout << "\n*********************\n\n";
+	std::cout << "Min : " << obj.min();
+
+	std::cout << "\n*********************\n\n";
+	obj.pop();
+
+	std::cout << "Min after Pop : " << obj.min();
+
+	std::cout << "\n*********************\n\n";
+	obj.print();
+
+	output = testing::internal::GetCapturedStdout();
+
+	EXPECT_EQ(obj.min(), -1);
+
+}
+
+TEST(D_ThreeStacksInOneArrayTest, Test1) {
 
 	std::string output;
 	testing::internal::CaptureStdout();
@@ -41,7 +169,7 @@ TEST(D_StacksTest, Test1) {
   EXPECT_TRUE(true);
 }
 
-TEST(D_StacksTest, Test2) {
+TEST(D_ThreeStacksInOneArrayTest, Test2) {
 
 	std::string output;
 	testing::internal::CaptureStdout();
@@ -71,7 +199,7 @@ TEST(D_StacksTest, Test2) {
 	EXPECT_TRUE(true);
 }
 
-TEST(D_StacksTest, Test3) {
+TEST(D_ThreeStacksInOneArrayTest, Test3) {
 
 	std::string output;
 	testing::internal::CaptureStdout();
@@ -97,7 +225,7 @@ TEST(D_StacksTest, Test3) {
 	EXPECT_TRUE(true);
 }
 
-TEST(D_StacksTest, Test4) {
+TEST(D_ThreeStacksInOneArrayTest, Test4) {
 
 	std::string output;
 	testing::internal::CaptureStdout();
@@ -125,7 +253,7 @@ TEST(D_StacksTest, Test4) {
 	EXPECT_TRUE(true);
 }
 
-TEST(D_StacksTest, Test5) {
+TEST(D_ThreeStacksInOneArrayTest, Test5) {
 
 	std::string output;
 	testing::internal::CaptureStdout();
