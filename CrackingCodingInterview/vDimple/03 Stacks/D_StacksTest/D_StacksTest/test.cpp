@@ -1,6 +1,84 @@
 #include "pch.h"
 #include "..\..\01 ThreeStacksInOneArray\ThreeStacksInOneArray.h"
 #include"..\..\02 StackMin\StackMin.h"
+#include"..\..\03 StackOfPlates\StackofPlates.h"
+
+TEST(D_StackOfPlatesTest, Test1) //a reference to stackOfPlates is not necessary because it is template ??
+{
+	std::string output;
+	testing::internal::CaptureStdout();
+
+	stackOfPlates<int> st(3);
+	st.push(1);
+	st.push(2);
+	st.push(3);
+	st.push(4);
+	st.push(5);
+	st.push(6);
+	st.push(7);
+	st.push(8);
+	st.push(9);
+	st.push(10);
+	
+	st.print();
+
+	output = testing::internal::GetCapturedStdout();
+
+	EXPECT_EQ(1, 1);
+
+}
+
+TEST(D_StackOfPlatesTest, Test2)
+{
+	std::string output;
+	testing::internal::CaptureStdout();
+
+	stackOfPlates<int> st(2);
+	st.push(1);
+	st.push(2);
+	st.push(3);
+	st.push(4);
+	st.push(5);
+	st.push(6);
+	st.push(7);
+	st.push(8);
+	st.push(9);
+	st.push(10);
+
+	st.print();
+
+	output = testing::internal::GetCapturedStdout();
+
+	EXPECT_EQ(1, 1);
+
+}
+
+TEST(D_StackOfPlatesTest, Test3)
+{
+	std::string output;
+	testing::internal::CaptureStdout();
+
+	stackOfPlates<int> st(2);
+	st.push(1);
+	st.push(2);
+	st.push(3);
+	st.push(4);
+	st.push(5);
+	st.push(6);
+	st.push(7);
+	st.push(8);
+	st.push(9);
+	st.push(10);
+	st.pop();
+	st.pop();
+	st.pop();
+	st.print();
+
+	output = testing::internal::GetCapturedStdout();
+
+	EXPECT_EQ(1, 1);
+
+}
 
 class person
 {
@@ -33,8 +111,6 @@ TEST(D_StacksMinTest, Test1) {
 	std::string output;
 	testing::internal::CaptureStdout();
 	
-	
-
 	stack<person> st;
 
 	st.push({ "abc",5 });
