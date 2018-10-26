@@ -3,25 +3,25 @@
 #include"..\..\02 StackMin\StackMin.h"
 #include"..\..\03 StackOfPlates\StackofPlates.h"
 
-TEST(D_StackOfPlatesTest, Test1) //a reference to stackOfPlates is not necessary because it is template ??
+TEST(D_StackOfPlatesTest, Test1) 
 {
 	std::string output;
 	testing::internal::CaptureStdout();
+	{
+		stackOfPlates<int> st(3);
+		st.push(1);
+		st.push(2);
+		st.push(3);
+		st.push(4);
+		st.push(5);
+		st.push(6);
+		st.push(7);
+		st.push(8);
+		st.push(9);
+		st.push(10);
 
-	stackOfPlates<int> st(3);
-	st.push(1);
-	st.push(2);
-	st.push(3);
-	st.push(4);
-	st.push(5);
-	st.push(6);
-	st.push(7);
-	st.push(8);
-	st.push(9);
-	st.push(10);
-	
-	st.print();
-
+		st.print();
+	}
 	output = testing::internal::GetCapturedStdout();
 
 	EXPECT_EQ(1, 1);

@@ -19,6 +19,7 @@ public:
 	void push(T elem);
 	T peek();
 	void pop();
+	void popFromSubStack(size_t n);
 	void print();
 	~stackOfPlates();
 };
