@@ -1,6 +1,6 @@
 #pragma once
-#ifndef __STACK_OF_PLATES_
-#define __STACK_OF_PLATES_
+#ifndef __STACK_OF_PLATES_VECTOR_OF_ARRAY_
+#define __STACK_OF_PLATES_VECTOR_OF_ARRAY_
 
 #include<iostream>
 #include<vector>
@@ -19,7 +19,6 @@ public:
 	void push(T elem);
 	T peek();
 	void pop();
-	void popFromSubStack(size_t n);
 	void print();
 	~stackOfPlates();
 };
@@ -141,3 +140,52 @@ inline stackOfPlates<T>::~stackOfPlates()
 }
 
 #endif
+//
+//#ifndef  __STACK_OF_PLATES_VECTOR_OF_VECTOR_
+//#define __STACK_OF_PLATES_VECTOR_OF_VECTOR_
+//
+//#include<iostream>
+//#include<vector>
+//#include<iterator>
+//
+//template<typename T>
+//class stackOfPlates
+//{
+//	size_t capacity;
+//	std::vector<std::vector<T>> vec;
+//
+//public:
+//	stackOfPlates(int n = 10) : capacity(n) {}
+//	void push(T elem);
+//	T peek();
+//	void pop();
+//	void print();
+//};
+//
+//template<typename T>
+//inline void stackOfPlates<T>::push(T elem)
+//{
+//	
+//}
+//
+//template<typename T>
+//inline T stackOfPlates<T>::peek()
+//{
+//	
+//}
+//
+//template<typename T>
+//inline void stackOfPlates<T>::pop()
+//{
+//	
+//}
+//
+//template<typename T>
+//inline void stackOfPlates<T>::print()
+//{
+//	
+//}
+//
+
+//#endif
+
