@@ -140,52 +140,77 @@ inline stackOfPlates<T>::~stackOfPlates()
 }
 
 #endif
-//
-//#ifndef  __STACK_OF_PLATES_VECTOR_OF_VECTOR_
-//#define __STACK_OF_PLATES_VECTOR_OF_VECTOR_
-//
-//#include<iostream>
-//#include<vector>
-//#include<iterator>
-//
-//template<typename T>
-//class stackOfPlates
-//{
-//	size_t capacity;
-//	std::vector<std::vector<T>> vec;
-//
-//public:
-//	stackOfPlates(int n = 10) : capacity(n) {}
-//	void push(T elem);
-//	T peek();
-//	void pop();
-//	void print();
-//};
-//
-//template<typename T>
-//inline void stackOfPlates<T>::push(T elem)
-//{
-//	
-//}
-//
-//template<typename T>
-//inline T stackOfPlates<T>::peek()
-//{
-//	
-//}
-//
-//template<typename T>
-//inline void stackOfPlates<T>::pop()
-//{
-//	
-//}
-//
-//template<typename T>
-//inline void stackOfPlates<T>::print()
-//{
-//	
-//}
-//
 
-//#endif
+#ifndef  __STACK_OF_PLATES_VECTOR_OF_VECTOR_
+#define __STACK_OF_PLATES_VECTOR_OF_VECTOR_
+
+#include<iostream>
+#include<vector>
+#include<iterator>
+
+namespace stackOfPlatesVOV
+{
+
+	template<typename T>
+	class stackOfPlates
+	{
+		size_t capacity;
+		std::vector<std::vector<T>> vec;
+	public:
+		stackOfPlates(size_t n = 10) : capacity(n) {}
+		void push(T elem);
+		T top();
+		void pop();
+		void popFromSubStack(size_t n);
+	};
+
+	template<typename T>
+	inline void stackOfPlates<T>::push(T elem)
+	{
+		std::vector<T> &subvec = vec.back();
+
+		if (vec.empty() || (subvec.size() == capacity-1))
+		{
+			vec.push_back(std::vector<T>);
+			&subvec = vec.back();
+		}
+		subvec.push_back(elem);
+	}
+
+	template<typename T>
+	inline T stackOfPlates<T>::top()
+	{
+		if (vec.empty())
+			throw std::exception("Stack is Empty");
+
+		std::vector<T> &subvec = vec.back();
+		return subvec.back();
+	}
+
+	template<typename T>
+	inline void stackOfPlates<T>::pop()
+	{
+		if (vec.empty())
+			throw std::exception("Stack is Empty");
+
+		std::vector<T> &subvec = vec.back();
+		subvec.pop_back();
+	}
+
+	template<typename T>
+	inline void stackOfPlates<T>::popFromSubStack(size_t n)
+	{
+		try
+		{
+			std::vector<T> &substack = vec.at(n);
+			substack.pop_back();
+		}
+		catch (std::exception e)
+		{
+			std::cout << e.what();
+		}
+	}
+
+}
+#endif
 
