@@ -3,6 +3,75 @@
 #include"..\02 StackMin\StackMin.h"
 #include"..\03 StackOfPlates\StackofPlates.h"
 #include"..\QueueUsingCircularArray\QueueUsingCircularArray.h"
+#include"..\04 QueueViaStacks\QueueViaStacks.h"
+
+TEST(D_QueueViaStacksTest, Test1)
+{
+	std::string output;
+	testing::internal::CaptureStdout();
+
+	MyQueue<int> mq;
+	try
+	{
+		mq.enqueue(1);
+		mq.enqueue(2);
+		mq.enqueue(3);
+		mq.enqueue(4);
+		mq.enqueue(5);
+		std::cout << "\n Front element in queue is " << mq.front();
+		mq.dequeue();
+		mq.dequeue();
+		mq.dequeue();
+		mq.dequeue();
+		mq.dequeue();
+		//std::cout << "\n Front element in queue is " << mq.front();
+		mq.enqueue(6);
+		std::cout << "\n Front element in queue is " << mq.front();
+	}
+	catch (std::exception e)
+	{
+		std::cout << e.what();
+	}
+
+	output = testing::internal::GetCapturedStdout();
+
+	EXPECT_EQ(1, 1);
+
+}
+
+TEST(D_QueueViaStacksTest, Test2)
+{
+	std::string output;
+	testing::internal::CaptureStdout();
+
+	MyQueue<int> mq;
+	try
+	{
+		mq.enqueue(1);
+		mq.dequeue();
+		mq.enqueue(2);
+		mq.dequeue();
+		mq.enqueue(3);
+		mq.dequeue();
+		mq.enqueue(4);
+		mq.dequeue();
+		mq.enqueue(5);
+		std::cout << "\n Front element in queue is " << mq.front();
+		mq.dequeue();
+		mq.enqueue(6);
+		std::cout << "\n Front element in queue is " << mq.front();
+	}
+	catch (std::exception e)
+	{
+		std::cout << e.what();
+	}
+
+	output = testing::internal::GetCapturedStdout();
+
+	EXPECT_EQ(1, 1);
+
+}
+
 
 TEST(D_QueueUsingCircularArrayTest, Test1)
 {
@@ -25,7 +94,7 @@ TEST(D_QueueUsingCircularArrayTest, Test1)
 
 }
 
-TEST(D_QueueUsingCircularArrayTest, Test3)
+TEST(D_QueueUsingCircularArrayTest, Test2)
 {
 	std::string output;
 	testing::internal::CaptureStdout();
@@ -52,12 +121,124 @@ TEST(D_QueueUsingCircularArrayTest, Test3)
 }
 
 
+TEST(D_StackOfPlatesTestVOV, Test1)
+{
+	std::string output;
+	testing::internal::CaptureStdout();
+	{
+		stackOfPlatesVOV::stackOfPlates<int> st(3);
+		st.push(1);
+		st.push(2);
+		st.push(3);
+		st.push(4);
+		st.push(5);
+		st.push(6);
+		st.push(7);
+		st.push(8);
+		st.push(9);
+		st.push(10);
+
+		st.print();
+	}
+	output = testing::internal::GetCapturedStdout();
+
+	EXPECT_EQ(1, 1);
+
+}
+
+TEST(D_StackOfPlatesTestVOV, Test2)
+{
+	std::string output;
+	testing::internal::CaptureStdout();
+
+	stackOfPlatesVOV::stackOfPlates<int> st(2);
+	st.push(1);
+	st.push(2);
+	st.push(3);
+	st.push(4);
+	st.push(5);
+	st.push(6);
+	st.push(7);
+	st.push(8);
+	st.push(9);
+	st.push(10);
+
+	st.print();
+
+	output = testing::internal::GetCapturedStdout();
+
+	EXPECT_EQ(1, 1);
+
+}
+
+TEST(D_StackOfPlatesTestVOV, Test3)
+{
+	std::string output;
+	testing::internal::CaptureStdout();
+
+	stackOfPlatesVOV::stackOfPlates<int> st(2);
+	st.push(1);
+	st.push(2);
+	st.push(3);
+	st.push(4);
+	st.push(5);
+	st.push(6);
+	st.push(7);
+	st.push(8);
+	st.push(9);
+	st.push(10);
+	st.pop();
+	st.pop();
+	st.pop();
+	st.print();
+
+	output = testing::internal::GetCapturedStdout();
+
+	EXPECT_EQ(1, 1);
+
+}
+
+TEST(D_StackOfPlatesTestVOV, Test4)
+{
+	std::string output;
+	testing::internal::CaptureStdout();
+	try
+	{
+		stackOfPlatesVOV::stackOfPlates<int> st(2);
+		st.push(1);
+		st.push(2);
+		st.push(3);
+		st.push(4);
+		st.push(5);
+		st.push(6);
+		st.push(7);
+		st.push(8);
+		st.push(9);
+		st.push(10);
+		st.pop();
+		st.pop();
+		st.pop();
+		st.print();
+
+		st.popFromSubStack(10);
+		
+	}
+	catch (std::exception e)
+	{
+		std::cout << "\n" << e.what();
+	}
+
+	output = testing::internal::GetCapturedStdout();
+
+	EXPECT_EQ(1, 1);
+
+}
 TEST(D_StackOfPlatesTest, Test1) 
 {
 	std::string output;
 	testing::internal::CaptureStdout();
 	{
-		stackOfPlates<int> st(3);
+		stackOfPlatesVOA::stackOfPlates<int> st(3);
 		st.push(1);
 		st.push(2);
 		st.push(3);
@@ -82,7 +263,7 @@ TEST(D_StackOfPlatesTest, Test2)
 	std::string output;
 	testing::internal::CaptureStdout();
 
-	stackOfPlates<int> st(2);
+	stackOfPlatesVOA::stackOfPlates<int> st(2);
 	st.push(1);
 	st.push(2);
 	st.push(3);
@@ -107,7 +288,7 @@ TEST(D_StackOfPlatesTest, Test3)
 	std::string output;
 	testing::internal::CaptureStdout();
 
-	stackOfPlates<int> st(2);
+	stackOfPlatesVOA::stackOfPlates<int> st(2);
 	st.push(1);
 	st.push(2);
 	st.push(3);
