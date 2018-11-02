@@ -2,6 +2,8 @@
 #include "../../01 ThreeStackInOneArray/ThreeStackInOneArray.h"
 #include "../../02 MinOfStack/MinOfStack.h"
 #include "../../03 A_StacksOfPlates/StacksOfPlates.h"
+#include "../../06 AnimalShelter/AnimalShelter.h"
+
 TEST(ThreeStackTests, TestName) {
 
 	ThreeStack<int> stackObj;
@@ -110,4 +112,62 @@ TEST(StacksOfPlates, Test2) {
 	int elem = stackObj.peek();
 
 	EXPECT_EQ(elem, 1);
+}
+
+
+
+TEST(AnimalShelterTests, Test1) {
+
+	AnimalShelter obj;
+
+	obj.enque({ DOG, "DTommy1" });
+	obj.enque({ CAT, "CCAT1" });
+	obj.enque({ DOG, "DTommy2" });
+	obj.enque({ CAT, "CCAT2" });
+	obj.enque({ DOG, "DTommy3" });
+	obj.enque({ CAT, "CCAT3" });
+	obj.enque({ DOG, "DTommy4" });
+
+	auto var = obj.deque();
+	var = obj.deque();
+
+	EXPECT_EQ(var.name, "CCAT1");
+}
+
+
+TEST(AnimalShelterTests, Test2) {
+
+	AnimalShelter obj;
+
+	obj.enque({ DOG, "DTommy1" });
+	obj.enque({ CAT, "CCAT1" });
+	obj.enque({ DOG, "DTommy2" });
+	obj.enque({ CAT, "CCAT2" });
+	obj.enque({ DOG, "DTommy3" });
+	obj.enque({ CAT, "CCAT3" });
+	obj.enque({ DOG, "DTommy4" });
+
+	auto var = obj.dequeSpecial(DOG);
+	
+	EXPECT_EQ(var.name, "DTommy1");
+}
+
+
+TEST(AnimalShelterTests, Test3) {
+
+	AnimalShelter obj;
+
+	obj.enque({ DOG, "DTommy1" });
+	obj.enque({ CAT, "CCAT1" });
+	obj.enque({ DOG, "DTommy2" });
+	obj.enque({ CAT, "CCAT2" });
+	obj.enque({ DOG, "DTommy3" });
+	obj.enque({ CAT, "CCAT3" });
+	obj.enque({ DOG, "DTommy4" });
+
+	auto var = obj.dequeSpecial(CAT);
+	var = obj.dequeSpecial(CAT);
+
+
+	EXPECT_EQ(var.name, "CCAT2");
 }
