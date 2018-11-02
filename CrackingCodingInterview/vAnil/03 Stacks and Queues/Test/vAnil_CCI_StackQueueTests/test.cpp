@@ -128,8 +128,8 @@ TEST(AnimalShelterTests, Test1) {
 	obj.enque({ CAT, "CCAT3" });
 	obj.enque({ DOG, "DTommy4" });
 
-	auto var = obj.deque();
-	var = obj.deque();
+	auto var = obj.deque(ANY);
+	var = obj.deque(ANY);
 
 	EXPECT_EQ(var.name, "CCAT1");
 }
@@ -147,7 +147,7 @@ TEST(AnimalShelterTests, Test2) {
 	obj.enque({ CAT, "CCAT3" });
 	obj.enque({ DOG, "DTommy4" });
 
-	auto var = obj.dequeSpecial(DOG);
+	auto var = obj.deque(DOG);
 	
 	EXPECT_EQ(var.name, "DTommy1");
 }
@@ -165,8 +165,8 @@ TEST(AnimalShelterTests, Test3) {
 	obj.enque({ CAT, "CCAT3" });
 	obj.enque({ DOG, "DTommy4" });
 
-	auto var = obj.dequeSpecial(CAT);
-	var = obj.dequeSpecial(CAT);
+	auto var = obj.deque(CAT);
+	var = obj.deque(CAT);
 
 
 	EXPECT_EQ(var.name, "CCAT2");

@@ -7,7 +7,8 @@
 enum ANIMALTYPE
 {
 	DOG,
-	CAT
+	CAT,
+	ANY
 };
 
 struct Animal
@@ -31,39 +32,62 @@ public:
 		}
 	}
 
-	Animal deque()
+	Animal deque(ANIMALTYPE type)
 	{
-		if (dogList.empty() && catList.empty())
-			throw std::string("No animal found");
-
-		if (dogList.empty() && !catList.empty())
+		if (type == ANY)
 		{
+			if (dogList.empty() && catList.empty())
+				throw std::string("No animal found");
+
+			if (dogList.empty() && !catList.empty())
+			{
+				AnimalInfo catFront = catList.front();
+				catList.pop_front();
+				return catFront.item;
+			}
+
+			if (!dogList.empty() && catList.empty())
+			{
+				AnimalInfo dogFront = dogList.front();
+				dogList.pop_front();
+				return dogFront.item;
+			}
+
 			AnimalInfo catFront = catList.front();
-			catList.pop_front();
-			return catFront.item;
-		}
-
-		if (!dogList.empty() && catList.empty())
-		{
 			AnimalInfo dogFront = dogList.front();
-			dogList.pop_front();
-			return dogFront.item;
-		}
 
-		AnimalInfo catFront = catList.front();
-		AnimalInfo dogFront = dogList.front();
-
-		if (catFront.age > dogFront.age)
-		{
-			dogList.pop_front();
-			return dogFront.item;
+			if (catFront.age > dogFront.age)
+			{
+				dogList.pop_front();
+				return dogFront.item;
+			}
+			else
+			{
+				catList.pop_front();
+				return catFront.item;
+			}
 		}
 		else
 		{
-			catList.pop_front();
-			return catFront.item;
+			return dequeSpecial(type);
 		}
 	}
+
+	
+
+
+private:
+	struct AnimalInfo
+	{
+		Animal item;
+		int age;
+	};
+
+	std::list<AnimalInfo> dogList;
+	std::list<AnimalInfo> catList;
+	int lastAge = 0;
+
+
 
 	Animal dequeSpecial(ANIMALTYPE type)
 	{
@@ -86,18 +110,6 @@ public:
 			return catFront.item;
 		}
 	}
-
-
-private:
-	struct AnimalInfo
-	{
-		Animal item;
-		int age;
-	};
-
-	std::list<AnimalInfo> dogList;
-	std::list<AnimalInfo> catList;
-	int lastAge = 0;
 };
 
 #endif //__ANIMAL_SHTELER_
