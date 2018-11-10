@@ -3,6 +3,7 @@
 #include "../../02 MinOfStack/MinOfStack.h"
 #include "../../03 A_StacksOfPlates/StacksOfPlates.h"
 #include "../../04 QueueUsingStacks/QueueUsingStacks.h"
+#include "../../05 SortStack_A/SortStack.h"
 #include "../../06 AnimalShelter/AnimalShelter.h"
 
 TEST(ThreeStackTests, TestName) {
@@ -249,4 +250,23 @@ TEST(QueueUsingStack, Test3) {
 	auto val = obj.front();
 
 	EXPECT_EQ(val, 4);
+}
+
+TEST(SortStack, Test1) {
+
+	std::stack<int> obj;
+
+	obj.push(11);
+	obj.push(14);
+	obj.push(5);
+	obj.push(66);
+	obj.push(9);
+	obj.push(12);
+	obj.push(13);
+	
+	sortStack(obj);
+
+	auto val = obj.top();
+
+	EXPECT_EQ(val, 5);
 }
