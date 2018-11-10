@@ -111,7 +111,7 @@ TEST(StacksOfPlates, Test2) {
 
 	int elem = stackObj.peek();
 
-	EXPECT_EQ(elem, 1);
+	EXPECT_EQ(elem, 4);
 }
 
 
@@ -120,16 +120,16 @@ TEST(AnimalShelterTests, Test1) {
 
 	AnimalShelter obj;
 
-	obj.enque({ DOG, "DTommy1" });
-	obj.enque({ CAT, "CCAT1" });
-	obj.enque({ DOG, "DTommy2" });
-	obj.enque({ CAT, "CCAT2" });
-	obj.enque({ DOG, "DTommy3" });
-	obj.enque({ CAT, "CCAT3" });
-	obj.enque({ DOG, "DTommy4" });
+	obj.enqueue({ DOG, "DTommy1" });
+	obj.enqueue({ CAT, "CCAT1" });
+	obj.enqueue({ DOG, "DTommy2" });
+	obj.enqueue({ CAT, "CCAT2" });
+	obj.enqueue({ DOG, "DTommy3" });
+	obj.enqueue({ CAT, "CCAT3" });
+	obj.enqueue({ DOG, "DTommy4" });
 
-	auto var = obj.deque(ANY);
-	var = obj.deque(ANY);
+	auto var = obj.dequeue(ANY);
+	var = obj.dequeue(ANY);
 
 	EXPECT_EQ(var.name, "CCAT1");
 }
@@ -139,15 +139,15 @@ TEST(AnimalShelterTests, Test2) {
 
 	AnimalShelter obj;
 
-	obj.enque({ DOG, "DTommy1" });
-	obj.enque({ CAT, "CCAT1" });
-	obj.enque({ DOG, "DTommy2" });
-	obj.enque({ CAT, "CCAT2" });
-	obj.enque({ DOG, "DTommy3" });
-	obj.enque({ CAT, "CCAT3" });
-	obj.enque({ DOG, "DTommy4" });
+	obj.enqueue({ DOG, "DTommy1" });
+	obj.enqueue({ CAT, "CCAT1" });
+	obj.enqueue({ DOG, "DTommy2" });
+	obj.enqueue({ CAT, "CCAT2" });
+	obj.enqueue({ DOG, "DTommy3" });
+	obj.enqueue({ CAT, "CCAT3" });
+	obj.enqueue({ DOG, "DTommy4" });
 
-	auto var = obj.deque(DOG);
+	auto var = obj.dequeue(DOG);
 	
 	EXPECT_EQ(var.name, "DTommy1");
 }
@@ -157,16 +157,16 @@ TEST(AnimalShelterTests, Test3) {
 
 	AnimalShelter obj;
 
-	obj.enque({ DOG, "DTommy1" });
-	obj.enque({ CAT, "CCAT1" });
-	obj.enque({ DOG, "DTommy2" });
-	obj.enque({ CAT, "CCAT2" });
-	obj.enque({ DOG, "DTommy3" });
-	obj.enque({ CAT, "CCAT3" });
-	obj.enque({ DOG, "DTommy4" });
+	obj.enqueue({ DOG, "DTommy1" });
+	obj.enqueue({ CAT, "CCAT1" });
+	obj.enqueue({ DOG, "DTommy2" });
+	obj.enqueue({ CAT, "CCAT2" });
+	obj.enqueue({ DOG, "DTommy3" });
+	obj.enqueue({ CAT, "CCAT3" });
+	obj.enqueue({ DOG, "DTommy4" });
 
-	auto var = obj.deque(CAT);
-	var = obj.deque(CAT);
+	auto var = obj.dequeue(CAT);
+	var = obj.dequeue(CAT);
 
 
 	EXPECT_EQ(var.name, "CCAT2");
