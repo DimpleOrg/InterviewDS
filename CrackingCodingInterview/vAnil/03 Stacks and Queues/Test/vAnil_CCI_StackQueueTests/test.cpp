@@ -2,6 +2,7 @@
 #include "../../01 ThreeStackInOneArray/ThreeStackInOneArray.h"
 #include "../../02 MinOfStack/MinOfStack.h"
 #include "../../03 A_StacksOfPlates/StacksOfPlates.h"
+#include "../../04 QueueUsingStacks/QueueUsingStacks.h"
 #include "../../06 AnimalShelter/AnimalShelter.h"
 
 TEST(ThreeStackTests, TestName) {
@@ -170,4 +171,82 @@ TEST(AnimalShelterTests, Test3) {
 
 
 	EXPECT_EQ(var.name, "CCAT2");
+}
+
+
+TEST(QueueUsingStack, Test1) {
+
+	QueueUsingStacks<int> obj;
+
+	obj.enqueue(1);
+	obj.enqueue(2);
+	obj.enqueue(3);
+	obj.enqueue(4);
+	obj.enqueue(5);
+	obj.enqueue(6);
+
+	auto val = obj.front();
+
+	EXPECT_EQ(val , 1);
+}
+
+TEST(QueueUsingStack, Test4) {
+
+	QueueUsingStacks<int> obj;
+
+	obj.enqueue(1);
+	obj.enqueue(2);
+	obj.enqueue(3);
+	obj.enqueue(4);
+	obj.enqueue(5);
+	obj.enqueue(6);
+	obj.dequeue();
+	obj.dequeue();
+	obj.dequeue();
+	obj.dequeue();
+	obj.enqueue(10);
+	obj.dequeue();
+
+	auto val = obj.front();
+
+	EXPECT_EQ(val, 6);
+}
+
+TEST(QueueUsingStack, Test2) {
+
+	QueueUsingStacks<int> obj;
+
+	obj.enqueue(1);
+	obj.enqueue(2);
+	obj.enqueue(3);
+	obj.enqueue(4);
+	obj.enqueue(5);
+	obj.enqueue(6);
+	obj.dequeue();
+
+
+	auto val = obj.front();
+
+	EXPECT_EQ(val, 2);
+}
+
+TEST(QueueUsingStack, Test3) {
+
+	QueueUsingStacks<int> obj;
+
+	obj.enqueue(1);
+	obj.enqueue(2);
+	obj.enqueue(3);
+	obj.enqueue(4);
+	obj.enqueue(5);
+	obj.enqueue(6);
+
+	obj.dequeue();
+	obj.dequeue();
+	obj.dequeue();
+
+
+	auto val = obj.front();
+
+	EXPECT_EQ(val, 4);
 }
