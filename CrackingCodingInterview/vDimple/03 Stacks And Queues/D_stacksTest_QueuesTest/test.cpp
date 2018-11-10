@@ -4,6 +4,110 @@
 #include"..\03 StackOfPlates\StackofPlates.h"
 #include"..\QueueUsingCircularArray\QueueUsingCircularArray.h"
 #include"..\04 QueueViaStacks\QueueViaStacks.h"
+#include"..\05 SortStack\SortStack.h"
+#include"..\06 Animal Shelter\Animal Shelter.h"
+
+TEST(D_SortStackTests, Test1) {
+
+	SortStack<int> st;
+	try
+	{
+		st.inputStack(7);
+		st.inputStack(8);
+		st.inputStack(3);
+		st.inputStack(1);
+		st.inputStack(2);
+		st.inputStack(5);
+		st.inputStack(9);
+		st.sort();
+	}
+	catch (std::exception e)
+	{
+		std::cout << e.what();
+	}
+	EXPECT_EQ(st.getTop(), 1);
+}
+
+TEST(D_SortStackTests, Test2) {
+
+	SortStack<int> st;
+	try
+	{
+		st.inputStack(0);
+		st.inputStack(1);
+		st.inputStack(0);
+		st.inputStack(1);
+		st.inputStack(100);
+		st.inputStack(-100);
+		st.inputStack(-2);
+		st.sort();
+	}
+	catch (std::exception e)
+	{
+		std::cout << e.what();
+	}
+	EXPECT_EQ(st.getTop(), -100);
+}
+
+
+TEST(AnimalShelterTests, Test1) {
+	AnimalShelter obj;
+	obj.enqueue(DOG, "Dog1");
+	obj.enqueue(CAT, "Cat1");
+	obj.enqueue(DOG, "Dog2");
+	obj.enqueue(CAT, "Cat2");
+	obj.enqueue(DOG, "Dog3");
+	obj.enqueue(CAT, "Cat3");
+	obj.enqueue(DOG, "Dog4");
+	
+	auto var = obj.dequeue(CAT);
+	var = obj.dequeue(CAT);
+	EXPECT_EQ(var.getname(), "Cat2");
+}
+
+TEST(AnimalShelterTests, Test2) {
+	AnimalShelter obj;
+	obj.enqueue(DOG, "Dog1");
+	obj.enqueue(CAT, "Cat1");
+	obj.enqueue(DOG, "Dog2");
+	obj.enqueue(CAT, "Cat2");
+	obj.enqueue(DOG, "Dog3");
+	obj.enqueue(CAT, "Cat3");
+	obj.enqueue(DOG, "Dog4");
+	auto var = obj.dequeue(DOG);
+
+	EXPECT_EQ(var.getname(), "Dog1");
+}
+
+TEST(AnimalShelterTests, Test3) {
+	AnimalShelter obj;
+	obj.enqueue(DOG, "Dog1");
+	obj.enqueue(CAT, "Cat1");
+	obj.enqueue(DOG, "Dog2");
+	obj.enqueue(CAT, "Cat2");
+	obj.enqueue(DOG, "Dog3");
+	obj.enqueue(CAT, "Cat3");
+	obj.enqueue(DOG, "Dog4");
+	auto var = obj.dequeue(ANY);
+	var = obj.dequeue(ANY);
+	EXPECT_EQ(var.getname(), "Cat1");
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 TEST(D_QueueViaStacksTest, Test1)
 {
