@@ -171,6 +171,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{EF7BD4E2-5
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "vAnil_CCI_BitManipulationTests", "CrackingCodingInterview\vAnil\05 Bit Manipulation\Test\vAnil_CCI_BitManipulationTests\vAnil_CCI_BitManipulationTests.vcxproj", "{F9852FB5-9F53-43EC-884D-4FDD286DFC1A}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Practice Theory", "Practice Theory", "{68B3319D-B2F2-4782-9607-1B4FA246A2C5}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "BFS", "CrackingCodingInterview\vAnil\04 Trees and Graphs\Practice Theory\BFS\BFS.vcxproj", "{1A1609AB-6796-44A4-9B46-DEE3EF3229F2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -635,6 +639,14 @@ Global
 		{F9852FB5-9F53-43EC-884D-4FDD286DFC1A}.Release|x64.Build.0 = Release|x64
 		{F9852FB5-9F53-43EC-884D-4FDD286DFC1A}.Release|x86.ActiveCfg = Release|Win32
 		{F9852FB5-9F53-43EC-884D-4FDD286DFC1A}.Release|x86.Build.0 = Release|Win32
+		{1A1609AB-6796-44A4-9B46-DEE3EF3229F2}.Debug|x64.ActiveCfg = Debug|x64
+		{1A1609AB-6796-44A4-9B46-DEE3EF3229F2}.Debug|x64.Build.0 = Debug|x64
+		{1A1609AB-6796-44A4-9B46-DEE3EF3229F2}.Debug|x86.ActiveCfg = Debug|Win32
+		{1A1609AB-6796-44A4-9B46-DEE3EF3229F2}.Debug|x86.Build.0 = Debug|Win32
+		{1A1609AB-6796-44A4-9B46-DEE3EF3229F2}.Release|x64.ActiveCfg = Release|x64
+		{1A1609AB-6796-44A4-9B46-DEE3EF3229F2}.Release|x64.Build.0 = Release|x64
+		{1A1609AB-6796-44A4-9B46-DEE3EF3229F2}.Release|x86.ActiveCfg = Release|Win32
+		{1A1609AB-6796-44A4-9B46-DEE3EF3229F2}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -718,6 +730,8 @@ Global
 		{781A60BB-F51C-46ED-9A32-B5F7BA8C5E83} = {BB573EEF-2E82-4877-8B5A-A6B55275AE5A}
 		{EF7BD4E2-5A8E-4DA2-8F9A-6A122F4959E6} = {BB573EEF-2E82-4877-8B5A-A6B55275AE5A}
 		{F9852FB5-9F53-43EC-884D-4FDD286DFC1A} = {EF7BD4E2-5A8E-4DA2-8F9A-6A122F4959E6}
+		{68B3319D-B2F2-4782-9607-1B4FA246A2C5} = {11231459-F196-47A3-9CA5-DCF74728C2CB}
+		{1A1609AB-6796-44A4-9B46-DEE3EF3229F2} = {68B3319D-B2F2-4782-9607-1B4FA246A2C5}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {F8696CBB-2750-4AFE-AFE7-121D7ED869FC}
