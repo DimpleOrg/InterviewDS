@@ -2,6 +2,10 @@
 #include "../../01 ThreeStackInOneArray/ThreeStackInOneArray.h"
 #include "../../02 MinOfStack/MinOfStack.h"
 #include "../../03 A_StacksOfPlates/StacksOfPlates.h"
+#include "../../04 QueueUsingStacks/QueueUsingStacks.h"
+#include "../../05 SortStack_A/SortStack.h"
+#include "../../06 AnimalShelter/AnimalShelter.h"
+
 TEST(ThreeStackTests, TestName) {
 
 	ThreeStack<int> stackObj;
@@ -109,5 +113,160 @@ TEST(StacksOfPlates, Test2) {
 
 	int elem = stackObj.peek();
 
-	EXPECT_EQ(elem, 1);
+	EXPECT_EQ(elem, 4);
+}
+
+
+
+TEST(AnimalShelterTests, Test1) {
+
+	AnimalShelter obj;
+
+	obj.enqueue({ DOG, "DTommy1" });
+	obj.enqueue({ CAT, "CCAT1" });
+	obj.enqueue({ DOG, "DTommy2" });
+	obj.enqueue({ CAT, "CCAT2" });
+	obj.enqueue({ DOG, "DTommy3" });
+	obj.enqueue({ CAT, "CCAT3" });
+	obj.enqueue({ DOG, "DTommy4" });
+
+	auto var = obj.dequeue(ANY);
+	var = obj.dequeue(ANY);
+
+	EXPECT_EQ(var.name, "CCAT1");
+}
+
+
+TEST(AnimalShelterTests, Test2) {
+
+	AnimalShelter obj;
+
+	obj.enqueue({ DOG, "DTommy1" });
+	obj.enqueue({ CAT, "CCAT1" });
+	obj.enqueue({ DOG, "DTommy2" });
+	obj.enqueue({ CAT, "CCAT2" });
+	obj.enqueue({ DOG, "DTommy3" });
+	obj.enqueue({ CAT, "CCAT3" });
+	obj.enqueue({ DOG, "DTommy4" });
+
+	auto var = obj.dequeue(DOG);
+	
+	EXPECT_EQ(var.name, "DTommy1");
+}
+
+
+TEST(AnimalShelterTests, Test3) {
+
+	AnimalShelter obj;
+
+	obj.enqueue({ DOG, "DTommy1" });
+	obj.enqueue({ CAT, "CCAT1" });
+	obj.enqueue({ DOG, "DTommy2" });
+	obj.enqueue({ CAT, "CCAT2" });
+	obj.enqueue({ DOG, "DTommy3" });
+	obj.enqueue({ CAT, "CCAT3" });
+	obj.enqueue({ DOG, "DTommy4" });
+
+	auto var = obj.dequeue(CAT);
+	var = obj.dequeue(CAT);
+
+
+	EXPECT_EQ(var.name, "CCAT2");
+}
+
+
+TEST(QueueUsingStack, Test1) {
+
+	QueueUsingStacks<int> obj;
+
+	obj.enqueue(1);
+	obj.enqueue(2);
+	obj.enqueue(3);
+	obj.enqueue(4);
+	obj.enqueue(5);
+	obj.enqueue(6);
+
+	auto val = obj.front();
+
+	EXPECT_EQ(val , 1);
+}
+
+TEST(QueueUsingStack, Test4) {
+
+	QueueUsingStacks<int> obj;
+
+	obj.enqueue(1);
+	obj.enqueue(2);
+	obj.enqueue(3);
+	obj.enqueue(4);
+	obj.enqueue(5);
+	obj.enqueue(6);
+	obj.dequeue();
+	obj.dequeue();
+	obj.dequeue();
+	obj.dequeue();
+	obj.enqueue(10);
+	obj.dequeue();
+
+	auto val = obj.front();
+
+	EXPECT_EQ(val, 6);
+}
+
+TEST(QueueUsingStack, Test2) {
+
+	QueueUsingStacks<int> obj;
+
+	obj.enqueue(1);
+	obj.enqueue(2);
+	obj.enqueue(3);
+	obj.enqueue(4);
+	obj.enqueue(5);
+	obj.enqueue(6);
+	obj.dequeue();
+
+
+	auto val = obj.front();
+
+	EXPECT_EQ(val, 2);
+}
+
+TEST(QueueUsingStack, Test3) {
+
+	QueueUsingStacks<int> obj;
+
+	obj.enqueue(1);
+	obj.enqueue(2);
+	obj.enqueue(3);
+	obj.enqueue(4);
+	obj.enqueue(5);
+	obj.enqueue(6);
+
+	obj.dequeue();
+	obj.dequeue();
+	obj.dequeue();
+
+
+	auto val = obj.front();
+
+	EXPECT_EQ(val, 4);
+}
+
+TEST(SortStack, Test1) {
+
+	std::stack<int> obj;
+
+	obj.push(11);
+	obj.push(14);
+	obj.push(5);
+	obj.push(66);
+	obj.push(9);
+	obj.push(12);
+	obj.push(13);
+	
+	sortStack(obj);
+
+	auto val = obj.top();
+
+	EXPECT_EQ(val, 5);
 }
