@@ -63,5 +63,9 @@ public:
 
 			return arr.get()[curMin].data;
 		}
+		else
+		{
+			throw new std::exception("Stack Underflow");
+		}
 	}
 };
