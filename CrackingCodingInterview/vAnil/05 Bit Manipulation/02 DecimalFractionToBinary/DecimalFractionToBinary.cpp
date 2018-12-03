@@ -11,7 +11,10 @@ MY02DECIMALFRACTIONTOBINARY_API std::string DecimalFractionToString(double decim
 	{
 		if (decimalFraction == 0)
 		{
-			result[i] = '0';
+			//To make 0.0
+			if (i==0)
+				result[i] = '0';
+			
 			break;
 		}
 		else

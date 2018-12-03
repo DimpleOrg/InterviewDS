@@ -54,6 +54,9 @@
     <ProjectReference Include="..\..\02 DecimalFractionToBinary\02 DecimalFractionToBinary.vcxproj">
       <Project>{1d923241-53c1-4c7b-9ff4-244937277ddd}</Project>
     </ProjectReference>
+    <ProjectReference Include="..\..\03 FlipBitToWin\03 FlipBitToWin.vcxproj">
+      <Project>{eca728cf-7e60-4cbd-b971-108eadd97702}</Project>
+    </ProjectReference>
   </ItemGroup>
   <ItemDefinitionGroup />
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

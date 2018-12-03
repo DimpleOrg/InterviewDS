@@ -1,6 +1,7 @@
 #include "pch.h"
 #include "../../01 Insertion_A/Insertion.h"
 #include "../../02 DecimalFractionToBinary/DecimalFractionToBinary.h"
+#include "../../03 FlipBitToWin/FlipBitToWin.h"
 
 TEST(InsertionTest, Test1) {
 	std::string output;
@@ -26,4 +27,18 @@ TEST(DecimalFractionToBinaryString, Test1) {
 
 
 	EXPECT_EQ(1, 1);
+}
+
+
+TEST(FlipBitToWin, Test1) {
+	std::string output;
+	testing::internal::CaptureStdout();
+
+
+	auto result = Longest1Sequence(1775);
+
+	output = testing::internal::GetCapturedStdout();
+
+
+	EXPECT_EQ(8, result);
 }
