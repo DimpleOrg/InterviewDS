@@ -51,6 +51,9 @@
     <ProjectReference Include="..\..\01 Insertion_A\01 Insertion_A.vcxproj">
       <Project>{781a60bb-f51c-46ed-9a32-b5f7ba8c5e83}</Project>
     </ProjectReference>
+    <ProjectReference Include="..\..\02 DecimalFractionToBinary\02 DecimalFractionToBinary.vcxproj">
+      <Project>{1d923241-53c1-4c7b-9ff4-244937277ddd}</Project>
+    </ProjectReference>
   </ItemGroup>
   <ItemDefinitionGroup />
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
