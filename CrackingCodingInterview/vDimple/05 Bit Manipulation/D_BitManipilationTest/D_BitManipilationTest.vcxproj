@@ -54,6 +54,9 @@
     <ProjectReference Include="..\02 BinaryToString\02 BinaryToString.vcxproj">
       <Project>{73eda9db-74ad-4496-bd26-d0a0f1705c0e}</Project>
     </ProjectReference>
+    <ProjectReference Include="..\03 FlipBitToWin\03 FlipBitToWin.vcxproj">
+      <Project>{e37f5083-7e58-4eb7-8807-c83048c96d49}</Project>
+    </ProjectReference>
   </ItemGroup>
   <ItemDefinitionGroup />
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
