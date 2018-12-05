@@ -1,3 +1,4 @@
+//Decimal fraction to Binary
 #include "BinaryToString.h"
 
 BINARYTOSTRING_API std::string convert(double n)
