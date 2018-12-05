@@ -12,6 +12,8 @@
 
 MY04NEXTNUMBER_API unsigned NextBigger(unsigned num);
 MY04NEXTNUMBER_API unsigned NextSmaller(unsigned num);
+MY04NEXTNUMBER_API unsigned NextBiggerV1(unsigned num);
+MY04NEXTNUMBER_API unsigned PrevBiggerV1(unsigned num);
 
 
 
