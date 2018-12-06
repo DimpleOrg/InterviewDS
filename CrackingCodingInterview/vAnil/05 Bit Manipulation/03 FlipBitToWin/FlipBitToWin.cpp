@@ -18,7 +18,7 @@ current = 0
 
 */
 
-MY03FLIPBITTOWIN_API int Longest1Sequence(unsigned num)
+MY03FLIPBITTOWIN_API int Longest1Sequence(size_t num)
 {
 	int max = 0;
 

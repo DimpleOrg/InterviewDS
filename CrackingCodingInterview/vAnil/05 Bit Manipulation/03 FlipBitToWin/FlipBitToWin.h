@@ -10,7 +10,7 @@
 #define MY03FLIPBITTOWIN_API __declspec(dllimport)
 #endif
 
-MY03FLIPBITTOWIN_API int Longest1Sequence(unsigned num);
+MY03FLIPBITTOWIN_API int Longest1Sequence(size_t num);
 
 
 
