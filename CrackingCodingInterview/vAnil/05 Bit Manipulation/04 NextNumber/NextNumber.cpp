@@ -55,11 +55,55 @@ MY04NEXTNUMBER_API unsigned NextBigger(unsigned num)
 
 MY04NEXTNUMBER_API unsigned NextSmaller(unsigned num)
 {
-	unsigned nSmall = 0;
+	if (num == 0 || num == 1)
+		throw "Smaller unsigned int is not possible.";
 
+	unsigned mask = 1;
 
+	while (mask != 0)
+	{
+		if (!(num & mask))
+		{
+			//first zero
+			num = num | mask;
 
-	return nSmall;
+			break;
+		}
+		mask = mask << 1;
+	}
+
+	while (mask != 0)
+	{
+		mask = mask << 1;
+
+		if ((num & mask))
+		{
+			num = num & ~mask;
+			break;
+		}
+	}
+
+	unsigned count = 0;
+	while (mask != 1)
+	{
+		mask = mask >> 1;
+
+		if (!(num & mask))
+		{
+			count++;
+			num = num | mask;
+		}
+	}
+
+	mask = 1;
+	while (count != 0)
+	{
+		num = num & ~mask;
+		mask = mask << 1;
+		count--;
+	}
+
+	return num;
 }
 
 

@@ -74,3 +74,33 @@ TEST(NextNumber, NextBiggerT2) {
 
 	EXPECT_EQ(result1, result);
 }
+
+TEST(NextNumber, NextSmallerT1) {
+	std::string output;
+	testing::internal::CaptureStdout();
+
+
+	auto result = PrevBiggerV1(13948);
+
+	auto result1 = NextSmaller(13948);
+
+	output = testing::internal::GetCapturedStdout();
+
+
+	EXPECT_EQ(result1, result);
+}
+
+TEST(NextNumber, NextSmallerT2) {
+	std::string output;
+	testing::internal::CaptureStdout();
+
+
+	auto result = PrevBiggerV1(139);
+
+	auto result1 = NextSmaller(139);
+
+	output = testing::internal::GetCapturedStdout();
+
+
+	EXPECT_EQ(result1, result);
+}
