@@ -19,9 +19,9 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{f9852fb5-9f53-43ec-884d-4fdd286dfc1a}</ProjectGuid>
+    <ProjectGuid>{3887ef1e-3128-456a-818f-05121ba7281f}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <WindowsTargetPlatformVersion>10.0.17134.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0.17763.0</WindowsTargetPlatformVersion>
     <ConfigurationType>Application</ConfigurationType>
     <PlatformToolset>v141</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
@@ -48,20 +48,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\01 Insertion_A\01 Insertion_A.vcxproj">
-      <Project>{781a60bb-f51c-46ed-9a32-b5f7ba8c5e83}</Project>
-    </ProjectReference>
-    <ProjectReference Include="..\..\02 DecimalFractionToBinary\02 DecimalFractionToBinary.vcxproj">
-      <Project>{1d923241-53c1-4c7b-9ff4-244937277ddd}</Project>
-    </ProjectReference>
-    <ProjectReference Include="..\..\03 FlipBitToWin\03 FlipBitToWin.vcxproj">
-      <Project>{eca728cf-7e60-4cbd-b971-108eadd97702}</Project>
-    </ProjectReference>
-    <ProjectReference Include="..\..\04 NextNumber\04 NextNumber.vcxproj">
-      <Project>{efd96d59-df35-4519-88b8-5c79fdaaa82f}</Project>
-    </ProjectReference>
-    <ProjectReference Include="..\..\06 CountDifferentBits\06 CountDifferentBits.vcxproj">
-      <Project>{71c19d61-e979-4b27-9f4f-c8a39b55575b}</Project>
+    <ProjectReference Include="..\..\PracticeQuestions\PracticeQuestions.vcxproj">
+      <Project>{7908896c-c256-4619-8834-96679ed20b39}</Project>
     </ProjectReference>
   </ItemGroup>
   <ItemDefinitionGroup />

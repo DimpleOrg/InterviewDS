@@ -3,6 +3,7 @@
 #include "../../02 DecimalFractionToBinary/DecimalFractionToBinary.h"
 #include "../../03 FlipBitToWin/FlipBitToWin.h"
 #include "../../04 NextNumber/NextNumber.h"
+#include "../../06 CountDifferentBits/CountDifferentBits.h"
 
 TEST(InsertionTest, Test1) {
 	std::string output;
@@ -103,4 +104,33 @@ TEST(NextNumber, NextSmallerT2) {
 
 
 	EXPECT_EQ(result1, result);
+}
+
+
+TEST(CountDiffBits, Test1) {
+	std::string output;
+	testing::internal::CaptureStdout();
+
+
+	auto result = CountDifferentBits(139,138);
+
+	
+	output = testing::internal::GetCapturedStdout();
+
+
+	EXPECT_EQ(1, result);
+}
+
+TEST(CountDiffBits, Test2) {
+	std::string output;
+	testing::internal::CaptureStdout();
+
+
+	auto result = CountDifferentBits(4589, 8964);
+
+
+	output = testing::internal::GetCapturedStdout();
+
+
+	EXPECT_EQ(8, result);
 }

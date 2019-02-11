@@ -2,9 +2,12 @@
 
 using namespace BellmanFord;
 
+namespace BellmanFord {
+	int X;
+};
+
 void Graph::BellmanFord(int source)
 {
-
 	for (int i = 0; i < V; i++)
 	{
 		distance.push_back(INT32_MAX);
