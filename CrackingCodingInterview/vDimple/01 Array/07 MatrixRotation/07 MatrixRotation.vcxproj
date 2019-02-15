@@ -23,7 +23,7 @@
     <ProjectGuid>{C63CF8E5-E4A1-4EC6-8D21-813EA0EE130C}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>My07MatrixRotation</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0.17134.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0.17763.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">

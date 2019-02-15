@@ -23,7 +23,8 @@
     <ProjectGuid>{E37F5083-7E58-4EB7-8807-C83048C96D49}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>My03FlipBitToWin</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0.17134.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0.17763.0</WindowsTargetPlatformVersion>
+    <ProjectName>03 FlipBitToWin_D</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
