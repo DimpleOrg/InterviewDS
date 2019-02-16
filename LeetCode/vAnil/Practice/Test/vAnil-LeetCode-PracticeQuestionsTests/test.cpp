@@ -1,6 +1,7 @@
 #include "pch.h"
 #include "../../PracticeQuestions/StringToInteger.h"
 #include "../../PracticeQuestions/MultiplyBigNumbers.h"
+#include "../../PracticeQuestions/RemoveNthLastElem.h"
 
 
 
@@ -47,3 +48,25 @@ TEST(MultiplyBigNumbers, T2) {
 	EXPECT_EQ(res, "12345654321");
 }
 
+
+TEST(RemoveNthLastElem, T1) {
+
+	std::string output;
+	testing::internal::CaptureStdout();
+
+
+
+	List<int> list;
+	list.AddElem(1);
+	list.AddElem(2);
+	list.AddElem(3);
+	list.AddElem(4);
+	list.AddElem(5);
+
+	list.Print();
+	list.RemoveNthFromLast(1);
+	list.Print();
+
+	output = testing::internal::GetCapturedStdout();
+
+}

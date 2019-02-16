@@ -29,5 +29,8 @@
     <ClInclude Include="MultiplyBigNumbers.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="RemoveNthLastElem.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
