@@ -1,9 +1,13 @@
 #pragma once
 #include<iostream>
-#define DllExport   __declspec( dllexport )
+#ifdef BARNABY_EXPORTS
+#define BARNABY_API __declspec(dllexport)
+#else
+#define BARNABY_API __declspec(dllimport)
+#endif
 
 template<typename T>
-class DllExport SNode
+class SNode
 {
 public:
 	T data;
@@ -11,7 +15,7 @@ public:
 };
 
 template<typename T>
-class DllExport SLinkedList
+class SLinkedList
 {
 public:
 	void removeNodeNFromLast(int n);
@@ -29,6 +33,8 @@ void SLinkedList<T> ::removeNodeNFromLast(int n)
 		return;
 	if (!head->next && n > 1)
 		return;
+	if (!head->next && n == 1)
+		head = nullptr;
 	std::shared_ptr<SNode<T>> t1, t2;
 	t1 = head; t2 = head;
 	for (int i = 0; i < n; i++)
@@ -68,7 +74,7 @@ template<typename T>
 inline void SLinkedList<T>::print()
 {
 	std::shared_ptr<SNode<T>> temp = head;
-	while (!temp)
+	while (temp!=nullptr)
 	{
 		std::cout << temp->data << "\t";
 		temp = temp->next;
