@@ -1,6 +1,11 @@
 #include "TopologicalSort.h"
 using namespace TopologicalSort;
 
+namespace TopologicalSort {
+	int X;
+};
+
+
 void TopologicalSort::Graph::addEdge(int src, int dest)
 {
 	adjList[src].push_back(dest);
