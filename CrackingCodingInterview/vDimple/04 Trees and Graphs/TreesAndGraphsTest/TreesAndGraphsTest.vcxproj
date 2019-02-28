@@ -47,6 +47,14 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\GraphsAlgorithms\BellmanFord\BellmanFord.vcxproj">
+      <Project>{703514e0-0a67-4e31-8a7e-44f137bc7dd9}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\GraphsAlgorithms\TopologicalSort\TopologicalSort.vcxproj">
+      <Project>{8d8153a9-77a4-4b51-b041-6ac752b671d7}</Project>
+    </ProjectReference>
+  </ItemGroup>
   <ItemDefinitionGroup />
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
