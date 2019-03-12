@@ -31,6 +31,7 @@ void SLinkedList<T> ::removeNodeNFromLast(int n)
 {
 	if (!head || n < 1)
 		return;
+
 	if (!head->next && n > 1)
 		return;
 	if (!head->next && n == 1)
