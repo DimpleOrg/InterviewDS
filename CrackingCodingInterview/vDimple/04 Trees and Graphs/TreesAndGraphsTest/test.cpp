@@ -1,6 +1,43 @@
 #include "pch.h"
 #include"..\GraphsAlgorithms\BellmanFord\BellmanFord.h"
 #include"..\GraphsAlgorithms\TopologicalSort\TopologicalSort.h"
+#include"..\GraphsAlgorithms\PriorityQueue_MaxHeap\PriorityQueue_MaxHeap.h"
+
+TEST(D_TreesAndGraphsTest, PriorityQueue_Test1) {
+	std::string output;
+	testing::internal::CaptureStdout();
+
+	MaxHeap mh;
+	mh.push(3);
+	mh.push(2);
+	mh.push(15);
+
+	std::cout << mh.top();
+	mh.pop();
+	std::cout << "	";
+	std::cout << mh.top();
+	mh.pop();
+	std::cout << std::endl;
+
+	mh.push(5);
+	mh.push(4);
+	mh.push(45);
+
+	std::cout << mh.top();
+	mh.pop();
+	std::cout << "	";
+	std::cout << mh.top();
+	mh.pop();
+	std::cout << "	";
+	std::cout << mh.top();
+	mh.pop();
+	std::cout << "	";
+	std::cout << mh.top();
+	mh.pop();
+
+	output = testing::internal::GetCapturedStdout();
+	EXPECT_EQ(1, 1);
+}
 
 TEST(D_TreesAndGraphsTest, BellmanFordTest1) {
 	std::string output;
