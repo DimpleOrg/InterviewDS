@@ -7,7 +7,7 @@ TEST(D_TreesAndGraphsTest, PriorityQueue_Test1) {
 	std::string output;
 	testing::internal::CaptureStdout();
 
-	MaxHeap mh;
+	MaxHeap<int> mh;
 	mh.push(3);
 	mh.push(2);
 	mh.push(15);

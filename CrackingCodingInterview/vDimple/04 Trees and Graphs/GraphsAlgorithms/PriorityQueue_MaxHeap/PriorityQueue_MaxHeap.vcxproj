@@ -141,9 +141,6 @@
   <ItemGroup>
     <ClInclude Include="PriorityQueue_MaxHeap.h" />
   </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="PriorityQueue_MaxHeap.cpp" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
