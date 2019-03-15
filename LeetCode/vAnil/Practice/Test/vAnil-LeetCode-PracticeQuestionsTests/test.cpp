@@ -2,6 +2,7 @@
 #include "../../PracticeQuestions/StringToInteger.h"
 #include "../../PracticeQuestions/MultiplyBigNumbers.h"
 #include "../../PracticeQuestions/RemoveNthLastElem.h"
+#include "../../LongestSubstrWithoutRepeatingChars/LongestSubstrWithoutRepeatingChars.h"
 
 
 
@@ -69,4 +70,48 @@ TEST(RemoveNthLastElem, T1) {
 
 	output = testing::internal::GetCapturedStdout();
 
+}
+
+
+
+TEST(LongestSubstrWithoutRepeatingChars, T1) {
+
+	std::string output;
+	testing::internal::CaptureStdout();
+
+	std::string str = "abcabcbb";
+
+	auto count = LongestSubstrWithoutRepeatingChars(str);
+	
+	output = testing::internal::GetCapturedStdout();
+
+	EXPECT_EQ(count, 3);
+}
+
+TEST(LongestSubstrWithoutRepeatingChars, T2) {
+
+	std::string output;
+	testing::internal::CaptureStdout();
+
+	std::string str = "bbbbb";
+
+	auto count = LongestSubstrWithoutRepeatingChars(str);
+
+	output = testing::internal::GetCapturedStdout();
+
+	EXPECT_EQ(count, 1);
+}
+
+TEST(LongestSubstrWithoutRepeatingChars, T3) {
+
+	std::string output;
+	testing::internal::CaptureStdout();
+
+	std::string str = "pwwkew";
+
+	auto count = LongestSubstrWithoutRepeatingChars(str);
+
+	output = testing::internal::GetCapturedStdout();
+
+	EXPECT_EQ(count, 3);
 }
