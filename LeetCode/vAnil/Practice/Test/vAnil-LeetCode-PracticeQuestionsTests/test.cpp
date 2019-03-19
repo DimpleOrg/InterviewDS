@@ -2,6 +2,7 @@
 #include "../../PracticeQuestions/StringToInteger.h"
 #include "../../PracticeQuestions/MultiplyBigNumbers.h"
 #include "../../PracticeQuestions/RemoveNthLastElem.h"
+#include "../../PracticeQuestions/ReverseWordInString.h"
 #include "../../LongestSubstrWithoutRepeatingChars/LongestSubstrWithoutRepeatingChars.h"
 
 
@@ -114,4 +115,46 @@ TEST(LongestSubstrWithoutRepeatingChars, T3) {
 	output = testing::internal::GetCapturedStdout();
 
 	EXPECT_EQ(count, 3);
+}
+
+TEST(ReverseWordInString, T1) {
+
+	std::string output;
+	testing::internal::CaptureStdout();
+
+	std::string str = "the sky is blue";
+
+	auto result = ReverseWordsInString(str);
+
+	output = testing::internal::GetCapturedStdout();
+
+	ASSERT_STREQ("blue is sky the", result.c_str());
+}
+
+TEST(ReverseWordInString, T2) {
+
+	std::string output;
+	testing::internal::CaptureStdout();
+
+	std::string str = "  hello world!  ";
+
+	auto result = ReverseWordsInString(str);
+
+	output = testing::internal::GetCapturedStdout();
+
+	ASSERT_STREQ("world! hello", result.c_str());
+}
+
+TEST(ReverseWordInString, T3) {
+
+	std::string output;
+	testing::internal::CaptureStdout();
+
+	std::string str = "a good   example";
+
+	auto result = ReverseWordsInString(str);
+
+	output = testing::internal::GetCapturedStdout();
+
+	ASSERT_STREQ("example good a", result.c_str());
 }
