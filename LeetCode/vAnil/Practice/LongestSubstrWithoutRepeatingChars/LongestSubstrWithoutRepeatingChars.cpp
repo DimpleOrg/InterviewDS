@@ -26,5 +26,5 @@ std::size_t LongestSubstrWithoutRepeatingChars(const std::string & str)
 		}
 	}
 
-	return maxSeqLen;
+	return (maxSeqLen > curSeqCount) ? maxSeqLen : curSeqCount;
 }
