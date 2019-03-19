@@ -249,9 +249,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{93E2E1EA-A
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MaxHeap", "Practice\vAnil\Heaps\MaxHeap\MaxHeap\MaxHeap.vcxproj", "{FB44AFEF-21C2-4E5C-8667-6103D2302F5D}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "PriorityQueue_MaxHeap", "CrackingCodingInterview\vDimple\04 Trees and Graphs\GraphsAlgorithms\PriorityQueue_MaxHeap\PriorityQueue_MaxHeap.vcxproj", "{C48028D3-9AEF-4960-8017-E5175724E8A3}"
-EndProject
+<<<<<<< HEAD
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "LongestSubstrWithoutRepeatingChars", "LeetCode\vAnil\Practice\LongestSubstrWithoutRepeatingChars\LongestSubstrWithoutRepeatingChars.vcxproj", "{293FE7F2-30A0-4221-BD14-9F3DC91EF808}"
+=======
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "PriorityQueue_MaxHeap", "CrackingCodingInterview\vDimple\04 Trees and Graphs\GraphsAlgorithms\PriorityQueue_MaxHeap\PriorityQueue_MaxHeap.vcxproj", "{C48028D3-9AEF-4960-8017-E5175724E8A3}"
+>>>>>>> 8e85176b89505f1cdd1d784c1ae0367d8bc6d066
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -949,14 +951,7 @@ Global
 		{FB44AFEF-21C2-4E5C-8667-6103D2302F5D}.Release|x64.Build.0 = Release|x64
 		{FB44AFEF-21C2-4E5C-8667-6103D2302F5D}.Release|x86.ActiveCfg = Release|Win32
 		{FB44AFEF-21C2-4E5C-8667-6103D2302F5D}.Release|x86.Build.0 = Release|Win32
-		{C48028D3-9AEF-4960-8017-E5175724E8A3}.Debug|x64.ActiveCfg = Debug|x64
-		{C48028D3-9AEF-4960-8017-E5175724E8A3}.Debug|x64.Build.0 = Debug|x64
-		{C48028D3-9AEF-4960-8017-E5175724E8A3}.Debug|x86.ActiveCfg = Debug|Win32
-		{C48028D3-9AEF-4960-8017-E5175724E8A3}.Debug|x86.Build.0 = Debug|Win32
-		{C48028D3-9AEF-4960-8017-E5175724E8A3}.Release|x64.ActiveCfg = Release|x64
-		{C48028D3-9AEF-4960-8017-E5175724E8A3}.Release|x64.Build.0 = Release|x64
-		{C48028D3-9AEF-4960-8017-E5175724E8A3}.Release|x86.ActiveCfg = Release|Win32
-		{C48028D3-9AEF-4960-8017-E5175724E8A3}.Release|x86.Build.0 = Release|Win32
+<<<<<<< HEAD
 		{293FE7F2-30A0-4221-BD14-9F3DC91EF808}.Debug|x64.ActiveCfg = Debug|x64
 		{293FE7F2-30A0-4221-BD14-9F3DC91EF808}.Debug|x64.Build.0 = Debug|x64
 		{293FE7F2-30A0-4221-BD14-9F3DC91EF808}.Debug|x86.ActiveCfg = Debug|Win32
@@ -965,6 +960,16 @@ Global
 		{293FE7F2-30A0-4221-BD14-9F3DC91EF808}.Release|x64.Build.0 = Release|x64
 		{293FE7F2-30A0-4221-BD14-9F3DC91EF808}.Release|x86.ActiveCfg = Release|Win32
 		{293FE7F2-30A0-4221-BD14-9F3DC91EF808}.Release|x86.Build.0 = Release|Win32
+=======
+		{C48028D3-9AEF-4960-8017-E5175724E8A3}.Debug|x64.ActiveCfg = Debug|x64
+		{C48028D3-9AEF-4960-8017-E5175724E8A3}.Debug|x64.Build.0 = Debug|x64
+		{C48028D3-9AEF-4960-8017-E5175724E8A3}.Debug|x86.ActiveCfg = Debug|Win32
+		{C48028D3-9AEF-4960-8017-E5175724E8A3}.Debug|x86.Build.0 = Debug|Win32
+		{C48028D3-9AEF-4960-8017-E5175724E8A3}.Release|x64.ActiveCfg = Release|x64
+		{C48028D3-9AEF-4960-8017-E5175724E8A3}.Release|x64.Build.0 = Release|x64
+		{C48028D3-9AEF-4960-8017-E5175724E8A3}.Release|x86.ActiveCfg = Release|Win32
+		{C48028D3-9AEF-4960-8017-E5175724E8A3}.Release|x86.Build.0 = Release|Win32
+>>>>>>> 8e85176b89505f1cdd1d784c1ae0367d8bc6d066
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -1087,8 +1092,11 @@ Global
 		{352FF3A7-1BEC-412A-ACC6-B21B9ACED37B} = {93E2E1EA-A38E-4C86-AEA8-991DBA99C0B3}
 		{93E2E1EA-A38E-4C86-AEA8-991DBA99C0B3} = {21EA8305-5D23-4954-9EE0-55ADDB379DFB}
 		{FB44AFEF-21C2-4E5C-8667-6103D2302F5D} = {21EA8305-5D23-4954-9EE0-55ADDB379DFB}
-		{C48028D3-9AEF-4960-8017-E5175724E8A3} = {29C3DFBA-17E5-4022-B395-102AC425B69C}
+<<<<<<< HEAD
 		{293FE7F2-30A0-4221-BD14-9F3DC91EF808} = {D978BC28-4D3C-4A8C-83A5-1350D39310C5}
+=======
+		{C48028D3-9AEF-4960-8017-E5175724E8A3} = {29C3DFBA-17E5-4022-B395-102AC425B69C}
+>>>>>>> 8e85176b89505f1cdd1d784c1ae0367d8bc6d066
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {F8696CBB-2750-4AFE-AFE7-121D7ED869FC}
