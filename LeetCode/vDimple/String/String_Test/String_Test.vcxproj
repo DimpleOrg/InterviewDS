@@ -25,6 +25,7 @@
     <ConfigurationType>Application</ConfigurationType>
     <PlatformToolset>v141</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
+    <ProjectName>D_String_Test</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
@@ -50,6 +51,12 @@
   <ItemGroup>
     <ProjectReference Include="..\806 Number of Lines To Write String\806 Number of Lines To Write String.vcxproj">
       <Project>{1cb7fb9f-5792-48b8-bf1a-9bd478fca8ca}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\LongestSubstring\LongestSubstring.vcxproj">
+      <Project>{7d98df66-e722-4808-b0e8-37ce3cea64bf}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\ReverseWordsInAString\ReverseWordsInAString.vcxproj">
+      <Project>{fb423091-7b56-485e-b3e1-95831afca707}</Project>
     </ProjectReference>
     <ProjectReference Include="..\StringPermutations_D\StringPermutations_D.vcxproj">
       <Project>{5f36c7ef-6421-4b41-bdd6-a5033a7508e1}</Project>
