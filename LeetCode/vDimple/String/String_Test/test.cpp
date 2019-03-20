@@ -2,6 +2,72 @@
 #include"..\806 Number of Lines To Write String\806 NumberOfLines.h"
 #include"..\StringPermutations_D\StringPermutations.h"
 #include"..\LongestSubstring\LongestSubstring.h"
+#include"..\ReverseWordsInAString\ReverseWordsInAString.h"
+
+TEST(ReverseWordsInAStr, Test1) {
+
+	std::string output;
+	testing::internal::CaptureStdout();
+
+	std::string s = "a good   example";
+	s = reverseWords(s);
+
+	output = testing::internal::GetCapturedStdout();
+
+	EXPECT_EQ("example good a", s);
+}
+
+TEST(ReverseWordsInAStr, Test2) {
+
+	std::string output;
+	testing::internal::CaptureStdout();
+
+	std::string s = "the sky is blue";
+	s = reverseWords(s);
+
+	output = testing::internal::GetCapturedStdout();
+
+	EXPECT_EQ("blue is sky the", s);
+}
+
+TEST(ReverseWordsInAStr, Test3) {
+
+	std::string output;
+	testing::internal::CaptureStdout();
+
+	std::string s = "hi!";
+	s = reverseWords(s);
+
+	output = testing::internal::GetCapturedStdout();
+
+	EXPECT_EQ("hi!", s);
+}
+
+TEST(ReverseWordsInAStr, Test4) {
+
+	std::string output;
+	testing::internal::CaptureStdout();
+
+	std::string s = "  hello world!  ";
+	s = reverseWords(s);
+
+	output = testing::internal::GetCapturedStdout();
+
+	EXPECT_EQ("world! hello", s);
+}
+
+TEST(ReverseWordsInAStr, Test5) {
+
+	std::string output;
+	testing::internal::CaptureStdout();
+
+	std::string s = "a";
+	s = reverseWords(s);
+
+	output = testing::internal::GetCapturedStdout();
+
+	EXPECT_EQ("a", s);
+}
 
 TEST(LongestSubstring, Test1) {
 

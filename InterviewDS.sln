@@ -253,6 +253,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "PriorityQueue_MaxHeap", "Cr
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "LongestSubstring", "LeetCode\vDimple\String\LongestSubstring\LongestSubstring.vcxproj", "{7D98DF66-E722-4808-B0E8-37CE3CEA64BF}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ReverseWordsInAString", "LeetCode\vDimple\String\ReverseWordsInAString\ReverseWordsInAString.vcxproj", "{FB423091-7B56-485E-B3E1-95831AFCA707}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -965,6 +967,14 @@ Global
 		{7D98DF66-E722-4808-B0E8-37CE3CEA64BF}.Release|x64.Build.0 = Release|x64
 		{7D98DF66-E722-4808-B0E8-37CE3CEA64BF}.Release|x86.ActiveCfg = Release|Win32
 		{7D98DF66-E722-4808-B0E8-37CE3CEA64BF}.Release|x86.Build.0 = Release|Win32
+		{FB423091-7B56-485E-B3E1-95831AFCA707}.Debug|x64.ActiveCfg = Debug|x64
+		{FB423091-7B56-485E-B3E1-95831AFCA707}.Debug|x64.Build.0 = Debug|x64
+		{FB423091-7B56-485E-B3E1-95831AFCA707}.Debug|x86.ActiveCfg = Debug|Win32
+		{FB423091-7B56-485E-B3E1-95831AFCA707}.Debug|x86.Build.0 = Debug|Win32
+		{FB423091-7B56-485E-B3E1-95831AFCA707}.Release|x64.ActiveCfg = Release|x64
+		{FB423091-7B56-485E-B3E1-95831AFCA707}.Release|x64.Build.0 = Release|x64
+		{FB423091-7B56-485E-B3E1-95831AFCA707}.Release|x86.ActiveCfg = Release|Win32
+		{FB423091-7B56-485E-B3E1-95831AFCA707}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -1089,6 +1099,7 @@ Global
 		{FB44AFEF-21C2-4E5C-8667-6103D2302F5D} = {21EA8305-5D23-4954-9EE0-55ADDB379DFB}
 		{C48028D3-9AEF-4960-8017-E5175724E8A3} = {29C3DFBA-17E5-4022-B395-102AC425B69C}
 		{7D98DF66-E722-4808-B0E8-37CE3CEA64BF} = {E6BB6E3B-FB26-4F3E-96D4-8E2BFB8BE8B8}
+		{FB423091-7B56-485E-B3E1-95831AFCA707} = {E6BB6E3B-FB26-4F3E-96D4-8E2BFB8BE8B8}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {F8696CBB-2750-4AFE-AFE7-121D7ED869FC}
