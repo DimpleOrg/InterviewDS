@@ -103,7 +103,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "vDimple", "vDimple", "{D8A4
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "String", "String", "{E6BB6E3B-FB26-4F3E-96D4-8E2BFB8BE8B8}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "String_Test", "LeetCode\vDimple\String\String_Test\String_Test.vcxproj", "{E17F2E37-72E1-40A8-A52F-6349D9D1AF73}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "D_String_Test", "LeetCode\vDimple\String\String_Test\String_Test.vcxproj", "{E17F2E37-72E1-40A8-A52F-6349D9D1AF73}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "806 Number of Lines To Write String", "LeetCode\vDimple\String\806 Number of Lines To Write String\806 Number of Lines To Write String.vcxproj", "{1CB7FB9F-5792-48B8-BF1A-9BD478FCA8CA}"
 EndProject
@@ -250,6 +250,10 @@ EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MaxHeap", "Practice\vAnil\Heaps\MaxHeap\MaxHeap\MaxHeap.vcxproj", "{FB44AFEF-21C2-4E5C-8667-6103D2302F5D}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "PriorityQueue_MaxHeap", "CrackingCodingInterview\vDimple\04 Trees and Graphs\GraphsAlgorithms\PriorityQueue_MaxHeap\PriorityQueue_MaxHeap.vcxproj", "{C48028D3-9AEF-4960-8017-E5175724E8A3}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "LongestSubstring", "LeetCode\vDimple\String\LongestSubstring\LongestSubstring.vcxproj", "{7D98DF66-E722-4808-B0E8-37CE3CEA64BF}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ReverseWordsInAString", "LeetCode\vDimple\String\ReverseWordsInAString\ReverseWordsInAString.vcxproj", "{FB423091-7B56-485E-B3E1-95831AFCA707}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "LongestSubstrWithoutRepeatingChars", "LeetCode\vAnil\Practice\LongestSubstrWithoutRepeatingChars\LongestSubstrWithoutRepeatingChars.vcxproj", "{293FE7F2-30A0-4221-BD14-9F3DC91EF808}"
 EndProject
@@ -957,6 +961,22 @@ Global
 		{C48028D3-9AEF-4960-8017-E5175724E8A3}.Release|x64.Build.0 = Release|x64
 		{C48028D3-9AEF-4960-8017-E5175724E8A3}.Release|x86.ActiveCfg = Release|Win32
 		{C48028D3-9AEF-4960-8017-E5175724E8A3}.Release|x86.Build.0 = Release|Win32
+		{7D98DF66-E722-4808-B0E8-37CE3CEA64BF}.Debug|x64.ActiveCfg = Debug|x64
+		{7D98DF66-E722-4808-B0E8-37CE3CEA64BF}.Debug|x64.Build.0 = Debug|x64
+		{7D98DF66-E722-4808-B0E8-37CE3CEA64BF}.Debug|x86.ActiveCfg = Debug|Win32
+		{7D98DF66-E722-4808-B0E8-37CE3CEA64BF}.Debug|x86.Build.0 = Debug|Win32
+		{7D98DF66-E722-4808-B0E8-37CE3CEA64BF}.Release|x64.ActiveCfg = Release|x64
+		{7D98DF66-E722-4808-B0E8-37CE3CEA64BF}.Release|x64.Build.0 = Release|x64
+		{7D98DF66-E722-4808-B0E8-37CE3CEA64BF}.Release|x86.ActiveCfg = Release|Win32
+		{7D98DF66-E722-4808-B0E8-37CE3CEA64BF}.Release|x86.Build.0 = Release|Win32
+		{FB423091-7B56-485E-B3E1-95831AFCA707}.Debug|x64.ActiveCfg = Debug|x64
+		{FB423091-7B56-485E-B3E1-95831AFCA707}.Debug|x64.Build.0 = Debug|x64
+		{FB423091-7B56-485E-B3E1-95831AFCA707}.Debug|x86.ActiveCfg = Debug|Win32
+		{FB423091-7B56-485E-B3E1-95831AFCA707}.Debug|x86.Build.0 = Debug|Win32
+		{FB423091-7B56-485E-B3E1-95831AFCA707}.Release|x64.ActiveCfg = Release|x64
+		{FB423091-7B56-485E-B3E1-95831AFCA707}.Release|x64.Build.0 = Release|x64
+		{FB423091-7B56-485E-B3E1-95831AFCA707}.Release|x86.ActiveCfg = Release|Win32
+		{FB423091-7B56-485E-B3E1-95831AFCA707}.Release|x86.Build.0 = Release|Win32
 		{293FE7F2-30A0-4221-BD14-9F3DC91EF808}.Debug|x64.ActiveCfg = Debug|x64
 		{293FE7F2-30A0-4221-BD14-9F3DC91EF808}.Debug|x64.Build.0 = Debug|x64
 		{293FE7F2-30A0-4221-BD14-9F3DC91EF808}.Debug|x86.ActiveCfg = Debug|Win32
@@ -1088,6 +1108,8 @@ Global
 		{93E2E1EA-A38E-4C86-AEA8-991DBA99C0B3} = {21EA8305-5D23-4954-9EE0-55ADDB379DFB}
 		{FB44AFEF-21C2-4E5C-8667-6103D2302F5D} = {21EA8305-5D23-4954-9EE0-55ADDB379DFB}
 		{C48028D3-9AEF-4960-8017-E5175724E8A3} = {29C3DFBA-17E5-4022-B395-102AC425B69C}
+		{7D98DF66-E722-4808-B0E8-37CE3CEA64BF} = {E6BB6E3B-FB26-4F3E-96D4-8E2BFB8BE8B8}
+		{FB423091-7B56-485E-B3E1-95831AFCA707} = {E6BB6E3B-FB26-4F3E-96D4-8E2BFB8BE8B8}
 		{293FE7F2-30A0-4221-BD14-9F3DC91EF808} = {D978BC28-4D3C-4A8C-83A5-1350D39310C5}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
