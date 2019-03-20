@@ -36,15 +36,16 @@ PRACTICEQUESTIONS_API std::string ReverseWordsInString(std::string& str)
 	{
 		if (str[i] == ' ')
 		{
-			while (str[i + 1] == ' ') {
+			size_t j = i;
+			while (str[j + 1] == ' ') {
 				count++;
 				len--;
-				i++;
+				j++;
 			}
 
-			if (count > 1)
+			if (count > 0)
 			{
-				str.erase(i-1 , count);
+				str.erase(i+1 , count);
 				count = 0;
 			}
 		}
@@ -73,7 +74,7 @@ PRACTICEQUESTIONS_API std::string ReverseWordsInString(std::string& str)
 		size_t end = i-1;
 		
 
-		for (size_t j = start; j <= end ; j++)
+		for (size_t j = start; j < end ; j++)
 		{
 			char temp = str[j];
 			str[j] = str[end];
