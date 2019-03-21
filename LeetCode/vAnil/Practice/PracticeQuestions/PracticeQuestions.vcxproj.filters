@@ -24,6 +24,9 @@
     <ClCompile Include="ReverseWordInString.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="WordLadder.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="StringToInteger.h">
@@ -36,6 +39,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="ReverseWordInString.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="WordLadder.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

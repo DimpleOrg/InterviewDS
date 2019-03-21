@@ -3,6 +3,7 @@
 #include "../../PracticeQuestions/MultiplyBigNumbers.h"
 #include "../../PracticeQuestions/RemoveNthLastElem.h"
 #include "../../PracticeQuestions/ReverseWordInString.h"
+#include "../../PracticeQuestions/WordLadder.h"
 #include "../../LongestSubstrWithoutRepeatingChars/LongestSubstrWithoutRepeatingChars.h"
 
 
@@ -172,4 +173,49 @@ TEST(ReverseWordInString, T4) {
 	output = testing::internal::GetCapturedStdout();
 
 	ASSERT_STREQ("e d c b a", result.c_str());
+}
+
+TEST(WordLadderTest, T1) {
+
+	std::string output;
+	testing::internal::CaptureStdout();
+
+	std::vector<std::string> wordList{ "hot","dot","dog","lot","log" };
+//	wordList.insert({ "hot","dot","dog","lot","log","cog" });
+
+	auto result = ladderLength("hit", "cog", wordList);
+
+	output = testing::internal::GetCapturedStdout();
+
+	ASSERT_EQ(0, result);
+}
+
+TEST(WordLadderTest, T2) {
+
+	std::string output;
+	testing::internal::CaptureStdout();
+
+	std::vector<std::string> wordList{ "a","b","c"};
+	//	wordList.insert({ "hot","dot","dog","lot","log","cog" });
+
+	auto result = ladderLength("a", "c", wordList);
+
+	output = testing::internal::GetCapturedStdout();
+
+	ASSERT_EQ(2, result);
+}
+
+TEST(WordLadderTest, T3) {
+
+	std::string output;
+	testing::internal::CaptureStdout();
+
+	std::vector<std::string> wordList{ "hot","dot","dog","lot","log" ,"cog" };
+	//	wordList.insert({ "hot","dot","dog","lot","log","cog" });
+
+	auto result = ladderLength("hit", "cog", wordList);
+
+	output = testing::internal::GetCapturedStdout();
+
+	ASSERT_EQ(5, result);
 }
