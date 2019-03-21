@@ -48,6 +48,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\LongestSubstrWithoutRepeatingChars\LongestSubstrWithoutRepeatingChars.vcxproj">
+      <Project>{293fe7f2-30a0-4221-bd14-9f3dc91ef808}</Project>
+    </ProjectReference>
     <ProjectReference Include="..\..\PracticeQuestions\PracticeQuestions.vcxproj">
       <Project>{7908896c-c256-4619-8834-96679ed20b39}</Project>
     </ProjectReference>

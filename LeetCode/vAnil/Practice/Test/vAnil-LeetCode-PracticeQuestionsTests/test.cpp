@@ -2,6 +2,8 @@
 #include "../../PracticeQuestions/StringToInteger.h"
 #include "../../PracticeQuestions/MultiplyBigNumbers.h"
 #include "../../PracticeQuestions/RemoveNthLastElem.h"
+#include "../../PracticeQuestions/ReverseWordInString.h"
+#include "../../LongestSubstrWithoutRepeatingChars/LongestSubstrWithoutRepeatingChars.h"
 
 
 
@@ -69,4 +71,105 @@ TEST(RemoveNthLastElem, T1) {
 
 	output = testing::internal::GetCapturedStdout();
 
+}
+
+
+
+TEST(LongestSubstrWithoutRepeatingChars, T1) {
+
+	std::string output;
+	testing::internal::CaptureStdout();
+
+	std::string str = "abcabcbb";
+
+	auto count = LongestSubstrWithoutRepeatingChars(str);
+	
+	output = testing::internal::GetCapturedStdout();
+
+	EXPECT_EQ(count, 3);
+}
+
+TEST(LongestSubstrWithoutRepeatingChars, T2) {
+
+	std::string output;
+	testing::internal::CaptureStdout();
+
+	std::string str = "bbbbb";
+
+	auto count = LongestSubstrWithoutRepeatingChars(str);
+
+	output = testing::internal::GetCapturedStdout();
+
+	EXPECT_EQ(count, 1);
+}
+
+TEST(LongestSubstrWithoutRepeatingChars, T3) {
+
+	std::string output;
+	testing::internal::CaptureStdout();
+
+	std::string str = "pwwkew";
+
+	auto count = LongestSubstrWithoutRepeatingChars(str);
+
+	output = testing::internal::GetCapturedStdout();
+
+	EXPECT_EQ(count, 3);
+}
+
+TEST(ReverseWordInString, T1) {
+
+	std::string output;
+	testing::internal::CaptureStdout();
+
+	std::string str = "the sky is blue";
+
+	auto result = ReverseWordsInString(str);
+
+	output = testing::internal::GetCapturedStdout();
+
+	ASSERT_STREQ("blue is sky the", result.c_str());
+}
+
+TEST(ReverseWordInString, T2) {
+
+	std::string output;
+	testing::internal::CaptureStdout();
+
+	std::string str = "  hello world!  ";
+
+	auto result = ReverseWordsInString(str);
+
+	output = testing::internal::GetCapturedStdout();
+
+	ASSERT_STREQ("world! hello", result.c_str());
+}
+
+TEST(ReverseWordInString, T3) {
+
+	std::string output;
+	testing::internal::CaptureStdout();
+
+	std::string str = "a";
+
+	auto result = ReverseWordsInString(str);
+
+	output = testing::internal::GetCapturedStdout();
+
+	ASSERT_STREQ("a", result.c_str());
+}
+
+
+TEST(ReverseWordInString, T4) {
+
+	std::string output;
+	testing::internal::CaptureStdout();
+
+	std::string str = "   a   b  c d   e  ";
+
+	auto result = ReverseWordsInString(str);
+
+	output = testing::internal::GetCapturedStdout();
+
+	ASSERT_STREQ("e d c b a", result.c_str());
 }
