@@ -142,6 +142,7 @@
     <ClCompile Include="MultiplyBigNumbers.cpp" />
     <ClCompile Include="ReverseWordInString.cpp" />
     <ClCompile Include="StringToInteger.cpp" />
+    <ClCompile Include="ValidateIPAddress.cpp" />
     <ClCompile Include="WordLadder.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -149,6 +150,7 @@
     <ClInclude Include="RemoveNthLastElem.h" />
     <ClInclude Include="ReverseWordInString.h" />
     <ClInclude Include="StringToInteger.h" />
+    <ClInclude Include="ValidateIPAddress.h" />
     <ClInclude Include="WordLadder.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

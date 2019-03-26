@@ -4,6 +4,7 @@
 #include "../../PracticeQuestions/RemoveNthLastElem.h"
 #include "../../PracticeQuestions/ReverseWordInString.h"
 #include "../../PracticeQuestions/WordLadder.h"
+#include "../../PracticeQuestions/ValidateIPAddress.h"
 #include "../../LongestSubstrWithoutRepeatingChars/LongestSubstrWithoutRepeatingChars.h"
 
 
@@ -218,4 +219,44 @@ TEST(WordLadderTest, T3) {
 	output = testing::internal::GetCapturedStdout();
 
 	ASSERT_EQ(5, result);
+}
+
+
+TEST(ValidateIPAddress, T1) {
+
+	std::string output;
+	testing::internal::CaptureStdout();
+
+	
+	auto result = validIPAddress("172.16.254.01");
+
+	output = testing::internal::GetCapturedStdout();
+
+	ASSERT_STREQ("Neither", result.c_str());
+}
+
+TEST(ValidateIPAddress, T2) {
+
+	std::string output;
+	testing::internal::CaptureStdout();
+
+
+	auto result = validIPAddress("2001:0db8:85a3:0000:0:8A2E:0370:733a");
+
+	output = testing::internal::GetCapturedStdout();
+
+	ASSERT_STREQ("IPv6", result.c_str());
+}
+
+TEST(ValidateIPAddress, T3) {
+
+	std::string output;
+	testing::internal::CaptureStdout();
+
+
+	auto result = validIPAddress("1.1.1.1");
+
+	output = testing::internal::GetCapturedStdout();
+
+	ASSERT_STREQ("IPv4", result.c_str());
 }
