@@ -1,17 +1,18 @@
 #include "BellmanFord.h"
 #include "TopologicalSort.h"
+#include "DijkstraAlgo.h"
 
-int main()
+void TEST_BELLMAN()
 {
 	std::vector<BellmanFord::Edge> edges = {
-	{0, 1, -1},
-	{0,2,4},
-	{1,2,3},
-	{1,3,2},
-	{1,4,2},
-	{3,2,5},
-	{3,1,1},
-	{4,3,-3},
+{0, 1, -1},
+{0,2,4},
+{1,2,3},
+{1,3,2},
+{1,4,2},
+{3,2,5},
+{3,1,1},
+{4,3,-3},
 	};
 
 	BellmanFord::Graph gh;
@@ -38,5 +39,22 @@ int main()
 
 	tgh.TopologicalSort();
 	tgh.Print();
+}
 
+int main()
+{
+	Dijkstra dgraph;
+
+	dgraph.AddEdge("A", "C", 6);
+	dgraph.AddEdge("C", "F", 1);
+	dgraph.AddEdge("C", "E", 4);
+	dgraph.AddEdge("A", "B", 1);
+	dgraph.AddEdge("B", "E", 3);
+	dgraph.AddEdge("B", "D", 4);
+
+	dgraph.Run("A");
+
+	auto var = dgraph.Result();
+
+	return 0;
 }
