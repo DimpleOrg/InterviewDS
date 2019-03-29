@@ -7,25 +7,25 @@ WORDLADDERD_API size_t ladderLength(std::string beginWord, std::string endWord, 
 	if (wl.find(endWord) == wl.end())
 		return 0;
 	
-	std::queue<std::string> qu;
-	qu.push(beginWord);
-	int level = 1;
+	std::pair<std::string, size_t> x = std::make_pair(beginWord, 1);
+
+	std::queue<std::pair<std::string, size_t>> qu;
+	qu.push(x);
+	
 	while (!qu.empty())
 	{
-		std::string var = qu.front();
+		auto var = qu.front();
 		qu.pop();
 
 		for (auto each = wl.begin();each!=wl.end();)
 		{
-			if (isOneLetterDiff(*each, var))
+			if (isOneLetterDiff(*each, var.first))
 			{
-				qu.push(*each);
-
-				if ((*each == endWord) && (var == beginWord))
-					return level + 1;
+				x = std::make_pair(*each, var.second + 1);
+				qu.push(x);
 
 				if (*each == endWord)
-					return level;
+					return x.second;
 
 				each = wl.erase(each);
 			}
@@ -34,7 +34,6 @@ WORDLADDERD_API size_t ladderLength(std::string beginWord, std::string endWord, 
 				each++;
 			}
 		}
-		level++;
 	}
 	return 0;
 }

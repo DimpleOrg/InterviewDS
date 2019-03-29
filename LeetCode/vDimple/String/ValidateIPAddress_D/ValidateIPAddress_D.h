@@ -14,3 +14,4 @@ using namespace std;
 
 VALIDATEIPADDRESSD_API string validIPAddress(string IP);
 bool isIPV4(string str);
+bool isIPV6(string str);

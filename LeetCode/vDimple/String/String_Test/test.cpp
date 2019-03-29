@@ -10,7 +10,7 @@ TEST(ValidateIPAddress, T1) {
 	std::string output;
 	testing::internal::CaptureStdout();
 
-	auto result = validIPAddress("172.16.254.01");
+	auto result = validIPAddress("00.0.0.0");
 
 	output = testing::internal::GetCapturedStdout();
 
@@ -32,7 +32,7 @@ TEST(ValidateIPAddress, T3) {
 	std::string output;
 	testing::internal::CaptureStdout();
 
-	auto result = validIPAddress("1ab.1.1.1");
+	auto result = validIPAddress("172.16.254.1");
 	
 	output = testing::internal::GetCapturedStdout();
 	
@@ -58,7 +58,7 @@ TEST(WordLadderTest, T2) {
 	auto result = ladderLength("hot", "dog", wordList);
 
 	output = testing::internal::GetCapturedStdout();
-	ASSERT_EQ(2, result);
+	ASSERT_EQ(3, result);
 }
 
 TEST(WordLadderTest, T3) {
