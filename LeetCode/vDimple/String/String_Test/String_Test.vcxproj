@@ -61,6 +61,12 @@
     <ProjectReference Include="..\StringPermutations_D\StringPermutations_D.vcxproj">
       <Project>{5f36c7ef-6421-4b41-bdd6-a5033a7508e1}</Project>
     </ProjectReference>
+    <ProjectReference Include="..\ValidateIPAddress_D\ValidateIPAddress_D.vcxproj">
+      <Project>{1d071f58-3f5c-4bc9-9dca-0ff6f057eb9a}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\WordLadder_D\WordLadder_D.vcxproj">
+      <Project>{1adb1db4-95e6-4c06-9aa8-b149341cc784}</Project>
+    </ProjectReference>
   </ItemGroup>
   <ItemDefinitionGroup />
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

@@ -1,8 +1,77 @@
 #include "pch.h"
-#include"..\806 Number of Lines To Write String\806 NumberOfLines.h"
-#include"..\StringPermutations_D\StringPermutations.h"
-#include"..\LongestSubstring\LongestSubstring.h"
-#include"..\ReverseWordsInAString\ReverseWordsInAString.h"
+#include "..\806 Number of Lines To Write String\806 NumberOfLines.h"
+#include "..\StringPermutations_D\StringPermutations.h"
+#include "..\LongestSubstring\LongestSubstring.h"
+#include "..\ReverseWordsInAString\ReverseWordsInAString.h"
+#include "..\WordLadder_D\WordLadder_D.h"
+#include"..\ValidateIPAddress_D\ValidateIPAddress_D.h"
+
+TEST(ValidateIPAddress, T1) {
+	std::string output;
+	testing::internal::CaptureStdout();
+
+	auto result = validIPAddress("00.0.0.0");
+
+	output = testing::internal::GetCapturedStdout();
+
+	ASSERT_STREQ("Neither", result.c_str());
+}
+
+TEST(ValidateIPAddress, T2) {
+	std::string output;
+	testing::internal::CaptureStdout();
+
+	auto result = validIPAddress("2001:0db8:85a3:0000:0:8A2E:0370:733a");
+
+	output = testing::internal::GetCapturedStdout();
+
+	ASSERT_STREQ("IPv6", result.c_str());
+}
+
+TEST(ValidateIPAddress, T3) {
+	std::string output;
+	testing::internal::CaptureStdout();
+
+	auto result = validIPAddress("172.16.254.1");
+	
+	output = testing::internal::GetCapturedStdout();
+	
+	ASSERT_STREQ("IPv4", result.c_str());
+}
+
+TEST(WordLadderTest, T1) {
+	std::string output;
+	testing::internal::CaptureStdout();
+
+	std::vector<std::string> wordList{ "hot","dot","dog","lot","log" };
+	auto result = ladderLength("hit", "cog", wordList);
+
+	output = testing::internal::GetCapturedStdout();
+	ASSERT_EQ(0, result);
+}
+
+TEST(WordLadderTest, T2) {
+	std::string output;
+	testing::internal::CaptureStdout();
+
+	std::vector<std::string> wordList{ "hot","dog","dot" };
+	auto result = ladderLength("hot", "dog", wordList);
+
+	output = testing::internal::GetCapturedStdout();
+	ASSERT_EQ(3, result);
+}
+
+TEST(WordLadderTest, T3) {
+	std::string output;
+	testing::internal::CaptureStdout();
+
+	std::vector<std::string> wordList{ "hot","dot","dog","lot","log" ,"cog" };
+	auto result = ladderLength("hit", "cog", wordList);
+	
+	output = testing::internal::GetCapturedStdout();
+	ASSERT_EQ(5, result);
+}
+
 
 TEST(ReverseWordsInAStr, Test1) {
 
