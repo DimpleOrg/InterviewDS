@@ -140,6 +140,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="MultiplyBigNumbers.cpp" />
+    <ClCompile Include="NextPermutation.cpp" />
     <ClCompile Include="ReverseWordInString.cpp" />
     <ClCompile Include="StringToInteger.cpp" />
     <ClCompile Include="ValidateIPAddress.cpp" />
@@ -147,6 +148,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MultiplyBigNumbers.h" />
+    <ClInclude Include="NextPermutation.h" />
     <ClInclude Include="RemoveNthLastElem.h" />
     <ClInclude Include="ReverseWordInString.h" />
     <ClInclude Include="StringToInteger.h" />
