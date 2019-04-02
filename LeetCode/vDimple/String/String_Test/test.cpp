@@ -4,7 +4,36 @@
 #include "..\LongestSubstring\LongestSubstring.h"
 #include "..\ReverseWordsInAString\ReverseWordsInAString.h"
 #include "..\WordLadder_D\WordLadder_D.h"
-#include"..\ValidateIPAddress_D\ValidateIPAddress_D.h"
+#include "..\ValidateIPAddress_D\ValidateIPAddress_D.h"
+#include "..\NextPermutation\NextPermutation.h"
+
+TEST(NextPermutation, T1) {
+	std::string output;
+	testing::internal::CaptureStdout();
+
+	std::vector<int> nums { 1,3,2};
+	nextPermutation(nums);
+
+	std::vector<int> res { 2,1,3 };
+
+	output = testing::internal::GetCapturedStdout();
+
+	ASSERT_EQ(nums, res);
+}
+
+TEST(NextPermutation, T2) {
+	std::string output;
+	testing::internal::CaptureStdout();
+
+	std::vector<int> nums{ 3,2,1 };
+	nextPermutation(nums);
+
+	std::vector<int> res{ 1, 2,3 };
+
+	output = testing::internal::GetCapturedStdout();
+
+	ASSERT_EQ(nums, res);
+}
 
 TEST(ValidateIPAddress, T1) {
 	std::string output;
