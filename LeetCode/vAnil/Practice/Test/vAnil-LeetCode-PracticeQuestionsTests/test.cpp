@@ -6,7 +6,7 @@
 #include "../../PracticeQuestions/WordLadder.h"
 #include "../../PracticeQuestions/ValidateIPAddress.h"
 #include "../../LongestSubstrWithoutRepeatingChars/LongestSubstrWithoutRepeatingChars.h"
-
+#include "../../PracticeQuestions/NextPermutation.h"
 
 
 TEST(StringToInteger, T1) {
@@ -259,4 +259,61 @@ TEST(ValidateIPAddress, T3) {
 	output = testing::internal::GetCapturedStdout();
 
 	ASSERT_STREQ("IPv4", result.c_str());
+}
+
+
+TEST(NextPermutationTest, T1) {
+
+	std::string output;
+	testing::internal::CaptureStdout();
+
+	std::vector<int> test{1,2,3};
+	
+	nextPermutation(test);
+
+	output = testing::internal::GetCapturedStdout();
+
+	//ASSERT_STREQ("e d c b a", result.c_str());
+}
+
+TEST(NextPermutationTest, T2) {
+
+	std::string output;
+	testing::internal::CaptureStdout();
+
+	std::vector<int> test{ 1,3,2 };
+
+	nextPermutation(test);
+
+	output = testing::internal::GetCapturedStdout();
+
+	//ASSERT_STREQ("e d c b a", result.c_str());
+}
+
+TEST(NextPermutationTest, T3) {
+
+	std::string output;
+	testing::internal::CaptureStdout();
+
+	std::vector<int> test{ 2,3,1};
+
+	nextPermutation(test);
+
+	output = testing::internal::GetCapturedStdout();
+
+	//ASSERT_STREQ("e d c b a", result.c_str());
+}
+
+TEST(NextPermutationTest, T4) {
+
+	std::string output;
+	testing::internal::CaptureStdout();
+
+	std::vector<int> test{ 1,5,1 };
+
+	nextPermutation(test);
+
+	output = testing::internal::GetCapturedStdout();
+
+	//ASSERT_STREQ("e d c b a", result.c_str());
 }
