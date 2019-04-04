@@ -55,6 +55,9 @@
     <ProjectReference Include="..\LongestSubstring\LongestSubstring.vcxproj">
       <Project>{7d98df66-e722-4808-b0e8-37ce3cea64bf}</Project>
     </ProjectReference>
+    <ProjectReference Include="..\NextHigher\NextHigher.vcxproj">
+      <Project>{c9fb4497-60ef-4b99-9d50-6d118c29bf59}</Project>
+    </ProjectReference>
     <ProjectReference Include="..\NextPermutation\NextPermutation.vcxproj">
       <Project>{22f898c6-3668-41ef-bb15-69cb25a32e61}</Project>
     </ProjectReference>
