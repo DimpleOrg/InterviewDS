@@ -4,7 +4,63 @@
 #include "..\LongestSubstring\LongestSubstring.h"
 #include "..\ReverseWordsInAString\ReverseWordsInAString.h"
 #include "..\WordLadder_D\WordLadder_D.h"
-#include"..\ValidateIPAddress_D\ValidateIPAddress_D.h"
+#include "..\ValidateIPAddress_D\ValidateIPAddress_D.h"
+#include "..\NextPermutation\NextPermutation_D.h"
+#include "..\NextHigher\NextHigher.h"
+
+TEST(NextHigher, T1) {
+	std::string output;
+	testing::internal::CaptureStdout();
+
+	std::vector<int> nums{ 2,1,5 };
+	std::vector<int> res1{ 5,5,0 };
+	std::vector<int> res = nextLargerNodes(nums);
+
+	output = testing::internal::GetCapturedStdout();
+
+	EXPECT_EQ(res1, res);
+}
+
+TEST(NextHigher, T2) {
+	std::string output;
+	testing::internal::CaptureStdout();
+
+	std::vector<int> nums{ 9,7,6,7,6,9 };
+	std::vector<int> res1{ 0,9,7,9,9,0 };
+	std::vector<int> res = nextLargerNodes(nums);
+
+	output = testing::internal::GetCapturedStdout();
+
+	EXPECT_EQ(res1, res);
+}
+
+TEST(NextPermutation, T1) {
+	std::string output;
+	testing::internal::CaptureStdout();
+
+	std::vector<int> nums { 1,3,2};
+	nextPermutation(nums);
+
+	std::vector<int> res { 2,1,3 };
+
+	output = testing::internal::GetCapturedStdout();
+
+	ASSERT_EQ(nums, res);
+}
+
+TEST(NextPermutation, T2) {
+	std::string output;
+	testing::internal::CaptureStdout();
+
+	std::vector<int> nums{ 3,2,1 };
+	nextPermutation(nums);
+
+	std::vector<int> res{ 1, 2,3 };
+
+	output = testing::internal::GetCapturedStdout();
+
+	ASSERT_EQ(nums, res);
+}
 
 TEST(ValidateIPAddress, T1) {
 	std::string output;
