@@ -55,11 +55,23 @@
     <ProjectReference Include="..\LongestSubstring\LongestSubstring.vcxproj">
       <Project>{7d98df66-e722-4808-b0e8-37ce3cea64bf}</Project>
     </ProjectReference>
+    <ProjectReference Include="..\NextHigher\NextHigher.vcxproj">
+      <Project>{c9fb4497-60ef-4b99-9d50-6d118c29bf59}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\NextPermutation\NextPermutation.vcxproj">
+      <Project>{22f898c6-3668-41ef-bb15-69cb25a32e61}</Project>
+    </ProjectReference>
     <ProjectReference Include="..\ReverseWordsInAString\ReverseWordsInAString.vcxproj">
       <Project>{fb423091-7b56-485e-b3e1-95831afca707}</Project>
     </ProjectReference>
     <ProjectReference Include="..\StringPermutations_D\StringPermutations_D.vcxproj">
       <Project>{5f36c7ef-6421-4b41-bdd6-a5033a7508e1}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\ValidateIPAddress_D\ValidateIPAddress_D.vcxproj">
+      <Project>{1d071f58-3f5c-4bc9-9dca-0ff6f057eb9a}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\WordLadder_D\WordLadder_D.vcxproj">
+      <Project>{1adb1db4-95e6-4c06-9aa8-b149341cc784}</Project>
     </ProjectReference>
   </ItemGroup>
   <ItemDefinitionGroup />

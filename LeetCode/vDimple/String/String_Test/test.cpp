@@ -1,8 +1,133 @@
 #include "pch.h"
-#include"..\806 Number of Lines To Write String\806 NumberOfLines.h"
-#include"..\StringPermutations_D\StringPermutations.h"
-#include"..\LongestSubstring\LongestSubstring.h"
-#include"..\ReverseWordsInAString\ReverseWordsInAString.h"
+#include "..\806 Number of Lines To Write String\806 NumberOfLines.h"
+#include "..\StringPermutations_D\StringPermutations.h"
+#include "..\LongestSubstring\LongestSubstring.h"
+#include "..\ReverseWordsInAString\ReverseWordsInAString.h"
+#include "..\WordLadder_D\WordLadder_D.h"
+#include "..\ValidateIPAddress_D\ValidateIPAddress_D.h"
+#include "..\NextPermutation\NextPermutation_D.h"
+#include "..\NextHigher\NextHigher.h"
+
+TEST(NextHigher, T1) {
+	std::string output;
+	testing::internal::CaptureStdout();
+
+	std::vector<int> nums{ 2,1,5 };
+	std::vector<int> res1{ 5,5,0 };
+	std::vector<int> res = nextLargerNodes(nums);
+
+	output = testing::internal::GetCapturedStdout();
+
+	EXPECT_EQ(res1, res);
+}
+
+TEST(NextHigher, T2) {
+	std::string output;
+	testing::internal::CaptureStdout();
+
+	std::vector<int> nums{ 9,7,6,7,6,9 };
+	std::vector<int> res1{ 0,9,7,9,9,0 };
+	std::vector<int> res = nextLargerNodes(nums);
+
+	output = testing::internal::GetCapturedStdout();
+
+	EXPECT_EQ(res1, res);
+}
+
+TEST(NextPermutation, T1) {
+	std::string output;
+	testing::internal::CaptureStdout();
+
+	std::vector<int> nums { 1,3,2};
+	nextPermutation(nums);
+
+	std::vector<int> res { 2,1,3 };
+
+	output = testing::internal::GetCapturedStdout();
+
+	ASSERT_EQ(nums, res);
+}
+
+TEST(NextPermutation, T2) {
+	std::string output;
+	testing::internal::CaptureStdout();
+
+	std::vector<int> nums{ 3,2,1 };
+	nextPermutation(nums);
+
+	std::vector<int> res{ 1, 2,3 };
+
+	output = testing::internal::GetCapturedStdout();
+
+	ASSERT_EQ(nums, res);
+}
+
+TEST(ValidateIPAddress, T1) {
+	std::string output;
+	testing::internal::CaptureStdout();
+
+	auto result = validIPAddress("00.0.0.0");
+
+	output = testing::internal::GetCapturedStdout();
+
+	ASSERT_STREQ("Neither", result.c_str());
+}
+
+TEST(ValidateIPAddress, T2) {
+	std::string output;
+	testing::internal::CaptureStdout();
+
+	auto result = validIPAddress("2001:0db8:85a3:0000:0:8A2E:0370:733a");
+
+	output = testing::internal::GetCapturedStdout();
+
+	ASSERT_STREQ("IPv6", result.c_str());
+}
+
+TEST(ValidateIPAddress, T3) {
+	std::string output;
+	testing::internal::CaptureStdout();
+
+	auto result = validIPAddress("172.16.254.1");
+	
+	output = testing::internal::GetCapturedStdout();
+	
+	ASSERT_STREQ("IPv4", result.c_str());
+}
+
+TEST(WordLadderTest, T1) {
+	std::string output;
+	testing::internal::CaptureStdout();
+
+	std::vector<std::string> wordList{ "hot","dot","dog","lot","log" };
+	auto result = ladderLength("hit", "cog", wordList);
+
+	output = testing::internal::GetCapturedStdout();
+	ASSERT_EQ(0, result);
+}
+
+TEST(WordLadderTest, T2) {
+	std::string output;
+	testing::internal::CaptureStdout();
+
+	std::vector<std::string> wordList{ "hot","dog","dot" };
+	auto result = ladderLength("hot", "dog", wordList);
+
+	output = testing::internal::GetCapturedStdout();
+	ASSERT_EQ(3, result);
+}
+
+TEST(WordLadderTest, T3) {
+	std::string output;
+	testing::internal::CaptureStdout();
+
+	std::vector<std::string> wordList{ "hot","dot","dog","lot","log" ,"cog" };
+	auto result = ladderLength("hit", "cog", wordList);
+	
+	output = testing::internal::GetCapturedStdout();
+	ASSERT_EQ(5, result);
+}
+
 
 TEST(ReverseWordsInAStr, Test1) {
 
