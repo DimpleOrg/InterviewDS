@@ -33,6 +33,9 @@
     <ClCompile Include="NextPermutation.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="NextGreaterNodeLL.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="StringToInteger.h">
@@ -54,6 +57,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="NextPermutation.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="NextGreaterNodeLL.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DesignTwitter.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
