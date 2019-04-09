@@ -140,6 +140,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="MultiplyBigNumbers.cpp" />
+    <ClCompile Include="NextGreaterNodeLL.cpp" />
     <ClCompile Include="NextPermutation.cpp" />
     <ClCompile Include="ReverseWordInString.cpp" />
     <ClCompile Include="StringToInteger.cpp" />
@@ -147,7 +148,9 @@
     <ClCompile Include="WordLadder.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="DesignTwitter.h" />
     <ClInclude Include="MultiplyBigNumbers.h" />
+    <ClInclude Include="NextGreaterNodeLL.h" />
     <ClInclude Include="NextPermutation.h" />
     <ClInclude Include="RemoveNthLastElem.h" />
     <ClInclude Include="ReverseWordInString.h" />
