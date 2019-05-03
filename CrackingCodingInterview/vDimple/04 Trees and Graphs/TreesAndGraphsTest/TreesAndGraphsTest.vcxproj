@@ -54,6 +54,12 @@
     <ProjectReference Include="..\GraphsAlgorithms\TopologicalSort\TopologicalSort.vcxproj">
       <Project>{8d8153a9-77a4-4b51-b041-6ac752b671d7}</Project>
     </ProjectReference>
+    <ProjectReference Include="..\MinimalTreeD\MinimalTreeD.vcxproj">
+      <Project>{20c21e46-5e07-45e5-acc9-314e79e9689f}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\RouteBetweenNodes\RouteBetweenNodes.vcxproj">
+      <Project>{1ebf21bf-f8d2-4aff-a69c-469c418902ec}</Project>
+    </ProjectReference>
   </ItemGroup>
   <ItemDefinitionGroup />
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
