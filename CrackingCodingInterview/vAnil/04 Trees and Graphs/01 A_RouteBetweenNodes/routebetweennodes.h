@@ -28,14 +28,14 @@ public:
 
 			for (auto x = graph[val].begin(); x != graph[val].end(); x++)
 			{
+				if ((*x).first == v2)
+					return true;
+
 				if (visitedNodes.find((*x).first) == visitedNodes.end())
 				{
 					bfs.push((*x).first);
 					visitedNodes.insert((*x).first);
 				}
-
-				if ((*x).first == v2)
-					return true;
 			}
 		}
 
