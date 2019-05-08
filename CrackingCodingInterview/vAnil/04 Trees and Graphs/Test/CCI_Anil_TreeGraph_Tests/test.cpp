@@ -1,6 +1,8 @@
 #include "pch.h"
 #include "../../01 A_RouteBetweenNodes/routebetweennodes.h"
 #include "../../02 MinimalTree/MinimalTree.h"
+#include "../../03 A_ListsOfDepths/ListsofDepths.h"
+#include "../../04 A_CheckBalanced/CheckBalanced.h"
 
 TEST(TreeGraphTests, Test1) {
 	Graph gh;
@@ -78,4 +80,42 @@ TEST(TreeGraphTests, Test5) {
 
 TEST(MinimalTreeTests, Test1) {	
 	auto result = makeMinimalTree({1,2,3,4,5,6,7,8,9,10});
+}
+
+TEST(ListsOfDepths, Test1) {
+	BinaryTree<int> binaryTree;
+	binaryTree.insert({100, 50, 150, 25, 75, 125, 175, 15, 90, 10});
+
+	auto lists1 = binaryTree.createLevelLinkedList();
+	auto lists2 = binaryTree.createLevelLinkedListIterative();
+
+	EXPECT_EQ(true, lists1 == lists2);
+
+}
+
+
+TEST(ListsOfDepths, Test2) {
+	BinaryTree<int> binaryTree;
+
+	auto lists1 = binaryTree.createLevelLinkedList();
+	auto lists2 = binaryTree.createLevelLinkedListIterative();
+
+	EXPECT_EQ(true, lists1 == lists2);
+}
+
+
+TEST(CheckBalanced, Test1) {
+	BinaryTreeA<int> binaryTree;
+	binaryTree.insert({ 100, 50, 150, 25, 75, 125, 175, 15, 90 });
+	auto val = binaryTree.IsBinaryTreeBalanced();
+
+	EXPECT_EQ(true, val);
+}
+
+TEST(CheckBalanced, Test2) {
+	BinaryTreeA<int> binaryTree;
+	binaryTree.insert({ 100, 50, 150, 25, 75, 125, 175, 15, 90, 10 });
+	auto val = binaryTree.IsBinaryTreeBalanced();
+
+	EXPECT_EQ(false, val);
 }
