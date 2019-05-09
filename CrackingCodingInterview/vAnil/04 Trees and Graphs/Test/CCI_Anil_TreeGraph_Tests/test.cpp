@@ -3,6 +3,7 @@
 #include "../../02 MinimalTree/MinimalTree.h"
 #include "../../03 A_ListsOfDepths/ListsofDepths.h"
 #include "../../04 A_CheckBalanced/CheckBalanced.h"
+#include "../../05 A_IsBST/IsBST.h"
 
 TEST(TreeGraphTests, Test1) {
 	Graph gh;
@@ -118,4 +119,40 @@ TEST(CheckBalanced, Test2) {
 	auto val = binaryTree.IsBinaryTreeBalanced();
 
 	EXPECT_EQ(false, val);
+}
+
+TEST(IsBST, Test1) {
+	BinaryTree5<int> binaryTree;
+	binaryTree.insert({ 100, 50, 150, 25, 75, 125, 175, 15, 90, 10 });
+	auto val = binaryTree.IsBSTv1();
+
+	EXPECT_EQ(true, val);
+}
+
+
+
+TEST(IsBST, Test2) {
+	BinaryTree5<int> binaryTree;
+	binaryTree.insert({ 100, 50, 150, 25, 75, 125, 175, 15, 90, 10, 1, 14, 44,67,43 });
+	auto val = binaryTree.IsBSTv1();
+
+	EXPECT_EQ(true, val);
+}
+
+TEST(IsBST, Test3) {
+	BinaryTree5<int> binaryTree;
+	binaryTree.insert({ 100, 50, 150, 25, 75, 125, 175, 15, 90, 10 });
+	auto val = binaryTree.IsBSTv2();
+
+	EXPECT_EQ(true, val);
+}
+
+
+
+TEST(IsBST, Test4) {
+	BinaryTree5<int> binaryTree;
+	binaryTree.insert({ 100, 50, 150, 25, 75, 125, 175, 15, 90, 10, 1, 14, 44,67,43 });
+	auto val = binaryTree.IsBSTv2();
+
+	EXPECT_EQ(true, val);
 }
