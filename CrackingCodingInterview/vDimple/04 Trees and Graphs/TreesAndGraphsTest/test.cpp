@@ -4,6 +4,62 @@
 #include"..\GraphsAlgorithms\PriorityQueue_MaxHeap\PriorityQueue_MaxHeap.h"
 #include"..\..\04 Trees and Graphs\RouteBetweenNodes\RouteBetweenNodes.h"
 #include"..\..\04 Trees and Graphs\MinimalTreeD\MinimalTree.h"
+#include"..\..\04 Trees and Graphs\ListOfDepthD\ListOfDepthD.h"
+#include"..\..\04 Trees and Graphs\isBalancedD\isBalancedD.h"
+
+TEST(D_isBalanced, Test1)
+{
+	std::string output;
+	testing::internal::CaptureStdout();
+
+	BTree<int> obj;
+	obj.insertNode(7);	//https://www.google.com/url?sa=i&rct=j&q=&esrc=s&source=images&cd=&cad=rja&uact=8&ved=2ahUKEwiTgtqHw4niAhURiqwKHZKXDssQjRx6BAgBEAU&url=https%3A%2F%2Fopendatastructures.org%2Fversions%2Fedition-0.1d%2Fods-java%2Fnode37.html&psig=AOvVaw3GOC7lcMh0mRbwLq5ChJN5&ust=1557146817963642
+	obj.insertNode(3);
+	obj.insertNode(11);
+	obj.insertNode(1);
+	obj.insertNode(5);
+	obj.insertNode(9);
+	obj.insertNode(13);
+	obj.insertNode(4);
+	obj.insertNode(6);
+	obj.insertNode(8);
+	obj.insertNode(12);
+	obj.insertNode(14);
+
+	bool res = obj.isBalanced();
+	bool expectedOutput = true;
+
+	output = testing::internal::GetCapturedStdout();
+
+	EXPECT_EQ(res, expectedOutput);
+}
+
+TEST(D_ListOfNodes, Test1)
+{
+	std::string output;
+	testing::internal::CaptureStdout();
+
+	bTree<int> obj;
+	obj.insertNode(7);	//https://www.google.com/url?sa=i&rct=j&q=&esrc=s&source=images&cd=&cad=rja&uact=8&ved=2ahUKEwiTgtqHw4niAhURiqwKHZKXDssQjRx6BAgBEAU&url=https%3A%2F%2Fopendatastructures.org%2Fversions%2Fedition-0.1d%2Fods-java%2Fnode37.html&psig=AOvVaw3GOC7lcMh0mRbwLq5ChJN5&ust=1557146817963642
+	obj.insertNode(3);
+	obj.insertNode(11);
+	obj.insertNode(1);
+	obj.insertNode(5);
+	obj.insertNode(9);
+	obj.insertNode(13);
+	obj.insertNode(4);
+	obj.insertNode(6);
+	obj.insertNode(8);
+	obj.insertNode(12);
+	obj.insertNode(14);
+
+	vector<list<int>> res = obj.listOfNodes();
+
+	output = testing::internal::GetCapturedStdout();
+
+	//EXPECT_EQ(res, expectedOutput);
+}
+
 
 TEST(D_MinimalTree, Test1)
 {
