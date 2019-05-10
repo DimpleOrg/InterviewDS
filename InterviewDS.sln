@@ -267,9 +267,9 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "NextHigher", "LeetCode\vDim
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "DesignTwitter", "LeetCode\vDimple\DesignTwitter\DesignTwitter.vcxproj", "{6FDD8074-C8C6-4230-A374-D2B3899F43F2}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "RouteBetweenNodes", "CrackingCodingInterview\vDimple\04 Trees and Graphs\RouteBetweenNodes\RouteBetweenNodes.vcxproj", "{1EBF21BF-F8D2-4AFF-A69C-469C418902EC}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "01 RouteBetweenNodes", "CrackingCodingInterview\vDimple\04 Trees and Graphs\RouteBetweenNodes\RouteBetweenNodes.vcxproj", "{1EBF21BF-F8D2-4AFF-A69C-469C418902EC}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MinimalTreeD", "CrackingCodingInterview\vDimple\04 Trees and Graphs\MinimalTreeD\MinimalTreeD.vcxproj", "{20C21E46-5E07-45E5-ACC9-314E79E9689F}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "02 MinimalTreeD", "CrackingCodingInterview\vDimple\04 Trees and Graphs\MinimalTreeD\MinimalTreeD.vcxproj", "{20C21E46-5E07-45E5-ACC9-314E79E9689F}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "02 MinimalTree", "CrackingCodingInterview\vAnil\04 Trees and Graphs\02 MinimalTree\02 MinimalTree.vcxproj", "{0004B7BD-7B19-4DDA-8A2A-2C99680D3C53}"
 EndProject
@@ -284,6 +284,10 @@ EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "04 A_CheckBalanced", "CrackingCodingInterview\vAnil\04 Trees and Graphs\04 A_CheckBalanced\04 A_CheckBalanced.vcxproj", "{64A40BEA-DD46-40D2-B551-A3A058DA1994}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "05 A_IsBST", "CrackingCodingInterview\vAnil\04 Trees and Graphs\05 A_IsBST\05 A_IsBST.vcxproj", "{D46F1606-7BCD-4DEA-B0FB-4B7BB1C735F8}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "03 ListOfDepthD", "CrackingCodingInterview\vDimple\04 Trees and Graphs\ListOfDepthD\ListOfDepthD.vcxproj", "{EA038DAC-0C52-4032-B1DC-38C04DC9272A}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "04 isBalancedD", "CrackingCodingInterview\vDimple\04 Trees and Graphs\isBalancedD\isBalancedD.vcxproj", "{7A0CBBC0-6CE6-4CD3-9AF9-535CA809EFC4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -1117,6 +1121,22 @@ Global
 		{D46F1606-7BCD-4DEA-B0FB-4B7BB1C735F8}.Release|x64.Build.0 = Release|x64
 		{D46F1606-7BCD-4DEA-B0FB-4B7BB1C735F8}.Release|x86.ActiveCfg = Release|Win32
 		{D46F1606-7BCD-4DEA-B0FB-4B7BB1C735F8}.Release|x86.Build.0 = Release|Win32
+		{EA038DAC-0C52-4032-B1DC-38C04DC9272A}.Debug|x64.ActiveCfg = Debug|x64
+		{EA038DAC-0C52-4032-B1DC-38C04DC9272A}.Debug|x64.Build.0 = Debug|x64
+		{EA038DAC-0C52-4032-B1DC-38C04DC9272A}.Debug|x86.ActiveCfg = Debug|Win32
+		{EA038DAC-0C52-4032-B1DC-38C04DC9272A}.Debug|x86.Build.0 = Debug|Win32
+		{EA038DAC-0C52-4032-B1DC-38C04DC9272A}.Release|x64.ActiveCfg = Release|x64
+		{EA038DAC-0C52-4032-B1DC-38C04DC9272A}.Release|x64.Build.0 = Release|x64
+		{EA038DAC-0C52-4032-B1DC-38C04DC9272A}.Release|x86.ActiveCfg = Release|Win32
+		{EA038DAC-0C52-4032-B1DC-38C04DC9272A}.Release|x86.Build.0 = Release|Win32
+		{7A0CBBC0-6CE6-4CD3-9AF9-535CA809EFC4}.Debug|x64.ActiveCfg = Debug|x64
+		{7A0CBBC0-6CE6-4CD3-9AF9-535CA809EFC4}.Debug|x64.Build.0 = Debug|x64
+		{7A0CBBC0-6CE6-4CD3-9AF9-535CA809EFC4}.Debug|x86.ActiveCfg = Debug|Win32
+		{7A0CBBC0-6CE6-4CD3-9AF9-535CA809EFC4}.Debug|x86.Build.0 = Debug|Win32
+		{7A0CBBC0-6CE6-4CD3-9AF9-535CA809EFC4}.Release|x64.ActiveCfg = Release|x64
+		{7A0CBBC0-6CE6-4CD3-9AF9-535CA809EFC4}.Release|x64.Build.0 = Release|x64
+		{7A0CBBC0-6CE6-4CD3-9AF9-535CA809EFC4}.Release|x86.ActiveCfg = Release|Win32
+		{7A0CBBC0-6CE6-4CD3-9AF9-535CA809EFC4}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -1257,6 +1277,8 @@ Global
 		{C65F961D-F44B-46C9-B722-496F623FCD16} = {11231459-F196-47A3-9CA5-DCF74728C2CB}
 		{64A40BEA-DD46-40D2-B551-A3A058DA1994} = {11231459-F196-47A3-9CA5-DCF74728C2CB}
 		{D46F1606-7BCD-4DEA-B0FB-4B7BB1C735F8} = {11231459-F196-47A3-9CA5-DCF74728C2CB}
+		{EA038DAC-0C52-4032-B1DC-38C04DC9272A} = {D3251612-210B-4E8C-B8A5-670D0C9C27BF}
+		{7A0CBBC0-6CE6-4CD3-9AF9-535CA809EFC4} = {D3251612-210B-4E8C-B8A5-670D0C9C27BF}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {F8696CBB-2750-4AFE-AFE7-121D7ED869FC}
