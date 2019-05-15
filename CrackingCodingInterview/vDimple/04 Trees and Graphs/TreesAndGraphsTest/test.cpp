@@ -1,4 +1,4 @@
-#include "pch.h"
+﻿#include "pch.h"
 #include"..\GraphsAlgorithms\BellmanFord\BellmanFord.h"
 #include"..\GraphsAlgorithms\TopologicalSort\TopologicalSort.h"
 #include"..\GraphsAlgorithms\PriorityQueue_MaxHeap\PriorityQueue_MaxHeap.h"
@@ -6,6 +6,291 @@
 #include"..\..\04 Trees and Graphs\MinimalTreeD\MinimalTree.h"
 #include"..\..\04 Trees and Graphs\ListOfDepthD\ListOfDepthD.h"
 #include"..\..\04 Trees and Graphs\isBalancedD\isBalancedD.h"
+#include"..\..\04 Trees and Graphs\05 isBSTD\isBSTD.h"
+#include"..\..\04 Trees and Graphs\06 Successor\Successor.h"
+
+TEST(D_GetSuccessorV2, Test1)
+{
+	std::string output;
+	testing::internal::CaptureStdout();
+
+	BSTree<int> obj;
+	obj.insertNode(90);	//https://upload.wikimedia.org/wikipedia/commons/9/9e/Бинарлық_іздеу.gif
+	obj.insertNode(50);
+	obj.insertNode(150);
+	obj.insertNode(20);
+	obj.insertNode(75);
+	obj.insertNode(95);
+	obj.insertNode(175);
+	obj.insertNode(5);
+	obj.insertNode(25);
+	obj.insertNode(66);
+	obj.insertNode(80);
+	obj.insertNode(92);
+	obj.insertNode(111);
+	obj.insertNode(166);
+	obj.insertNode(200);
+
+	std::shared_ptr<bstnode<int>> srcNode = obj.getNode(90);
+	std::shared_ptr<bstnode<int>> resNode = obj.getSuccessorV2(srcNode);
+	int res = resNode->data;
+	int expectedOutput = 92;
+
+	output = testing::internal::GetCapturedStdout();
+
+	EXPECT_EQ(res, expectedOutput);
+}
+
+TEST(D_GetSuccessorV2, Test2)
+{
+	std::string output;
+	testing::internal::CaptureStdout();
+
+	BSTree<int> obj;
+	obj.insertNode(90);	//https://upload.wikimedia.org/wikipedia/commons/9/9e/Бинарлық_іздеу.gif
+	obj.insertNode(50);
+	obj.insertNode(150);
+	obj.insertNode(20);
+	obj.insertNode(75);
+	obj.insertNode(95);
+	obj.insertNode(175);
+	obj.insertNode(5);
+	obj.insertNode(25);
+	obj.insertNode(66);
+	obj.insertNode(80);
+	obj.insertNode(92);
+	obj.insertNode(111);
+	obj.insertNode(166);
+	obj.insertNode(200);
+
+	std::shared_ptr<bstnode<int>> srcNode = obj.getNode(5);
+	std::shared_ptr<bstnode<int>> resNode = obj.getSuccessorV2(srcNode);
+	int res = resNode->data;
+	int expectedOutput = 20;
+
+	output = testing::internal::GetCapturedStdout();
+
+	EXPECT_EQ(res, expectedOutput);
+}
+
+TEST(D_GetSuccessorV2, Test3)
+{
+	std::string output;
+	testing::internal::CaptureStdout();
+
+	BSTree<int> obj;
+	obj.insertNode(90);	//https://upload.wikimedia.org/wikipedia/commons/9/9e/Бинарлық_іздеу.gif
+	obj.insertNode(50);
+	obj.insertNode(150);
+	obj.insertNode(20);
+	obj.insertNode(75);
+	obj.insertNode(95);
+	obj.insertNode(175);
+	obj.insertNode(5);
+	obj.insertNode(25);
+	obj.insertNode(66);
+	obj.insertNode(80);
+	obj.insertNode(92);
+	obj.insertNode(111);
+	obj.insertNode(166);
+	obj.insertNode(200);
+
+	std::shared_ptr<bstnode<int>> srcNode = obj.getNode(80);
+	std::shared_ptr<bstnode<int>> resNode = obj.getSuccessorV2(srcNode);
+	int res = resNode->data;
+	int expectedOutput = 90;
+
+	output = testing::internal::GetCapturedStdout();
+
+	EXPECT_EQ(res, expectedOutput);
+}
+
+TEST(D_GetSuccessorV2, Test4)
+{
+	std::string output;
+	testing::internal::CaptureStdout();
+
+	BSTree<int> obj;
+	obj.insertNode(90);	//https://upload.wikimedia.org/wikipedia/commons/9/9e/Бинарлық_іздеу.gif
+	obj.insertNode(50);
+	obj.insertNode(150);
+	obj.insertNode(20);
+	obj.insertNode(75);
+	obj.insertNode(95);
+	obj.insertNode(175);
+	obj.insertNode(5);
+	obj.insertNode(25);
+	obj.insertNode(66);
+	obj.insertNode(80);
+	obj.insertNode(92);
+	obj.insertNode(111);
+	obj.insertNode(166);
+	obj.insertNode(200);
+
+	int res;
+	std::shared_ptr<bstnode<int>> expectedOutput;
+
+	std::shared_ptr<bstnode<int>> srcNode = obj.getNode(200);
+	std::shared_ptr<bstnode<int>> resNode = obj.getSuccessorV2(srcNode);
+
+	output = testing::internal::GetCapturedStdout();
+
+	EXPECT_EQ(resNode, expectedOutput);
+}
+
+
+
+TEST(D_GetSuccessorV1, Test1)
+{
+	std::string output;
+	testing::internal::CaptureStdout();
+
+	BSTree<int> obj;
+	obj.insertNode(90);	//https://upload.wikimedia.org/wikipedia/commons/9/9e/Бинарлық_іздеу.gif
+	obj.insertNode(50);
+	obj.insertNode(150);
+	obj.insertNode(20);
+	obj.insertNode(75);
+	obj.insertNode(95);
+	obj.insertNode(175);
+	obj.insertNode(5);
+	obj.insertNode(25);
+	obj.insertNode(66);
+	obj.insertNode(80);
+	obj.insertNode(92);
+	obj.insertNode(111);
+	obj.insertNode(166);
+	obj.insertNode(200);
+
+	std::shared_ptr<bstnode<int>> resNode = obj.getSuccessorV1(90);
+	int res = resNode->data;
+	int expectedOutput = 92;
+
+	output = testing::internal::GetCapturedStdout();
+
+	EXPECT_EQ(res, expectedOutput);
+}
+
+TEST(D_GetSuccessorV1, Test2)
+{
+	std::string output;
+	testing::internal::CaptureStdout();
+
+	BSTree<int> obj;
+	obj.insertNode(90);	//https://upload.wikimedia.org/wikipedia/commons/9/9e/Бинарлық_іздеу.gif
+	obj.insertNode(50);
+	obj.insertNode(150);
+	obj.insertNode(20);
+	obj.insertNode(75);
+	obj.insertNode(95);
+	obj.insertNode(175);
+	obj.insertNode(5);
+	obj.insertNode(25);
+	obj.insertNode(66);
+	obj.insertNode(80);
+	obj.insertNode(92);
+	obj.insertNode(111);
+	obj.insertNode(166);
+	obj.insertNode(200);
+
+	std::shared_ptr<bstnode<int>> resNode = obj.getSuccessorV1(5);
+	int res = resNode->data;
+	int expectedOutput = 20;
+
+	output = testing::internal::GetCapturedStdout();
+
+	EXPECT_EQ(res, expectedOutput);
+}
+
+TEST(D_GetSuccessorV1, Test3)
+{
+	std::string output;
+	testing::internal::CaptureStdout();
+
+	BSTree<int> obj;
+	obj.insertNode(90);	//https://upload.wikimedia.org/wikipedia/commons/9/9e/Бинарлық_іздеу.gif
+	obj.insertNode(50);
+	obj.insertNode(150);
+	obj.insertNode(20);
+	obj.insertNode(75);
+	obj.insertNode(95);
+	obj.insertNode(175);
+	obj.insertNode(5);
+	obj.insertNode(25);
+	obj.insertNode(66);
+	obj.insertNode(80);
+	obj.insertNode(92);
+	obj.insertNode(111);
+	obj.insertNode(166);
+	obj.insertNode(200);
+
+	std::shared_ptr<bstnode<int>> resNode = obj.getSuccessorV1(80);
+	int res = resNode->data;
+	int expectedOutput = 90;
+
+	output = testing::internal::GetCapturedStdout();
+
+	EXPECT_EQ(res, expectedOutput);
+}
+
+TEST(D_GetSuccessorV1, Test4)
+{
+	std::string output;
+	testing::internal::CaptureStdout();
+
+	BSTree<int> obj;
+	obj.insertNode(90);	//https://upload.wikimedia.org/wikipedia/commons/9/9e/Бинарлық_іздеу.gif
+	obj.insertNode(50);
+	obj.insertNode(150);
+	obj.insertNode(20);
+	obj.insertNode(75);
+	obj.insertNode(95);
+	obj.insertNode(175);
+	obj.insertNode(5);
+	obj.insertNode(25);
+	obj.insertNode(66);
+	obj.insertNode(80);
+	obj.insertNode(92);
+	obj.insertNode(111);
+	obj.insertNode(166);
+	obj.insertNode(200);
+
+	int res;
+	std::shared_ptr<bstnode<int>> expectedOutput;
+
+	std::shared_ptr<bstnode<int>> resNode = obj.getSuccessorV1(200);
+
+	output = testing::internal::GetCapturedStdout();
+
+	EXPECT_EQ(resNode, expectedOutput);
+}
+
+TEST(D_isBST, Test1)
+{
+	std::string output;
+	testing::internal::CaptureStdout();
+
+	BTree<int> obj;
+	obj.insertNode(7);	//https://www.google.com/url?sa=i&rct=j&q=&esrc=s&source=images&cd=&cad=rja&uact=8&ved=2ahUKEwiTgtqHw4niAhURiqwKHZKXDssQjRx6BAgBEAU&url=https%3A%2F%2Fopendatastructures.org%2Fversions%2Fedition-0.1d%2Fods-java%2Fnode37.html&psig=AOvVaw3GOC7lcMh0mRbwLq5ChJN5&ust=1557146817963642
+	obj.insertNode(3);
+	obj.insertNode(11);
+	obj.insertNode(1);
+	obj.insertNode(5);
+	obj.insertNode(9);
+	obj.insertNode(13);
+	obj.insertNode(4);
+	obj.insertNode(6);
+	obj.insertNode(8);
+	obj.insertNode(12);
+	obj.insertNode(14);
+
+	bool res = obj.isBalanced();
+	bool expectedOutput = true;
+
+	output = testing::internal::GetCapturedStdout();
+
+	EXPECT_EQ(res, expectedOutput);
+}
 
 TEST(D_isBalanced, Test1)
 {
