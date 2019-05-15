@@ -118,24 +118,19 @@ inline std::shared_ptr<bstnode<T>> BSTree<T>::getSuccessorV1Helper(std::shared_p
 template<typename T>
 inline std::shared_ptr<bstnode<T>> BSTree<T>::getSuccessorV2(std::shared_ptr<bstnode<T>> src)
 {
-	if (isRoot(src))
+	/*if (isRoot(src))
 	{
 		if (hasRightChild(src))
 			return leftMost(src->right);
 		else
 			return nullptr;
-	}
+	}*/
 
-	if (isLeftChild(src))
-		return src->parent;
+	if (hasRightChild(src))
+		return leftMost(src->right);
+	else
+		return greaterParent(src);
 
-	if (isRightChild(src))
-	{
-		if (hasRightChild(src))
-			return leftMost(src->right);
-		else
-			return greaterParent(src);
-	}
 }
 
 template<typename T>
