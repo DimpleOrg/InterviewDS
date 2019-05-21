@@ -140,12 +140,10 @@ template <typename T>
 bool BinaryTree5<T>::IsBSTv2(BinaryTreeNode5<T> *root, T min, T max)
 {
 	if (!root)
+	{
 		return true;
-
-	if ((root->left && root->data < root->left->data)
-		|| (root->right && root->data > root->right->data)
-		|| (root->data < min)
-		|| (root->data > max))
+	}
+	else if (root->data > max || root->data < min)
 	{
 		return false;
 	}
