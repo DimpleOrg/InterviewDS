@@ -289,6 +289,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "03 ListOfDepthD", "Cracking
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "04 isBalancedD", "CrackingCodingInterview\vDimple\04 Trees and Graphs\isBalancedD\isBalancedD.vcxproj", "{7A0CBBC0-6CE6-4CD3-9AF9-535CA809EFC4}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "06 A_Successor", "CrackingCodingInterview\vAnil\04 Trees and Graphs\06 A_Successor\06 A_Successor.vcxproj", "{CA5D166F-B09E-4E7D-9881-ABB1F181949D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -1137,6 +1139,14 @@ Global
 		{7A0CBBC0-6CE6-4CD3-9AF9-535CA809EFC4}.Release|x64.Build.0 = Release|x64
 		{7A0CBBC0-6CE6-4CD3-9AF9-535CA809EFC4}.Release|x86.ActiveCfg = Release|Win32
 		{7A0CBBC0-6CE6-4CD3-9AF9-535CA809EFC4}.Release|x86.Build.0 = Release|Win32
+		{CA5D166F-B09E-4E7D-9881-ABB1F181949D}.Debug|x64.ActiveCfg = Debug|x64
+		{CA5D166F-B09E-4E7D-9881-ABB1F181949D}.Debug|x64.Build.0 = Debug|x64
+		{CA5D166F-B09E-4E7D-9881-ABB1F181949D}.Debug|x86.ActiveCfg = Debug|Win32
+		{CA5D166F-B09E-4E7D-9881-ABB1F181949D}.Debug|x86.Build.0 = Debug|Win32
+		{CA5D166F-B09E-4E7D-9881-ABB1F181949D}.Release|x64.ActiveCfg = Release|x64
+		{CA5D166F-B09E-4E7D-9881-ABB1F181949D}.Release|x64.Build.0 = Release|x64
+		{CA5D166F-B09E-4E7D-9881-ABB1F181949D}.Release|x86.ActiveCfg = Release|Win32
+		{CA5D166F-B09E-4E7D-9881-ABB1F181949D}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -1279,6 +1289,7 @@ Global
 		{D46F1606-7BCD-4DEA-B0FB-4B7BB1C735F8} = {11231459-F196-47A3-9CA5-DCF74728C2CB}
 		{EA038DAC-0C52-4032-B1DC-38C04DC9272A} = {D3251612-210B-4E8C-B8A5-670D0C9C27BF}
 		{7A0CBBC0-6CE6-4CD3-9AF9-535CA809EFC4} = {D3251612-210B-4E8C-B8A5-670D0C9C27BF}
+		{CA5D166F-B09E-4E7D-9881-ABB1F181949D} = {11231459-F196-47A3-9CA5-DCF74728C2CB}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {F8696CBB-2750-4AFE-AFE7-121D7ED869FC}
