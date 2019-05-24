@@ -5,6 +5,7 @@
 #include "../../04 A_CheckBalanced/CheckBalanced.h"
 #include "../../05 A_IsBST/IsBST.h"
 #include "../../06 A_Successor/Successor.h"
+#include "../../07 A_BuildOrder/BuildOrder.h"
 
 TEST(TreeGraphTests, Test1) {
 	Graph gh;
@@ -197,4 +198,41 @@ TEST(SUCCESSOR, Test4) {
 	auto val = binaryTree.GetSuccessor(ptr);
 
 	EXPECT_EQ(10, val->data);
+}
+
+TEST(A_07_BUILD_ORDER, Test1) {
+	BuildOrder<int> obj;
+	obj.insertVertices({"a", "b", "c", "d", "e", "f"});
+	obj.addEdge("d", "a");
+	obj.addEdge("b", "f");
+	obj.addEdge("d", "b");
+	obj.addEdge("a", "f");
+	obj.addEdge("c", "d");
+
+	auto blist = obj.getBuildOrder();
+	std::vector<std::string> result = {"f", "a","b", "d", "c", "e"};
+
+	EXPECT_TRUE(blist == result);
+}
+
+TEST(A_07_BUILD_ORDER, Test2) {
+	BuildOrder<int> obj;
+	obj.insertVertices({ "a", "b", "c", "d", "e", "f" });
+	obj.addEdge("a", "b");
+	obj.addEdge("b", "a");
+
+	std::string result;
+	std::string expected = "Cyclic Dependency Detected";
+
+	try
+	{
+		auto blist = obj.getBuildOrder();
+	}
+	catch (char * str)
+	{
+		result = str;
+	}
+
+	
+	EXPECT_STREQ(result.c_str(), expected.c_str());
 }
