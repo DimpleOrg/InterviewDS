@@ -6,6 +6,7 @@
 #include "../../05 A_IsBST/IsBST.h"
 #include "../../06 A_Successor/Successor.h"
 #include "../../07 A_BuildOrder/BuildOrder.h"
+#include "../../08 A_FirstCommonAncestor/firstcommonAncestor.h"
 
 TEST(TreeGraphTests, Test1) {
 	Graph gh;
@@ -235,4 +236,37 @@ TEST(A_07_BUILD_ORDER, Test2) {
 
 	
 	EXPECT_STREQ(result.c_str(), expected.c_str());
+}
+
+TEST(A_08_F_C_ANCESTOR, Test1) {
+	BST8<int> binaryTree;
+	binaryTree.insert({ 100, 50, 150, 25, 75, 125, 175, 15, 90, 10, 1, 14, 44,67,43 });
+
+	auto ptr1 = binaryTree.getNodePtr(10);
+	auto ptr2 = binaryTree.getNodePtr(44);
+	auto val = binaryTree.FirstCommonAncestorV1(ptr1, ptr2);
+
+	EXPECT_EQ(25, val->data);
+}
+
+TEST(A_08_F_C_ANCESTOR, Test2) {
+	BST8<int> binaryTree;
+	binaryTree.insert({ 100, 50, 150, 25, 75, 125, 175, 15, 90, 10, 1, 14, 44,67,43 });
+
+	auto ptr1 = binaryTree.getNodePtr(1);
+	auto ptr2 = binaryTree.getNodePtr(175);
+	auto val = binaryTree.FirstCommonAncestorV1(ptr1, ptr2);
+
+	EXPECT_EQ(100, val->data);
+}
+
+TEST(A_08_F_C_ANCESTOR, Test3) {
+	BST8<int> binaryTree;
+	binaryTree.insert({ 100, 50, 150, 25, 75, 125, 175, 15, 90, 10, 1, 14, 44,67,43 });
+
+	auto ptr1 = binaryTree.getNodePtr(90);
+	auto ptr2 = binaryTree.getNodePtr(43);
+	auto val = binaryTree.FirstCommonAncestorV1(ptr1, ptr2);
+
+	EXPECT_EQ(50, val->data);
 }
