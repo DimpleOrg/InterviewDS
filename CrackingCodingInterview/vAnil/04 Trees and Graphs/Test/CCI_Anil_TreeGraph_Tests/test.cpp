@@ -270,3 +270,38 @@ TEST(A_08_F_C_ANCESTOR, Test3) {
 
 	EXPECT_EQ(50, val->data);
 }
+
+
+
+TEST(A_08_F_C_ANCESTOR, Test4) {
+	BST8<int> binaryTree;
+	binaryTree.insert({ 100, 50, 150, 25, 75, 125, 175, 15, 90, 10, 1, 14, 44,67,43 });
+
+	auto ptr1 = binaryTree.getNodePtr(10);
+	auto ptr2 = binaryTree.getNodePtr(44);
+	auto val = binaryTree.FirstCommonAncestorV2(ptr1, ptr2);
+
+	EXPECT_EQ(25, val->data);
+}
+
+TEST(A_08_F_C_ANCESTOR, Test5) {
+	BST8<int> binaryTree;
+	binaryTree.insert({ 100, 50, 150, 25, 75, 125, 175, 15, 90, 10, 1, 14, 44,67,43 });
+
+	auto ptr1 = binaryTree.getNodePtr(1);
+	auto ptr2 = binaryTree.getNodePtr(175);
+	auto val = binaryTree.FirstCommonAncestorV2(ptr1, ptr2);
+
+	EXPECT_EQ(100, val->data);
+}
+
+TEST(A_08_F_C_ANCESTOR, Test6) {
+	BST8<int> binaryTree;
+	binaryTree.insert({ 100, 50, 150, 25, 75, 125, 175, 15, 90, 10, 1, 14, 44,67,43 });
+
+	auto ptr1 = binaryTree.getNodePtr(90);
+	auto ptr2 = binaryTree.getNodePtr(43);
+	auto val = binaryTree.FirstCommonAncestorV2(ptr1, ptr2);
+
+	EXPECT_EQ(50, val->data);
+}

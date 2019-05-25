@@ -24,6 +24,59 @@ public:
 		return FirstCommonAncestorV1(root, n1, n2);
 	}
 
+	auto FirstCommonAncestorV2(std::shared_ptr<Node8<T>> n1, std::shared_ptr<Node8<T>> n2)
+	{
+		int c1 = 0;
+		int c2 = 0;
+
+		auto p1 = n1;
+		while (p1)
+		{
+			c1++;
+			p1 = p1->parent;
+		}
+
+		auto p2 = n2;
+		while (p2)
+		{
+			c2++;
+			p2 = p2->parent;
+		}
+
+		p1 = n1;
+		p2 = n2;
+
+		if (c1 > c2)
+		{
+			int diff = c1 - c2;
+			while (diff--)
+			{
+				p1 = p1->parent;
+			}
+		}
+		else if (c2 > c1)
+		{
+			int diff = c2 - c1;
+			while (diff--)
+			{
+				p2 = p2->parent;
+			}
+		}
+
+		while (p1 && p2)
+		{
+			if (p1 == p2)
+				return p1; //nullptr
+			else
+			{
+				p1 = p1->parent;
+				p2 = p2->parent;
+			}
+		}
+
+		return p1; //nullptr
+	}
+
 	void InsertNode(const T &data);
 	auto getNodePtr(const T &data) const;
 
