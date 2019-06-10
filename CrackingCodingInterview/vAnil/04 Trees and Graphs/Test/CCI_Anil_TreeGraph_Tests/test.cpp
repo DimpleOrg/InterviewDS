@@ -5,6 +5,8 @@
 #include "../../04 A_CheckBalanced/CheckBalanced.h"
 #include "../../05 A_IsBST/IsBST.h"
 #include "../../06 A_Successor/Successor.h"
+#include "../../07 A_BuildOrder/BuildOrder.h"
+#include "../../08 A_FirstCommonAncestor/firstcommonAncestor.h"
 
 TEST(TreeGraphTests, Test1) {
 	Graph gh;
@@ -197,4 +199,109 @@ TEST(SUCCESSOR, Test4) {
 	auto val = binaryTree.GetSuccessor(ptr);
 
 	EXPECT_EQ(10, val->data);
+}
+
+TEST(A_07_BUILD_ORDER, Test1) {
+	BuildOrder<int> obj;
+	obj.insertVertices({"a", "b", "c", "d", "e", "f"});
+	obj.addEdge("d", "a");
+	obj.addEdge("b", "f");
+	obj.addEdge("d", "b");
+	obj.addEdge("a", "f");
+	obj.addEdge("c", "d");
+
+	auto blist = obj.getBuildOrder();
+	std::vector<std::string> result = {"f", "a","b", "d", "c", "e"};
+
+	EXPECT_TRUE(blist == result);
+}
+
+TEST(A_07_BUILD_ORDER, Test2) {
+	BuildOrder<int> obj;
+	obj.insertVertices({ "a", "b", "c", "d", "e", "f" });
+	obj.addEdge("a", "b");
+	obj.addEdge("b", "a");
+
+	std::string result;
+	std::string expected = "Cyclic Dependency Detected";
+
+	try
+	{
+		auto blist = obj.getBuildOrder();
+	}
+	catch (char * str)
+	{
+		result = str;
+	}
+
+	
+	EXPECT_STREQ(result.c_str(), expected.c_str());
+}
+
+TEST(A_08_F_C_ANCESTOR, Test1) {
+	BST8<int> binaryTree;
+	binaryTree.insert({ 100, 50, 150, 25, 75, 125, 175, 15, 90, 10, 1, 14, 44,67,43 });
+
+	auto ptr1 = binaryTree.getNodePtr(10);
+	auto ptr2 = binaryTree.getNodePtr(44);
+	auto val = binaryTree.FirstCommonAncestorV1(ptr1, ptr2);
+
+	EXPECT_EQ(25, val->data);
+}
+
+TEST(A_08_F_C_ANCESTOR, Test2) {
+	BST8<int> binaryTree;
+	binaryTree.insert({ 100, 50, 150, 25, 75, 125, 175, 15, 90, 10, 1, 14, 44,67,43 });
+
+	auto ptr1 = binaryTree.getNodePtr(1);
+	auto ptr2 = binaryTree.getNodePtr(175);
+	auto val = binaryTree.FirstCommonAncestorV1(ptr1, ptr2);
+
+	EXPECT_EQ(100, val->data);
+}
+
+TEST(A_08_F_C_ANCESTOR, Test3) {
+	BST8<int> binaryTree;
+	binaryTree.insert({ 100, 50, 150, 25, 75, 125, 175, 15, 90, 10, 1, 14, 44,67,43 });
+
+	auto ptr1 = binaryTree.getNodePtr(90);
+	auto ptr2 = binaryTree.getNodePtr(43);
+	auto val = binaryTree.FirstCommonAncestorV1(ptr1, ptr2);
+
+	EXPECT_EQ(50, val->data);
+}
+
+
+
+TEST(A_08_F_C_ANCESTOR, Test4) {
+	BST8<int> binaryTree;
+	binaryTree.insert({ 100, 50, 150, 25, 75, 125, 175, 15, 90, 10, 1, 14, 44,67,43 });
+
+	auto ptr1 = binaryTree.getNodePtr(10);
+	auto ptr2 = binaryTree.getNodePtr(44);
+	auto val = binaryTree.FirstCommonAncestorV2(ptr1, ptr2);
+
+	EXPECT_EQ(25, val->data);
+}
+
+TEST(A_08_F_C_ANCESTOR, Test5) {
+	BST8<int> binaryTree;
+	binaryTree.insert({ 100, 50, 150, 25, 75, 125, 175, 15, 90, 10, 1, 14, 44,67,43 });
+
+	auto ptr1 = binaryTree.getNodePtr(1);
+	auto ptr2 = binaryTree.getNodePtr(175);
+	auto val = binaryTree.FirstCommonAncestorV2(ptr1, ptr2);
+
+	EXPECT_EQ(100, val->data);
+}
+
+TEST(A_08_F_C_ANCESTOR, Test6) {
+	BST8<int> binaryTree;
+	binaryTree.insert({ 100, 50, 150, 25, 75, 125, 175, 15, 90, 10, 1, 14, 44,67,43 });
+
+	auto ptr1 = binaryTree.getNodePtr(90);
+	auto ptr2 = binaryTree.getNodePtr(43);
+	auto val = binaryTree.FirstCommonAncestorV2(ptr1, ptr2);
+
+	EXPECT_EQ(50, val->data);
 }
