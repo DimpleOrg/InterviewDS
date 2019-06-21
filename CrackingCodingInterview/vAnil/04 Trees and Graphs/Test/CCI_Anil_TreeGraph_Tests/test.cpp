@@ -7,6 +7,7 @@
 #include "../../06 A_Successor/Successor.h"
 #include "../../07 A_BuildOrder/BuildOrder.h"
 #include "../../08 A_FirstCommonAncestor/firstcommonAncestor.h"
+#include "../../09 A_BSTSequence/BSTSequence.h"
 
 TEST(TreeGraphTests, Test1) {
 	Graph gh;
@@ -304,4 +305,27 @@ TEST(A_08_F_C_ANCESTOR, Test6) {
 	auto val = binaryTree.FirstCommonAncestorV2(ptr1, ptr2);
 
 	EXPECT_EQ(50, val->data);
+}
+
+
+TEST(A_09_BSTSeq, Test1) {
+
+	std::string output;
+	testing::internal::CaptureStdout();
+
+	BST_09<int> binaryTree;
+	binaryTree.insert({ 100, 50, 150, 25, 75, 125, 175, 15, 90 });
+
+	auto val = binaryTree.getBSTSequences();
+
+	for (auto x : val)
+	{
+		for (auto y : x)
+		{
+			std::cout << y << " ";
+		}
+		std::cout << std::endl;
+	}
+
+	output = testing::internal::GetCapturedStdout();
 }
