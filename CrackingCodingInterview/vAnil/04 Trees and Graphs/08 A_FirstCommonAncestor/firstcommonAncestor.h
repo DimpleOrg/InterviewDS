@@ -93,9 +93,9 @@ private:
 
 	void InsertNode(std::shared_ptr<Node8<T>> &ptr, const T &data) const;
 	auto getNodePtr(const std::shared_ptr<Node8<T>> &ptr, const T &data) const;
-
 	auto FirstCommonAncestorV1(std::shared_ptr<Node8<T>> root, std::shared_ptr<Node8<T>> n1, std::shared_ptr<Node8<T>> n2)
 	{
+		static bool flag = false;
 		if (!root)
 		{
 			return root;
@@ -107,10 +107,16 @@ private:
 		}
 
 		auto left = FirstCommonAncestorV1(root->left, n1, n2);
-		auto right = FirstCommonAncestorV1(root->right, n1, n2);
+		if (flag)
+			return left;
 
-		if (left && right)
-			return root;
+		auto right = FirstCommonAncestorV1(root->right, n1, n2);
+		if (flag)
+			return right;
+
+		if (left && right) {
+			return root; flag = true;
+		}	
 		else if (!left && !root)
 			return left; //nullptr
 		else if (left)
