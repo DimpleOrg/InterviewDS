@@ -25,6 +25,7 @@ public:
 	void insertNode(T val);
 	std::shared_ptr<treeNode_01<T>> getNode(T src);
 	bool chkSubTree(std::shared_ptr<treeNode_01<T>> r1, std::shared_ptr<treeNode_01<T>> r2);
+	void print(std::shared_ptr<treeNode_01<T>> root);
 };
 
 template<typename T>
@@ -91,6 +92,16 @@ inline std::shared_ptr<treeNode_01<T>> BTree_01<T>::getNode(T src)
 	}
 }
 
+template<typename T>
+inline void BTree_01<T>::print(std::shared_ptr<treeNode_01<T>> root)
+{
+	if (!root)
+		return;
+	std::cout << "\t" << root->data;
+	print(root->left);
+	print(root->right);
+
+}
 
 template<typename T>
 inline bool BTree_01<T>::chkSubTree(std::shared_ptr<treeNode_01<T>> r1, std::shared_ptr<treeNode_01<T>> r2)
@@ -114,8 +125,7 @@ inline bool BTree_01<T>::hasRoot2(std::shared_ptr<treeNode_01<T>> r1, std::share
 		return true;
 	else
 	{
-		hasRoot2(r1->left, r2);
-		hasRoot2(r1->right, r2);
+		res = (hasRoot2(r1->left, r2) || hasRoot2(r1->right, r2));
 	}
 	
 	return res;
@@ -127,8 +137,12 @@ inline bool BTree_01<T>::isIdentical(std::shared_ptr<treeNode_01<T>> r1, std::sh
 	if (!r1 && !r2)
 		return true;
 	else
-		if(!r1 || !r2)
+	{
+		if (r1 && !r2)
+			return true;
+		else if (!r1 && r2)
 			return false;
+	}
 
 	if (r1->data == r2->data)
 		return(isIdentical(r1->left, r2->left) &&

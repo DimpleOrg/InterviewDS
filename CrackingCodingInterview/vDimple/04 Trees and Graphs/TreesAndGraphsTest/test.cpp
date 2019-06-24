@@ -35,6 +35,9 @@ TEST(D_ChkSubTree, Test1)
 	obj.insertNode(166);
 	obj.insertNode(200);
 
+	std::cout << "Printing 1st Tree:\n";
+	obj.print(obj.root);
+
 	BTree_01<int> obj2;
 	obj2.insertNode(93);
 	obj2.insertNode(76);
@@ -48,8 +51,55 @@ TEST(D_ChkSubTree, Test1)
 	obj2.insertNode(66);
 	obj2.insertNode(80);
 
+	std::cout << "\n\nPrinting 2nd Tree:\n";
+	obj2.print(obj2.root);
+
 	auto r1 = obj.getNode(90);
 	auto r2 = obj2.getNode(93);
+
+	bool res = obj.chkSubTree(r1, r2);
+	bool expRes = false;
+
+	output = testing::internal::GetCapturedStdout();
+
+	EXPECT_EQ(res, expRes);
+}
+
+TEST(D_ChkSubTree, Test2)
+{
+	std::string output;
+	testing::internal::CaptureStdout();
+
+	BTree_01<int> obj;
+	obj.insertNode(90);	//https://upload.wikimedia.org/wikipedia/commons/9/9e/Бинарлық_іздеу.gif
+	obj.insertNode(50);
+	obj.insertNode(150);
+	obj.insertNode(20);
+	obj.insertNode(75);
+	obj.insertNode(95);
+	obj.insertNode(175);
+	obj.insertNode(5);
+	obj.insertNode(25);
+	obj.insertNode(66);
+	obj.insertNode(80);
+	obj.insertNode(92);
+	obj.insertNode(111);
+	obj.insertNode(166);
+	obj.insertNode(200);
+
+	std::cout << "Printing 1st Tree:\n";
+	obj.print(obj.root);
+
+	BTree_01<int> obj2;
+	obj2.insertNode(75);
+	obj2.insertNode(66);
+	obj2.insertNode(80);
+
+	std::cout << "\n\nPrinting 2nd Tree:\n";
+	obj2.print(obj2.root);
+
+	auto r1 = obj.getNode(90);
+	auto r2 = obj2.getNode(75);
 
 	bool res = obj.chkSubTree(r1, r2);
 	bool expRes = true;
@@ -58,7 +108,6 @@ TEST(D_ChkSubTree, Test1)
 
 	EXPECT_EQ(res, expRes);
 }
-
 
 TEST(D_BSTSequence, Test1)
 {
