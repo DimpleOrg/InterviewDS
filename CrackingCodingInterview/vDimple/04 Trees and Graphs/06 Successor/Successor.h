@@ -118,38 +118,12 @@ inline std::shared_ptr<bstnode<T>> BSTree<T>::getSuccessorV1Helper(std::shared_p
 template<typename T>
 inline std::shared_ptr<bstnode<T>> BSTree<T>::getSuccessorV2(std::shared_ptr<bstnode<T>> src)
 {
-	/*if (isRoot(src))
-	{
-		if (hasRightChild(src))
-			return leftMost(src->right);
-		else
-			return nullptr;
-	}*/
-
 	if (hasRightChild(src))
 		return leftMost(src->right);
 	else
 		return greaterParent(src);
-
 }
 
-template<typename T>
-inline bool BSTree<T>::isLeftChild(std::shared_ptr<bstnode<T>> src)
-{
-	return (src->parent->left == src);
-}
-
-template<typename T>
-inline bool BSTree<T>::isRightChild(std::shared_ptr<bstnode<T>> src)
-{
-	return (src->parent->right == src);
-}
-
-template<typename T>
-inline bool BSTree<T>::isRoot(std::shared_ptr<bstnode<T>> src)
-{
-	return (src->parent == nullptr);
-}
 
 template<typename T>
 inline bool BSTree<T>::hasRightChild(std::shared_ptr<bstnode<T>> src)
@@ -198,12 +172,6 @@ template<typename T>
 inline std::shared_ptr<bstnode<T>> BSTree<T>::getNode(std::shared_ptr<bstnode<T>> root, T src, std::shared_ptr<bstnode<T>>& res)
 {
 	if (!root) return nullptr;
-	
-	/*getNode(root->left, src, res);
-	if (root->data == src)
-		res= root;
-	getNode(root->right, src, res);
-	return res;*/
 
 	auto val1 = getNode(root->left, src, res);
 	if (val1) return val1;
