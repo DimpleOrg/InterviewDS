@@ -319,6 +319,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "vDimple", "vDimple", "{FA11
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Random", "Random", "{CF91522E-EA6F-4BBE-88DE-964EB3512759}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "11 RandomNode", "CrackingCodingInterview\vDimple\04 Trees and Graphs\11 RandomNode\11 RandomNode.vcxproj", "{3325DD0B-5DB1-4FBD-981B-858CAB6A64B9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -1271,6 +1273,14 @@ Global
 		{193140ED-A9BE-498A-BBE0-84D9521644D8}.Release|x64.Build.0 = Release|x64
 		{193140ED-A9BE-498A-BBE0-84D9521644D8}.Release|x86.ActiveCfg = Release|Win32
 		{193140ED-A9BE-498A-BBE0-84D9521644D8}.Release|x86.Build.0 = Release|Win32
+		{3325DD0B-5DB1-4FBD-981B-858CAB6A64B9}.Debug|x64.ActiveCfg = Debug|x64
+		{3325DD0B-5DB1-4FBD-981B-858CAB6A64B9}.Debug|x64.Build.0 = Debug|x64
+		{3325DD0B-5DB1-4FBD-981B-858CAB6A64B9}.Debug|x86.ActiveCfg = Debug|Win32
+		{3325DD0B-5DB1-4FBD-981B-858CAB6A64B9}.Debug|x86.Build.0 = Debug|Win32
+		{3325DD0B-5DB1-4FBD-981B-858CAB6A64B9}.Release|x64.ActiveCfg = Release|x64
+		{3325DD0B-5DB1-4FBD-981B-858CAB6A64B9}.Release|x64.Build.0 = Release|x64
+		{3325DD0B-5DB1-4FBD-981B-858CAB6A64B9}.Release|x86.ActiveCfg = Release|Win32
+		{3325DD0B-5DB1-4FBD-981B-858CAB6A64B9}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -1431,6 +1441,7 @@ Global
 		{193140ED-A9BE-498A-BBE0-84D9521644D8} = {D98769AE-97AC-4EB0-AA92-44793C402B44}
 		{FA11261D-6CA6-401F-8860-CEB849E0909F} = {D98769AE-97AC-4EB0-AA92-44793C402B44}
 		{CF91522E-EA6F-4BBE-88DE-964EB3512759} = {D3C8C3B6-0946-4C7E-8855-71F1ECDE7C33}
+		{3325DD0B-5DB1-4FBD-981B-858CAB6A64B9} = {D3251612-210B-4E8C-B8A5-670D0C9C27BF}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {F8696CBB-2750-4AFE-AFE7-121D7ED869FC}
