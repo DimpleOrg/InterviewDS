@@ -97,7 +97,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
     <PostBuildEvent>
-      <Command>copy  /Y "$(SolutionDir)Sorting Algorithms\SortingAlgos"\SortingAlgos.h "$(SolutionDir)Common"\</Command>
+      <Command>copy  /Y "$(SolutionDir)practice\Sorting Algorithms\SortingAlgos"\SortingAlgos.h "$(SolutionDir)practice\Common"\</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
