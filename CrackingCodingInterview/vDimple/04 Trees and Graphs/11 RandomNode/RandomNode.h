@@ -23,18 +23,21 @@ private:
 
 	std::shared_ptr<treeNode_02<T>> getNode(std::shared_ptr<treeNode_02<T>> root, T src, std::shared_ptr<treeNode_02<T>>& res);
 	void insertNodeHelper(T val, std::queue<std::shared_ptr<treeNode_02<T>>> q);
-	void deleteNode(std::shared_ptr<treeNode_02<T>> node);
+	void deleteNode(std::shared_ptr<treeNode_02<T>> root, std::shared_ptr<treeNode_02<T>> node);
 	void print(std::shared_ptr<treeNode_02<T>> root);
 
 public:
 	void insertNode(T val);
 	std::shared_ptr<treeNode_02<T>> getNode(T src);
+	void print();
+
 	void deleteNode(T val)
 	{
 		auto node = getNode(val);
 		deleteNode(node);
 	}
-	void print();
+	
+	std::shared_ptr<treeNode_02<T>> getRandomNode();
 };
 
 template<typename T>
@@ -79,7 +82,7 @@ inline void BTree_02<T>::insertNodeHelper(T val, std::queue<std::shared_ptr<tree
 }
 
 template<typename T>
-inline void BTree_02<T>::deleteNode(std::shared_ptr<treeNode_02<T>> node)
+inline void BTree_02<T>::deleteNode(std::shared_ptr<treeNode_02<T>> root, std::shared_ptr<treeNode_02<T>> node)
 {
 	if (!root)
 		return;
@@ -88,9 +91,14 @@ inline void BTree_02<T>::deleteNode(std::shared_ptr<treeNode_02<T>> node)
 	{
 		auto lastNode = q.back();
 		root->data == lastNode->data;
-
+		lastNode = nullptr;
+		umap.erase(root->data);
 	}
-
+	else
+	{
+		deleteNode(root->left, node);
+		deleteNode(root->right, node);
+	}
 }
 
 template<typename T>
