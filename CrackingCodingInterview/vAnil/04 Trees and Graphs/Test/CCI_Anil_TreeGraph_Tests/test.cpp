@@ -8,6 +8,8 @@
 #include "../../07 A_BuildOrder/BuildOrder.h"
 #include "../../08 A_FirstCommonAncestor/firstcommonAncestor.h"
 #include "../../09 A_BSTSequence/BSTSequence.h"
+#include "../../10 A_CheckSubtree/CheckSubtree.h"
+#include "../../11 A_RandomNode/RandomNode.h"
 
 TEST(TreeGraphTests, Test1) {
 	Graph gh;
@@ -328,4 +330,131 @@ TEST(A_09_BSTSeq, Test1) {
 	}
 
 	output = testing::internal::GetCapturedStdout();
+}
+
+
+TEST(A_10_CheckSubtree, Test1) {
+
+	std::string output;
+	testing::internal::CaptureStdout();
+
+	BT10<int> b1, b2;
+	b1.insert({ 100, 50, 150, 25, 75, 125, 175, 15, 90 });
+	b2.insert({50,25,75,90});
+
+	b1.print();
+	b2.print();
+
+	auto res = b1.IsSubtree(b2);
+
+	
+	output = testing::internal::GetCapturedStdout();
+
+	EXPECT_EQ(true, res);
+}
+
+TEST(A_10_CheckSubtree, Test2) {
+
+	std::string output;
+	testing::internal::CaptureStdout();
+
+	BT10<int> b1, b2;
+	b1.insert({ 100, 50, 150, 25, 75, 125, 175, 15, 90 });
+	b2.insert({ 50,25,75,190 });
+
+	b1.print();
+	b2.print();
+
+	auto res = b1.IsSubtree(b2);
+
+
+	output = testing::internal::GetCapturedStdout();
+
+	EXPECT_EQ(false, res);
+}
+
+
+TEST(A_10_CheckSubtree, Test3) {
+
+	std::string output;
+	testing::internal::CaptureStdout();
+
+	BT10<int> b1, b2;
+	b1.insert({ 100, 50, 150, 25, 75, 125, 175, 15, 90 });
+	b2.insert({ 1000 });
+
+	b1.print();
+	b2.print();
+
+	auto res = b1.IsSubtree(b2);
+
+
+	output = testing::internal::GetCapturedStdout();
+
+	EXPECT_EQ(false, res);
+}
+
+TEST(A_10_CheckSubtree, Test4) {
+
+	std::string output;
+	testing::internal::CaptureStdout();
+
+	BT10<int> b1, b2;
+	b1.insert({ 100, 50, 150, 25, 75, 125, 175, 15, 90 });
+	b2.insert({ 50});
+
+	b1.print();
+	b2.print();
+
+	auto res = b1.IsSubtree(b2);
+
+
+	output = testing::internal::GetCapturedStdout();
+
+	EXPECT_EQ(true, res);
+}
+
+TEST(A_10_CheckSubtree, Test5) {
+
+	std::string output;
+	testing::internal::CaptureStdout();
+
+	BT10<int> b1, b2;
+	b1.insert({ 100, 50, 150, 25, 75, 125, 175, 15, 90 });
+
+
+	b1.print();
+	b2.print();
+
+	auto res = b1.IsSubtree(b2);
+
+
+	output = testing::internal::GetCapturedStdout();
+
+	EXPECT_EQ(true, res);
+}
+
+
+TEST(A_11_RandomNode, Test1) {
+
+	std::string output;
+	testing::internal::CaptureStdout();
+
+	BT11<int> b1, b2;
+	b1.insert({ 100, 50, 150, 25, 75, 125, 175, 15, 90 });
+
+
+	b1.print();
+	b2.print();
+
+	auto res = b1.getRandomNode();
+	res = b1.getRandomNode();
+	res = b1.getRandomNode();
+
+	b1.deleteNode(125);
+	res = b1.getRandomNode();
+	res = b1.getRandomNode();
+
+	output = testing::internal::GetCapturedStdout();
+
 }
