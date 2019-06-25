@@ -23,6 +23,7 @@
     <ProjectGuid>{D7F3ECDF-7A1E-4F10-8C74-131D6ADBC486}</ProjectGuid>
     <RootNamespace>MergeSort</RootNamespace>
     <WindowsTargetPlatformVersion>10.0.17763.0</WindowsTargetPlatformVersion>
+    <ProjectName>A_MergeSort</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
