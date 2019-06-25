@@ -157,6 +157,9 @@
     <ProjectReference Include="..\HeapSort\HeapSort.vcxproj">
       <Project>{09eb9c92-7b29-4369-b597-8a16179fa44e}</Project>
     </ProjectReference>
+    <ProjectReference Include="..\MergeSort\MergeSort.vcxproj">
+      <Project>{d7f3ecdf-7a1e-4f10-8c74-131d6adbc486}</Project>
+    </ProjectReference>
     <ProjectReference Include="..\QuickSort\QuickSort.vcxproj">
       <Project>{9c2c5cb2-9ab6-433a-8cd4-8263ab10797f}</Project>
     </ProjectReference>
