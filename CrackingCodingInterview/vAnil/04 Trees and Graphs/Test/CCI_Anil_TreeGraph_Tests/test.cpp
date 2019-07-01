@@ -10,6 +10,7 @@
 #include "../../09 A_BSTSequence/BSTSequence.h"
 #include "../../10 A_CheckSubtree/CheckSubtree.h"
 #include "../../11 A_RandomNode/RandomNode.h"
+#include "../../12 A_PathsWithSum/pathwithsum.h"
 
 TEST(TreeGraphTests, Test1) {
 	Graph gh;
@@ -457,4 +458,20 @@ TEST(A_11_RandomNode, Test1) {
 
 	output = testing::internal::GetCapturedStdout();
 
+}
+
+TEST(A_12_PathWithSum, Test1) {
+
+	std::string output;
+	testing::internal::CaptureStdout();
+
+	BT12<int> b1;
+	b1.insert({ 100, 50, 150, 25, 75, 125, 175, 15, 90 });
+
+
+	b1.print();
+	
+	b1.pathWithSum(375);
+
+	output = testing::internal::GetCapturedStdout();
 }
