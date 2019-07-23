@@ -51,6 +51,9 @@
     <ProjectReference Include="..\..\01 A_TripleStep\01 A_TripleStep.vcxproj">
       <Project>{c079fb1a-7df5-4151-92a7-dff9495dbf81}</Project>
     </ProjectReference>
+    <ProjectReference Include="..\..\02 A_RobotInGrid\02 A_RobotInGrid.vcxproj">
+      <Project>{9f87b83f-79c3-498b-a1d8-276f8a205eeb}</Project>
+    </ProjectReference>
   </ItemGroup>
   <ItemDefinitionGroup />
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

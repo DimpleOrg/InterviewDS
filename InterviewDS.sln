@@ -337,6 +337,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{40B84E90-3
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "A_SortingSearchingTest", "CrackingCodingInterview\vAnil\10 Sorting and Searching\Test\A_SortingSearchingTest\A_SortingSearchingTest.vcxproj", "{112CE944-9ECE-4874-88C1-BBAB370C0747}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "02 A_RobotInGrid", "CrackingCodingInterview\vAnil\08 Recursion and Dynamic Programming\02 A_RobotInGrid\02 A_RobotInGrid.vcxproj", "{9F87B83F-79C3-498B-A1D8-276F8A205EEB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -1329,6 +1331,14 @@ Global
 		{112CE944-9ECE-4874-88C1-BBAB370C0747}.Release|x64.Build.0 = Release|x64
 		{112CE944-9ECE-4874-88C1-BBAB370C0747}.Release|x86.ActiveCfg = Release|Win32
 		{112CE944-9ECE-4874-88C1-BBAB370C0747}.Release|x86.Build.0 = Release|Win32
+		{9F87B83F-79C3-498B-A1D8-276F8A205EEB}.Debug|x64.ActiveCfg = Debug|x64
+		{9F87B83F-79C3-498B-A1D8-276F8A205EEB}.Debug|x64.Build.0 = Debug|x64
+		{9F87B83F-79C3-498B-A1D8-276F8A205EEB}.Debug|x86.ActiveCfg = Debug|Win32
+		{9F87B83F-79C3-498B-A1D8-276F8A205EEB}.Debug|x86.Build.0 = Debug|Win32
+		{9F87B83F-79C3-498B-A1D8-276F8A205EEB}.Release|x64.ActiveCfg = Release|x64
+		{9F87B83F-79C3-498B-A1D8-276F8A205EEB}.Release|x64.Build.0 = Release|x64
+		{9F87B83F-79C3-498B-A1D8-276F8A205EEB}.Release|x86.ActiveCfg = Release|Win32
+		{9F87B83F-79C3-498B-A1D8-276F8A205EEB}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -1498,6 +1508,7 @@ Global
 		{F73B3BAC-9502-4900-AF1A-D820A15B8CE4} = {86E72C31-7C66-4AA6-9043-51F8BC4D6822}
 		{40B84E90-37B4-4955-8DE7-643EE96EAF48} = {9043DD58-C63C-4144-9CF7-1BB0991B6F2E}
 		{112CE944-9ECE-4874-88C1-BBAB370C0747} = {40B84E90-37B4-4955-8DE7-643EE96EAF48}
+		{9F87B83F-79C3-498B-A1D8-276F8A205EEB} = {3B6AB7AD-B773-4FBE-ABBD-5A9409A1A408}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {F8696CBB-2750-4AFE-AFE7-121D7ED869FC}
