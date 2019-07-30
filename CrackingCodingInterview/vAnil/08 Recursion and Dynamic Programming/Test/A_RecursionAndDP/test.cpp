@@ -27,18 +27,46 @@ TEST(A_01_TripleStep, Test4) {
 }
 
 TEST(A_02_RobotGrid, Test1) {
-	size_t count = coutNumWaysV1(3,3);
-	EXPECT_EQ(count, 6);
+	std::unordered_multimap<int, int> dlist;
+	dlist.insert({ 0,1 });
+	dlist.insert({ 0,2 });
+	size_t count = coutNumWaysV1(3,3, dlist);
+	EXPECT_EQ(count, 3);
 }
 
 TEST(A_02_RobotGrid, Test2) {
-	size_t count = coutNumWaysV2(3, 3);
-	EXPECT_EQ(count, 6);
+	std::unordered_multimap<int, int> dlist;
+	dlist.insert({ 0,1 });
+	dlist.insert({ 0,2 });
+	size_t count = coutNumWaysV2(3, 3, dlist);
+	EXPECT_EQ(count, 3);
 }
 
 
 TEST(A_02_RobotGrid, Test3) {
-	size_t count1 = coutNumWaysV1(9, 9);
-	size_t count2 = coutNumWaysV2(9, 9);
+	std::unordered_multimap<int, int> dlist;
+	dlist.insert({ 0,1 });
+	dlist.insert({ 0,2 });
+	size_t count1 = coutNumWaysV1(9, 9, dlist);
+	size_t count2 = coutNumWaysV2(9, 9, dlist);
 	EXPECT_EQ(count1, count2);
+}
+
+TEST(A_02_RobotGrid, Test4) {
+	std::unordered_multimap<int, int> dlist;
+	dlist.insert({ 0,1 });
+	dlist.insert({ 0,2 });
+	dlist.insert({ 4,4 });
+	auto val = getPath(9, 9, dlist);
+	EXPECT_EQ(17, val.size());
+}
+
+
+TEST(A_02_RobotGrid, Test5) {
+	std::unordered_multimap<int, int> dlist;
+	dlist.insert({ 0,1 });
+	dlist.insert({ 1,0 });
+
+	auto val = getPath(9, 9, dlist);
+	EXPECT_EQ(0, val.size());
 }
