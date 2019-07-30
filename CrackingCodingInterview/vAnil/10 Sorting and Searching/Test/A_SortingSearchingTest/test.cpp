@@ -1,5 +1,7 @@
 #include "pch.h"
 #include "../../01 A_SortedMerge/SortedMerge.h"
+#include "../../02 A_GroupAnagrams/groupAnagrams.h"
+
 
 TEST(A_01_SortedMerge, Test1) {
 
@@ -10,4 +12,16 @@ TEST(A_01_SortedMerge, Test1) {
 
   EXPECT_EQ(1, 1);
   EXPECT_TRUE(true);
+}
+
+
+TEST(A_02_GroupAnagrams, Test1) {
+
+	std::vector<std::string> in = {
+		"asdf","abc","adsf","bca"
+	};
+
+	auto val = groupAnagrams(in);
+	
+	
 }

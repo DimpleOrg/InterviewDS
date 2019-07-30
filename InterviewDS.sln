@@ -339,6 +339,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "A_SortingSearchingTest", "C
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "02 A_RobotInGrid", "CrackingCodingInterview\vAnil\08 Recursion and Dynamic Programming\02 A_RobotInGrid\02 A_RobotInGrid.vcxproj", "{9F87B83F-79C3-498B-A1D8-276F8A205EEB}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "02 A_GroupAnagrams", "CrackingCodingInterview\vAnil\10 Sorting and Searching\02 A_GroupAnagrams\02 A_GroupAnagrams.vcxproj", "{DEEA2370-9E07-4006-9B37-1B55B5C355F4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -1339,6 +1341,14 @@ Global
 		{9F87B83F-79C3-498B-A1D8-276F8A205EEB}.Release|x64.Build.0 = Release|x64
 		{9F87B83F-79C3-498B-A1D8-276F8A205EEB}.Release|x86.ActiveCfg = Release|Win32
 		{9F87B83F-79C3-498B-A1D8-276F8A205EEB}.Release|x86.Build.0 = Release|Win32
+		{DEEA2370-9E07-4006-9B37-1B55B5C355F4}.Debug|x64.ActiveCfg = Debug|x64
+		{DEEA2370-9E07-4006-9B37-1B55B5C355F4}.Debug|x64.Build.0 = Debug|x64
+		{DEEA2370-9E07-4006-9B37-1B55B5C355F4}.Debug|x86.ActiveCfg = Debug|Win32
+		{DEEA2370-9E07-4006-9B37-1B55B5C355F4}.Debug|x86.Build.0 = Debug|Win32
+		{DEEA2370-9E07-4006-9B37-1B55B5C355F4}.Release|x64.ActiveCfg = Release|x64
+		{DEEA2370-9E07-4006-9B37-1B55B5C355F4}.Release|x64.Build.0 = Release|x64
+		{DEEA2370-9E07-4006-9B37-1B55B5C355F4}.Release|x86.ActiveCfg = Release|Win32
+		{DEEA2370-9E07-4006-9B37-1B55B5C355F4}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -1509,6 +1519,7 @@ Global
 		{40B84E90-37B4-4955-8DE7-643EE96EAF48} = {9043DD58-C63C-4144-9CF7-1BB0991B6F2E}
 		{112CE944-9ECE-4874-88C1-BBAB370C0747} = {40B84E90-37B4-4955-8DE7-643EE96EAF48}
 		{9F87B83F-79C3-498B-A1D8-276F8A205EEB} = {3B6AB7AD-B773-4FBE-ABBD-5A9409A1A408}
+		{DEEA2370-9E07-4006-9B37-1B55B5C355F4} = {9043DD58-C63C-4144-9CF7-1BB0991B6F2E}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {F8696CBB-2750-4AFE-AFE7-121D7ED869FC}
