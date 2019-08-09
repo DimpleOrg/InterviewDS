@@ -1,8 +1,10 @@
 #pragma once
 #include<iostream>
 #include<queue>
+#include<stack>
 #include<unordered_map>
 #include<vector>
+#include<time.h>
 
 template<typename T>
 struct treeNode_02
@@ -22,19 +24,24 @@ private:
 	std::vector<std::shared_ptr<treeNode_02<T>>> vec;
 
 	std::shared_ptr<treeNode_02<T>> getNode(std::shared_ptr<treeNode_02<T>> root, T src, std::shared_ptr<treeNode_02<T>>& res);
-	void insertNodeHelper(T val, std::queue<std::shared_ptr<treeNode_02<T>>> q);
-	void deleteNode(std::shared_ptr<treeNode_02<T>> root, std::shared_ptr<treeNode_02<T>> node);
+	void insertNodeHelper(T val);
+	void deleteNode(std::shared_ptr<treeNode_02<T>> root, std::shared_ptr<treeNode_02<T>> node, T val);
 	void print(std::shared_ptr<treeNode_02<T>> root);
+	void removeLastNodeFromQ();
+	void makeLastNOdeNullInTree(std::shared_ptr<treeNode_02<T>> root, std::shared_ptr<treeNode_02<T>>& parent);
 
 public:
+	BTree_02()
+	{
+		srand(time(0));
+	}
 	void insertNode(T val);
-	std::shared_ptr<treeNode_02<T>> getNode(T src);
+	std::shared_ptr<treeNode_02<T>> getNode(T src);		//same as find node function
 	void print();
 
 	void deleteNode(T val)
 	{
-		auto node = getNode(val);
-		deleteNode(node);
+		deleteNode(root, root, val);
 	}
 	
 	std::shared_ptr<treeNode_02<T>> getRandomNode();
@@ -54,11 +61,11 @@ inline void BTree_02<T>::insertNode(T val)
 		umap.insert({ root,vec.size() - 1 });
 	}
 	else
-		insertNodeHelper(root, val);
+		insertNodeHelper(val);
 }
 
 template<typename T>
-inline void BTree_02<T>::insertNodeHelper(T val, std::queue<std::shared_ptr<treeNode_02<T>>> q)
+inline void BTree_02<T>::insertNodeHelper(T val)
 {
 	auto node = q.front();
 	if (node->left == nullptr)
@@ -82,23 +89,118 @@ inline void BTree_02<T>::insertNodeHelper(T val, std::queue<std::shared_ptr<tree
 }
 
 template<typename T>
-inline void BTree_02<T>::deleteNode(std::shared_ptr<treeNode_02<T>> root, std::shared_ptr<treeNode_02<T>> node)
+inline void BTree_02<T>::makeLastNOdeNullInTree(std::shared_ptr<treeNode_02<T>> root, std::shared_ptr<treeNode_02<T>>& parent)
 {
-	if (!root)
+	if (!root->left && !root->right)
 		return;
 
-	if (root == node)
+	if (root->left)
 	{
-		auto lastNode = q.back();
-		root->data == lastNode->data;
-		lastNode = nullptr;
-		umap.erase(root->data);
+		parent = root;
+		makeLastNOdeNullInTree(root->left, parent);
+	}
+
+	if (root->right)
+	{
+		parent = root;
+		makeLastNOdeNullInTree(root->right, parent);
+	}
+		
+}
+
+template<typename T>
+inline void BTree_02<T>::deleteNode(std::shared_ptr<treeNode_02<T>> root, std::shared_ptr<treeNode_02<T>> node, T val)
+{	
+	if (!node)
+		return; 
+
+	if (node->data == val)
+	{
+		//Make lastNode NULL in tree
+		std::shared_ptr<treeNode_02<T>> parent;
+		//parent = root;
+		makeLastNOdeNullInTree(root, parent);
+
+		int index = 0;
+		//index=umap[node];
+
+		if (!parent->right)
+		{
+			node->data = parent->left->data;
+			index = umap[parent->left];
+			umap.erase(parent->left);
+			parent->left = nullptr;
+		}
+		else
+		{
+			node->data = parent->right->data;
+			index = umap[parent->right];
+			umap.erase(parent->right);
+			parent->right = nullptr;
+		}
+
+		////deleting in tree
+		//std::shared_ptr<treeNode_02<T>> lastNode = q.back();
+		//removeLastNodeFromQ();
+		//node->data = lastNode->data;
+		//lastNode = nullptr;		//Although address of lastNode in queue and tree is same, lastNode is not becoming null in tree
+
+		//deleting in map and vector
+		
+		if (index != (vec.size() - 1))
+		{
+			std::swap(vec[index], vec[vec.size() - 1]);
+			umap[vec[index]] = index;
+		}
+		
+		vec.pop_back();
 	}
 	else
 	{
-		deleteNode(root->left, node);
-		deleteNode(root->right, node);
+		deleteNode(root, node->left, val);
+		deleteNode(root, node->right, val);
 	}
+}
+
+template<typename T>
+inline void BTree_02<T>::removeLastNodeFromQ()
+{
+	//taking help of two stacks to remove last element from Queue
+	std::stack<std::shared_ptr<treeNode_02<T>>> tempStack1, tempStack2;
+	while (!q.empty())
+	{
+		tempStack1.push(q.front());
+		q.pop();
+	}
+	tempStack1.pop();
+
+	while (!tempStack1.empty())
+	{
+		tempStack2.push(tempStack1.top());
+		tempStack1.pop();
+	}
+
+	while (!tempStack2.empty())
+	{
+		q.push(tempStack2.top());
+		tempStack2.pop();
+	}
+}
+
+template<typename T>
+inline std::shared_ptr<treeNode_02<T>> BTree_02<T>::getRandomNode()
+{
+	int rn;
+	int len = vec.size();
+	
+	if (len > 0)
+		rn = (rand() % len)+1;
+	
+	//std::cout << "\nrandom index rand():\t"<<rn<<std::endl;
+
+	//rn = rn % len;
+
+	return vec[rn-1];
 }
 
 template<typename T>
@@ -144,6 +246,7 @@ inline void BTree_02<T>::print(std::shared_ptr<treeNode_02<T>> root)
 	std::cout << "\t" << root->data;
 	print(root->left);
 	print(root->right);
-
 }
+
+
 

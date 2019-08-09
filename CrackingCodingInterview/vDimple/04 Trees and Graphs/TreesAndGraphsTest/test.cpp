@@ -12,6 +12,217 @@
 #include"..\..\04 Trees and Graphs\08 FirstCommonAncestorD\FirstCommonAncestorD.h"
 #include"..\..\04 Trees and Graphs\09 BSRSequenceD\BSTSequenceD.h"
 #include"..\..\04 Trees and Graphs\10 ChkSubTreeD\ChkSubTreeD.h"
+#include"..\..\04 Trees and Graphs\11 RandomNode\RandomNode.h"
+#include"..\..\04 Trees and Graphs\12 PathsWithSumD\PathsWithSumD.h"
+
+TEST(D_PathsWithSum, Test1)
+{
+	std::string output;
+	testing::internal::CaptureStdout();
+
+	BTree_03<int> obj;
+	obj.insertNode(2);	//				 2
+	obj.insertNode(4);	/*				/ \			*/
+	obj.insertNode(6);	//			    4  6
+	obj.insertNode(1);	/*			   / \ /\		*/
+	obj.insertNode(3);	//			  1  3 0 0
+	obj.insertNode(0);	/*			 /\  /\			*/
+	obj.insertNode(0);	//			 8 2 0 1
+	obj.insertNode(8);
+	obj.insertNode(2);
+	obj.insertNode(0);
+	obj.insertNode(1);
+
+	int res = obj.countPaths(6);
+	int expRes = 6;
+
+	output = testing::internal::GetCapturedStdout();
+
+	EXPECT_EQ(res, expRes);
+}
+
+TEST(D_PathsWithSum, Test2)
+{
+	std::string output;
+	testing::internal::CaptureStdout();
+
+	BTree_03<int> obj;
+	obj.insertNode(2);	//				 2
+	obj.insertNode(4);	/*				/ \			*/
+	obj.insertNode(6);	//			    4  6
+	obj.insertNode(1);	/*			   / \ /\		*/
+	obj.insertNode(3);	//			  1  3 0 0
+	obj.insertNode(0);	/*			 /\  /\			*/
+	obj.insertNode(0);	//			 8 2 0 1
+	obj.insertNode(8);
+	obj.insertNode(2);
+	obj.insertNode(0);
+	obj.insertNode(1);
+
+	int res = obj.countPaths(8);
+	int expRes = 6;
+
+	output = testing::internal::GetCapturedStdout();
+
+	EXPECT_EQ(res, expRes);
+}
+
+TEST(D_PathsWithSum, Test3)
+{
+	std::string output;
+	testing::internal::CaptureStdout();
+
+	BTree_03<int> obj;
+	obj.insertNode(2);	//				 2
+	obj.insertNode(4);	/*				/ \			*/
+	obj.insertNode(6);	//			    4  6
+	obj.insertNode(1);	/*			   / \ /\		*/
+	obj.insertNode(3);	//			  1  3 0 0
+	obj.insertNode(0);	/*			 /\  /\			*/
+	obj.insertNode(0);	//			 8 2 0 1
+	obj.insertNode(8);
+	obj.insertNode(2);
+	obj.insertNode(0);
+	obj.insertNode(1);
+
+	int res = obj.countPaths(50);
+	int expRes = 0;
+
+	output = testing::internal::GetCapturedStdout();
+
+	EXPECT_EQ(res, expRes);
+}
+
+TEST(D_PathsWithSum, Test4)
+{
+	std::string output;
+	testing::internal::CaptureStdout();
+
+	BTree_03<int> obj;
+	obj.insertNode(1);	//				 1
+	obj.insertNode(5);	/*				/ \			*/
+	obj.insertNode(-3);	//			    5  -3
+	obj.insertNode(3);	/*			   / \  /\		*/
+	obj.insertNode(1);	//			  3   1 0 11
+	obj.insertNode(0);	/*			 /\   /\		*/
+	obj.insertNode(11);	//			 3 -2 0 2
+	obj.insertNode(3);
+	obj.insertNode(-2);
+	obj.insertNode(0);
+	obj.insertNode(2);
+
+	int res = obj.countPaths(6);
+	int expRes = 8;
+
+	output = testing::internal::GetCapturedStdout();
+
+	EXPECT_EQ(res, expRes);
+}
+
+
+TEST(D_GetRandomNode, Test1)
+{
+	std::string output;
+	testing::internal::CaptureStdout();
+
+	BTree_02<int> obj;
+	obj.insertNode(90);	//https://upload.wikimedia.org/wikipedia/commons/9/9e/Бинарлық_іздеу.gif
+	obj.insertNode(50);
+	obj.insertNode(150);
+	obj.insertNode(20);
+	obj.insertNode(75);
+	obj.insertNode(95);
+	obj.insertNode(175);
+
+	obj.print();
+
+	auto node = obj.getRandomNode();
+	node = obj.getRandomNode();
+	node = obj.getRandomNode();
+
+	obj.insertNode(5);
+	obj.insertNode(25);
+	obj.insertNode(66);
+	obj.insertNode(80);
+	obj.insertNode(92);
+	obj.insertNode(111);
+	obj.insertNode(166);
+	obj.insertNode(200);
+
+	cout << "\n\n";
+	obj.print();
+
+	node = obj.getRandomNode();
+
+	obj.deleteNode(50);
+	obj.deleteNode(150);
+	obj.deleteNode(20);
+	obj.deleteNode(75);
+	obj.deleteNode(95);
+	obj.deleteNode(175);
+	obj.deleteNode(5);
+	obj.deleteNode(25);
+	obj.deleteNode(66);
+	obj.deleteNode(80);
+	obj.deleteNode(92);
+	obj.deleteNode(111);
+	obj.deleteNode(166);
+
+	cout << "\n\n";
+	obj.print();
+
+	node = obj.getRandomNode();
+	node = obj.getRandomNode();
+	node = obj.getRandomNode();
+
+	output = testing::internal::GetCapturedStdout();
+
+}
+
+TEST(D_GetRandomNode, Test2)
+{
+	std::string output;
+	testing::internal::CaptureStdout();
+
+	BTree_02<int> obj;
+	obj.insertNode(90);	//https://upload.wikimedia.org/wikipedia/commons/9/9e/Бинарлық_іздеу.gif
+	obj.insertNode(50);
+	obj.insertNode(150);
+	obj.insertNode(20);
+	obj.insertNode(95);
+
+	obj.print();
+
+	auto node = obj.getRandomNode();
+	node = obj.getRandomNode();
+	node = obj.getRandomNode();
+
+	cout << "\n\n";
+	obj.print();
+
+	node = obj.getRandomNode();
+
+	obj.deleteNode(50);
+	obj.deleteNode(150);
+	obj.deleteNode(20);
+
+	cout << "\n\n";
+	obj.print();
+
+	node = obj.getRandomNode();
+	node = obj.getRandomNode();
+	node = obj.getRandomNode();
+	node = obj.getRandomNode();
+	node = obj.getRandomNode();
+	node = obj.getRandomNode();
+	node = obj.getRandomNode();
+	node = obj.getRandomNode();
+	node = obj.getRandomNode();
+
+	output = testing::internal::GetCapturedStdout();
+
+}
+
 
 TEST(D_ChkSubTree, Test1)
 {
