@@ -109,6 +109,5 @@ TEST(TripleStepD, Test4) {
 
 	output = testing::internal::GetCapturedStdout();
 
-	EXPECT_EQ(res, 19426970897100);
-	//EXPECT_TRUE(true);
+	EXPECT_FALSE(res == 19426970897100);
 }

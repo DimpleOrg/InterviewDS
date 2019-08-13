@@ -51,6 +51,9 @@
     <ProjectReference Include="..\01 SortedMergeD\01 SortedMergeD.vcxproj">
       <Project>{1ae351b7-502c-4ba3-b6f2-f07a88bd13a9}</Project>
     </ProjectReference>
+    <ProjectReference Include="..\02 GroupAnagrams_D\02 GroupAnagrams_D.vcxproj">
+      <Project>{1707a058-9f0d-480c-bb5f-902291371ba3}</Project>
+    </ProjectReference>
   </ItemGroup>
   <ItemDefinitionGroup />
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

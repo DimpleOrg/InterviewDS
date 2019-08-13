@@ -1,5 +1,18 @@
 #include "pch.h"
 #include"..\01 SortedMergeD\SortedMergeD.h"
+#include"..\02 GroupAnagrams_D\GroupAnagrams_D.h"
+
+
+TEST(GroupAnagrams, Test1)
+{
+	std::string output;
+	testing::internal::CaptureStdout();
+
+	std::vector<std::string> arrOfStrings = { "smarty", "ab","a","martys","ba","a","tamsry","a" };
+	groupAnagrams(arrOfStrings);
+
+	output = testing::internal::GetCapturedStdout();
+}
 
 TEST(SortedMerge, Test1) {
 

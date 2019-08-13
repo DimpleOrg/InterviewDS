@@ -41,8 +41,6 @@ MY02ROBOTGRID_API std::vector<point> findPathDP(std::vector<std::vector<int>>& m
 
 int findPathDP(std::vector<std::vector<int>>& matrix, int r, int c, int R, int C, std::vector<point>& res)
 {
-	std::cout << "\nStarting of function\t" << r << "," << c;
-
 	if (r < 0 && c < 0)
 		return 0;
 	
@@ -54,8 +52,6 @@ int findPathDP(std::vector<std::vector<int>>& matrix, int r, int c, int R, int C
 	
 	if (matrix[r][c] > -1)
 		return matrix[r][c];
-
-	std::cout << "\nprocessing r,c\t" << r << "," << c;
 
 	if (r > 0)
 	{
@@ -73,7 +69,6 @@ int findPathDP(std::vector<std::vector<int>>& matrix, int r, int c, int R, int C
 
 	if (c > 0)
 	{
-		//std::cout << "\nr, c-1\t" << r << "," << c-1;
 		int y = findPathDP(matrix, r, c-1, R, C, res);
 		
 		if (y == 0 || y == 1)
